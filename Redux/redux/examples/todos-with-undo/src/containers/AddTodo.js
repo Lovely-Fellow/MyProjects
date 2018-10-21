@@ -1,26 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addTodo, saveTodo } from '../actions'
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ dispatch, props, state }) => {
   let input
-
+  let issaving = 1;
   return (
+    
     <div>
       <form onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value))
+  
+        if (!issaving)
+        {
+          dispatch(addTodo(input.value))
+        }
+        else 
+        {
+          dispatch(saveTodo(1, input.value))
+        }
         input.value = ''
       }}>
         <input ref={node => {
           input = node
         }} />
+        
         <button type="submit">
-          Add Todo
+          {issaving ? "Add Todo" : "Save Todo"}
         </button>
+
+        
       </form>
     </div>
   )

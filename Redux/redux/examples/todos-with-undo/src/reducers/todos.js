@@ -17,6 +17,15 @@ const todo = (state, action) => {
         ...state,
         completed: !state.completed
       }
+    case 'SAVE_TODO':
+      if (state.id !== action.id) {
+        return state
+      }
+
+      return {
+        ...state,
+        text:action.text
+      }
     default:
       return state
   }
@@ -33,10 +42,16 @@ const todos = (state = [], action) => {
       return state.map(t =>
         todo(t, action)
       )
+    case 'SAVE_TODO':
+      return state.map(t =>
+        todo(t, action)
+      )
     default:
       return state
   }
 }
+
+
 
 const undoableTodos = undoable(todos, { filter: includeAction(['ADD_TODO', 'TOGGLE_TODO']) })
 

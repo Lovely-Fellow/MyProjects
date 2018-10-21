@@ -14,3 +14,9 @@ export const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
   id
 })
+
+export const saveTodo = (id, text) => ({
+  type: 'SAVE_TODO',
+  id,
+  text
+})

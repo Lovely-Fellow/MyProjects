@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 const Todo = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
   >
     {text}
+    {completed? <button type="submit" className={'float-right'}>
+          Edit
+        </button>:""}
   </li>
 )
 
