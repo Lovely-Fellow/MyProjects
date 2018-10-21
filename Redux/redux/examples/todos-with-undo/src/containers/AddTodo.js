@@ -4,7 +4,7 @@ import { addTodo, saveTodo } from '../actions'
 
 let AddTodo = ({ dispatch, props, state }) => {
   let input
-  let issaving = 1;
+  let issaving = 0;
   return (
     
     <div>
@@ -29,7 +29,7 @@ let AddTodo = ({ dispatch, props, state }) => {
         }} />
         
         <button type="submit">
-          {issaving ? "Add Todo" : "Save Todo"}
+          {!issaving ? "Add Todo" : "Save Todo"}
         </button>
 
         
