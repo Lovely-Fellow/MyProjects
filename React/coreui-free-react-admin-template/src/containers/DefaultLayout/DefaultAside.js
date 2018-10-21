@@ -555,7 +555,7 @@ class DefaultAside extends Component {
                   label
                   color={"success"}
                   size={"sm"}
-                  onClick = {this.ChangeCardTable}
+                  
                 />
               </div>
               <div>
@@ -650,7 +650,7 @@ class DefaultAside extends Component {
                   color={'warning'}
                   defaultChecked 
                   size={"sm"}
-                  onChange={this.ChangeCardTable}
+                  onClick={this.ChangeCardTable}
                 />
               </div>
               <div className="clearfix mt-4">
