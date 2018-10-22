@@ -74,7 +74,7 @@ app.get('/contact/:id',function(req,res){
 app.put('/contactlists/:id',function(req,res){
   var id = req.params.id;
   //console.log(req.body.name);
-  User.findOneAndUpdate({_id:id},{$set:{name:req.body.name,email:req.body.email}}, {new: true}, function(err, doc){
+  User.findOneAndUpdate({_id:id},{$set:{name:req.body.name,email:req.body.email,detail:req.body.detail}}, {new: true}, function(err, doc){
     res.json(doc);
   });
 });

@@ -7,6 +7,7 @@ app.controller('addcontrolle',function($scope,$http){
       $scope.contactlist = response.data;
       $scope.contact.name = '';
       $scope.contact.email = '';
+      $scope.contact.detail='';
     });
   };
 
