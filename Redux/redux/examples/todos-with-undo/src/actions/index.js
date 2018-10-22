@@ -20,3 +20,10 @@ export const saveTodo = (id, text) => ({
   id,
   text
 })
+export const editTodo = (id, text, editid, edittext) => ({
+  type: 'EDIT_TODO',
+  id,
+  text,
+  editid, 
+  edittext
+})

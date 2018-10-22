@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo, saveTodo } from '../actions'
 
-let AddTodo = ({ dispatch, props, state }) => {
-  let input
-  let issaving = 0;
+let AddTodo = ({ dispatch }) => {
+  let input, inputid;
+  let saving_id = 0;
   return (
     
     <div>
@@ -13,26 +13,31 @@ let AddTodo = ({ dispatch, props, state }) => {
         if (!input.value.trim()) {
           return
         }
-  
-        if (!issaving)
+        saving_id = Number.parseInt(inputid.value, 10);//!inputid.value.trim();
+        if (!saving_id)
         {
           dispatch(addTodo(input.value))
         }
         else 
         {
-          dispatch(saveTodo(1, input.value))
+         
+          dispatch(saveTodo(saving_id, input.value))
         }
-        input.value = ''
+        if (!saving_id)
+          input.value = ''
       }}>
         <input ref={node => {
           input = node
         }} />
         
+        <input ref={node => {
+          inputid = node
+        }} />
+
         <button type="submit">
-          {!issaving ? "Add Todo" : "Save Todo"}
+          {!saving_id ? "Add Todo" : "Save Todo"}
         </button>
 
-        
       </form>
     </div>
   )

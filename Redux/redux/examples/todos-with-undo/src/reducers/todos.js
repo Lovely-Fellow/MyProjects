@@ -24,7 +24,21 @@ const todo = (state, action) => {
 
       return {
         ...state,
-        text:action.text
+        text:action.text,
+        completed: false
+      }
+    case 'EDIT_TODO':
+      if (state.id !== action.id) {
+        return state
+      }
+
+      return {
+        ...state,
+        id: action.id,
+        text:action.text,
+        edittext:action.edittexttext,
+        editid:action.editid,
+        completed: false
       }
     default:
       return state
@@ -46,6 +60,10 @@ const todos = (state = [], action) => {
       return state.map(t =>
         todo(t, action)
       )
+    case 'EDIT_TODO':
+      return state.map(t =>
+        todo(t, action)
+      )
     default:
       return state
   }
@@ -53,6 +71,6 @@ const todos = (state = [], action) => {
 
 
 
-const undoableTodos = undoable(todos, { filter: includeAction(['ADD_TODO', 'TOGGLE_TODO']) })
+const undoableTodos = undoable(todos, { filter: includeAction(['ADD_TODO', 'TOGGLE_TODO', 'SAVE_TODO', 'EDIT_TODO']) })
 
 export default undoableTodos

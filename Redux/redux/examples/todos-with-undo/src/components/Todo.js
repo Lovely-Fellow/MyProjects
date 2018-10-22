@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = ({ onClick, completed, text }) => (
+const Todo = ({ onClick1, completed, text, onToEditClick}) => (
+
   <li
-    onClick={onClick}
+    onClick={onClick1}
   >
     {text}
-    {completed? <button type="submit" className={'float-right'}>
+    {completed? 
+        <button type="submit" className={'float-right'} onClick={()=>onToEditClick({text})}>
           Edit
-        </button>:""}
+        </button>:""
+    }
   </li>
 )
 
