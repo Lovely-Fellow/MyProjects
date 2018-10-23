@@ -1,6 +1,7 @@
 import undoable, { includeAction } from 'redux-undo'
 
 const todo = (state, action) => {
+  
   switch (action.type) {
     case 'ADD_TODO':
       return {
@@ -10,7 +11,12 @@ const todo = (state, action) => {
       }
     case 'TOGGLE_TODO':
       if (state.id !== action.id) {
-        return state
+        return {
+          ...state,
+          editing:0,
+          saving:0,
+          completed:false
+        }
       }
 
       return {
@@ -19,26 +25,38 @@ const todo = (state, action) => {
       }
     case 'SAVE_TODO':
       if (state.id !== action.id) {
-        return state
+        return {
+          ...state,
+          saving:0,
+          editing:0,
+          completed: false
+        }
       }
 
       return {
         ...state,
         text:action.text,
+        saving:action.saving,
+        editing:0,
         completed: false
       }
     case 'EDIT_TODO':
       if (state.id !== action.id) {
-        return state
+        return {
+          ...state,
+          editing:0,
+          saving:0,
+          completed:false
+        }
       }
 
       return {
         ...state,
         id: action.id,
         text:action.text,
-        edittext:action.edittexttext,
-        editid:action.editid,
-        completed: false
+        editing:1,
+        saving:0,
+        completed: true
       }
     default:
       return state

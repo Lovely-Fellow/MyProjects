@@ -15,15 +15,15 @@ export const toggleTodo = (id) => ({
   id
 })
 
-export const saveTodo = (id, text) => ({
+export const saveTodo = (id, text, saving) => ({
   type: 'SAVE_TODO',
   id,
-  text
+  text,
+  saving:saving
 })
-export const editTodo = (id, text, editid, edittext) => ({
+export const editTodo = (id, text) => ({
   type: 'EDIT_TODO',
   id,
   text,
-  editid, 
-  edittext
+  editing:1
 })
