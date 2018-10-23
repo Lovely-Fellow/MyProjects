@@ -10,12 +10,12 @@ class BookList(ListView):
 
 class BookCreate(CreateView):
     model = Book
-    fields = ['name', 'pages']
+    fields = ['name', 'email', 'note']
     success_url = reverse_lazy('bootstrap_task:book_list')
 
 class BookUpdate(UpdateView):
     model = Book
-    fields = ['name', 'pages']
+    fields = ['name', 'email', 'note']
     success_url = reverse_lazy('bootstrap_task:book_list')
 
 class BookDelete(DeleteView):
