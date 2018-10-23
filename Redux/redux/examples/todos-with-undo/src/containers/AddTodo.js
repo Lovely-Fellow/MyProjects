@@ -13,7 +13,7 @@ class AddTodo extends React.Component {
     let form;
     console.log("Pass here");
  
-    todos.map(function(todo)
+    todos.map(todo=>
     {
       if ( !editing && !saving)
       {
