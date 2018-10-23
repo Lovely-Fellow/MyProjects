@@ -5,18 +5,16 @@ import * as TodoActions  from '../actions'
 class AddTodo extends React.Component {
   render()
   {
-    const {todos} = this.props;
+    const {todo} = this.props;
     let input, text;
     let saving = 0;
     let editing = 0;
     let id = -1;
     let form;
-    console.log("Pass here");
+    console.log(todo);
  
-    todos.map(todo=>
+    if (todo)
     {
-      if ( !editing && !saving)
-      {
         editing = todo.editing;
         saving = todo.saving;
         if (editing || saving)
@@ -24,8 +22,8 @@ class AddTodo extends React.Component {
           text = todo.text;
           id = todo.id;
         }
-      }
-    });
+      
+    };
  
     if (editing) {
       form = (
@@ -112,7 +110,7 @@ class AddTodo extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  todos: state.todos.present,
+  todo: state.todos.present.filter(t => ( t.editing || t.saving))[0]
 })
 
 const mapDispatchtoProps = (dispatch) =>
