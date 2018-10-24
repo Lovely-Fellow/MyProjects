@@ -6,7 +6,7 @@ app_name = 'bootstrap_task'
 
 urlpatterns = [
   path('', views.BookList.as_view(), name='book_list'),
-  path('new', views.BookCreate.as_view(), name='book_new'),
+  path('new/<str:name>, <str:email>, <str:note>', views.BookCreate.as_view(), name='book_new'),
   path('edit/<int:pk>', views.BookUpdate.as_view(), name='book_edit'),
   path('delete/<int:pk>', views.BookDelete.as_view(), name='book_delete'),
 ]

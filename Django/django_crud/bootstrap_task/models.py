@@ -11,4 +11,4 @@ class Book(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('bootstrap_task:book_edit', kwargs={'pk': self.pk})
+        return reverse('bootstrap_task:book_edit', kwargs={'pk': self.pk, 'name': self.name, 'email': self.email, 'note':self.note})

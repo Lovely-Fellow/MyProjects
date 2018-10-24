@@ -19,7 +19,7 @@
         }
     </style>
   </head>
-  
+  <form method="post">{% csrf_token %}
 <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -54,7 +54,7 @@
                     <td>
                       <center>
                         <button class="btn btn-warning" >
-                            <a href="{% url 'bootstrap_task:book_new' %}">Create Contact </a>
+                            <a href="{% url 'bootstrap_task:book_new' 223 333 333%}">Create Contact </a>
                         </button>
                       </center>
                     </td>
@@ -74,9 +74,7 @@
                   <td style="text-align:center;" class="ng-binding">{{ book.note }}</td>
                   <td style="text-align:center;">
                     <center>
-                      <button type="button" class="btn btn-danger" >
-                            <a href="{% url 'bootstrap_task:book_delete' book.id %}">Delete</a>
-                      </button>
+                      <a href="{% url 'bootstrap_task:book_delete' book.id %}" class="btn btn-danger">Delete</a>
                     </center>
                   </td>
                   <td style="text-align:center;">
@@ -94,5 +92,5 @@
           </div>
         </div>
       </div>
-
+</form>
 {% endblock %}
