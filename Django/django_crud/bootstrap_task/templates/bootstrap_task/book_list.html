@@ -19,7 +19,7 @@
         }
     </style>
   </head>
-  <form method="post">{% csrf_token %}
+  
 <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -34,57 +34,57 @@
                   <th style="text-align:center;">Actions</th>
                 </tr>
               </thead>
+             
+              <tbody >
+                  <form  action="{% url 'bootstrap_task:book_new' %}" method="post">{% csrf_token %}
+                    <tr>
+                        <td>
+                          <input type="text" placeholder="Enter Name" class="form-control" name = "name">
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Enter Email" class="form-control" name="email">
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Enter Detail" class="form-control" name="note">
+                        </td>
+                        <td>
+                          <center>
+                            <input type="submit" value="Create Contact" class="btn btn-warning"/>
+                          </center>
+                        </td>
+                        <td>
+                            <!--button class="btn btn-info" style="pointer-events: none" >
+                                    Update Contact
+                            </button-->
+                            
+                        </td>
+                    </tr>
+                
+              </tbody>
+            
               <tbody ng-controller="addcontrolle" class="ng-scope">
-                <tr>
-                    <td>
-                      <div class="form-group">
-                        <input type="text" placeholder="Enter Name" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="contact.name">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-group">
-                        <input type="text" placeholder="Enter Email" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="contact.email">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-group">
-                        <input type="text" placeholder="Enter Detail" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="contact.detail">
-                      </div>
-                    </td>
-                    <td>
+                <!-- ngRepeat: contact in contactlist -->
+                {% for book in object_list %}
+                <form  action="{% url 'bootstrap_task:book_delete' book.id %}" method="post">{% csrf_token %}
+                  <tr class="ng-scope">
+                    <td style="text-align:center;" class="ng-binding">{{ book.name }}</td>
+                    <td style="text-align:center;" class="ng-binding">{{ book.email }}</td>
+                    <td style="text-align:center;" class="ng-binding">{{ book.note }}</td>
+                    <td style="text-align:center;">
                       <center>
-                        <button class="btn btn-warning" >
-                            <a href="{% url 'bootstrap_task:book_new' 223 333 333%}">Create Contact </a>
+                        <!--a href="{% url 'bootstrap_task:book_delete' book.id %}" class="btn btn-danger">Delete</a-->
+                        <input type="submit" value="Delete" class="btn btn-danger"/>
+                      </center>
+                    </td>
+                    <td style="text-align:center;">
+                      <center>
+                        <button type="button" class="btn btn-success" >
+                              <a href="{% url 'bootstrap_task:book_edit' book.id %}">Update</a>
                         </button>
                       </center>
                     </td>
-                    <td>
-                      <!--center>
-                            <button class="btn btn-info" style="pointer-events: none" >
-                                Update Contact
-                            </button>
-                      </center-->
-                    </td>
-                </tr>
-                <!-- ngRepeat: contact in contactlist -->
-                {% for book in object_list %}
-                <tr class="ng-scope">
-                  <td style="text-align:center;" class="ng-binding">{{ book.name }}</td>
-                  <td style="text-align:center;" class="ng-binding">{{ book.email }}</td>
-                  <td style="text-align:center;" class="ng-binding">{{ book.note }}</td>
-                  <td style="text-align:center;">
-                    <center>
-                      <a href="{% url 'bootstrap_task:book_delete' book.id %}" class="btn btn-danger">Delete</a>
-                    </center>
-                  </td>
-                  <td style="text-align:center;">
-                    <center>
-                      <button type="button" class="btn btn-success" >
-                            <a href="{% url 'bootstrap_task:book_edit' book.id %}">Update</a>
-                      </button>
-                    </center>
-                  </td>
-                </tr>
+                  </tr>
+                </form>
                 {% endfor %}
                 <!-- end ngRepeat: contact in contactlist -->
               </tbody>
