@@ -38,15 +38,15 @@
               <tbody >
                   
                     <tr>
-                      <form  name="myform" onsubmit="return OnSubmitForm();" action="{% url 'bootstrap_task:book_new' %}" method="post">{% csrf_token %}
+                      <form  name="myform" onsubmit="return OnSubmitForm();" method="post">{% csrf_token %}
                         <td>
-                          <input id="name" type="text" placeholder="Enter Name" class="form-control" name = "name"/>
+                          <input id="name" type="text" required placeholder="Enter Name" class="form-control" name = "name"/>
                         </td>
                         <td>
-                            <input id="email" type="text" placeholder="Enter Email" class="form-control" name="email"/>
+                            <input id="email" type="email" required placeholder="Enter Email" class="form-control" name="email" />
                         </td>
                         <td>
-                            <input id="note" type="text" placeholder="Enter Detail" class="form-control" name="note"/>
+                            <input id="note" type="text" required placeholder="Enter Detail" class="form-control" name="note"/>
                         </td>
                         
                         <td>
