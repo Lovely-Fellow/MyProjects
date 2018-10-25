@@ -4,7 +4,7 @@ from .models import Subscriber
 
 
 class SubscriberAdmin(admin.ModelAdmin):
-    list_display = ('email', 'created_at')
+    list_display = ('email', 'firstname', 'lastname', 'created_at')
     list_filter = ('created_at',)
 
 

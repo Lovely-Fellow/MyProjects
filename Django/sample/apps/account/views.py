@@ -20,6 +20,8 @@ class SubscribeAddView(CreateView):
         # add to mailchimp
 
         email = form.cleaned_data.get('email')
+        firstname = form.cleaned_data.get('firstname')
+        lastname = form.cleaned_data.get('lastname')
 
         if settings.MAILCHIMP_ENABLE and email:
             email_hash = hashlib.md5(email.lower().encode('utf-8')).hexdigest()

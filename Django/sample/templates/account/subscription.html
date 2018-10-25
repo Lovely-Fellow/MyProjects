@@ -19,11 +19,34 @@
       {% endfor %}
     {% endif %}
     <form id="subscribeForm" method="post" novalidate>{% csrf_token %}
-      <div class="form-group">
-        {{ form.email }}
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block">Keep Me Informed</button>
+      <Table>
+        <tr>
+          <td>
+            <div class="form-group">
+              {{ form.email }}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>  
+            <div class="form-group">
+              {{ form.firstname }}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              {{ form.lastname }}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>  
+            <button type="submit" class="btn btn-primary btn-block">Keep Me Informed</button>
+          </td>
+        </tr>
+      </Table>
 
     </form>
 
