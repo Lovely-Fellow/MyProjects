@@ -51,7 +51,7 @@
                         
                         <td>
                           <center>
-                            <input type="submit" value="Create Contact" class="btn btn-warning"/>
+                            <input id="cmdCreate" type="submit" value="Create Contact" class="btn btn-warning"/>
                           </center>
                         </td>
                         <!--form  action="{% url 'bootstrap_task:book_edit' 55 %}" method="post">{% csrf_token %}-->
@@ -95,7 +95,8 @@
                                   $("#name").val(name);
                                   $("#email").val(email);
                                   $("#note").val(note);
-                                  $("#cmdUpdate").prop("disabled", false);;
+                                  $("#cmdUpdate").prop("disabled", false);
+                                  $("#cmdCreate").prop("disabled", true);
                                 }
                                 function OnSubmitForm()
                                 {
@@ -103,18 +104,20 @@
                                   if(!id)
                                   {
                                     document.myform.action ="{% url 'bootstrap_task:book_new' %}";
+                                   
                                   }
                                   else    
                                   {
                                     url = "{% url 'bootstrap_task:book_edit' 1 %}";
                                     url = url.substring(0, url.length-1) + id;
                                     document.myform.action = url;
-                                    $("#cmdUpdate").prop("disabled", true);;
+                                    $("#cmdUpdate").prop("disabled", true);
+                                    $("#cmdCreate").prop("disabled", false);
                                   }
                                   return true;
                                 }
 
-                              </script>
+                            </script>
                         </button>
                         
                       </center>
