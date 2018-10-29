@@ -16,10 +16,10 @@ $( document ).ready( function() {
    
   });
 
-  $("#cmdCreate").click(function() {
-
+  show_page = function(actionurl)
+  {
     request = $.ajax({
-      url: "new",
+      url: actionurl,
       type: "post",
       data: {
         name: $("#name").val(),
@@ -37,53 +37,19 @@ $( document ).ready( function() {
 
     });
     event.preventDefault();
+  }
+
+  $("#cmdCreate").click(function() {
+    show_page("new");
   });
-  // Variable to hold request
-  var request; 
+ 
   $( ".seldelete" ).click(function() {
-    //dataid=$(this).attr("data-id");
     dataid=$(this).data("id");
-    // Abort any pending request
-    if (request) {
-        request.abort();
-    }
-  
-    request = $.ajax({
-      url: "delete/" + dataid,
-      type: "post",
-      data: {
-        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-      },
-      success: function (response) {
-        $("#entirepage").html(response);
-     },
-     error: function(jqXHR, textStatus, errorThrown) {
-        console.log(textStatus, errorThrown);
-     }
-
-    });
-   
-    // Prevent default posting of form - put here to work in case of errors
-    event.preventDefault();
+    show_page("delete/" + dataid);
   });
-  $("#cmdUpdate").click(function() {
 
-    request = $.ajax({
-      url: "edit/" + dataid,
-      type: "post",
-      data: {
-        name: $("#name").val(),
-        email: $("#email").val(),
-        note: $("#note").val(),
-        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-      },
-      success: function (response) {
-               
-        $("#entirepage").html(response);
-        
-      },
-    });
-    event.preventDefault();
+  $("#cmdUpdate").click(function() {
+    show_page("edit/" + dataid);
   });
 
 });
