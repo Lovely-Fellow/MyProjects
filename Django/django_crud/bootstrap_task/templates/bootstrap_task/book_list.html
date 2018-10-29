@@ -1,6 +1,6 @@
 
 {% block content %}
-
+<div id="entirepage">
   <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
   <meta charset="UTF-8">
   <style>
@@ -19,7 +19,8 @@
   </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" >  </script>
-
+  {% load static %}
+  <script src="{% static 'bootstrap_task.js' %}"></script>  
     <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -38,7 +39,7 @@
               <tbody >
                   
                     <tr>
-                      <form  name="myform" onsubmit="return OnSubmitForm();" method="post">{% csrf_token %}
+                      <form  name="myform">{% csrf_token %}
                         <td>
                           <input id="name" type="text" required placeholder="Enter Name" class="form-control" name = "name"/>
                         </td>
@@ -51,13 +52,13 @@
                         
                         <td>
                           <center>
-                            <input id="cmdCreate" type="submit" value="Create Contact" class="btn btn-warning"/>
+                            <input id="cmdCreate" type="Button" value="Create Contact" class="btn btn-warning"/>
                           </center>
                         </td>
                         <!--form  action="{% url 'bootstrap_task:book_edit' 55 %}" method="post">{% csrf_token %}-->
                         <td>
                           <center>
-                            <input id="cmdUpdate" type="submit" value="Update Contact" class="btn btn-info" disabled="disabled"/>
+                            <input id="cmdUpdate" type="Button" value="Update Contact" class="btn btn-info" disabled="disabled"/>
                           </center>
                         </td>
                         <td>
@@ -71,65 +72,35 @@
             
               <tbody ng-controller="addcontrolle" class="ng-scope">
                 <!-- ngRepeat: contact in contactlist -->
-                {% for book in object_list %}
-                <form  action="{% url 'bootstrap_task:book_delete' book.id %}" method="post">{% csrf_token %}
+                <div id="selrecord">
+                  {% for book in object_list %}
+                
                   <tr class="ng-scope">
-                    <td id="selname" style="text-align:center;" class="ng-binding">{{ book.name }}</td>
-                    <td id="selemail" style="text-align:center;" class="ng-binding">{{ book.email }}</td>
-                    <td id="selnote" style="text-align:center;" class="ng-binding">{{ book.note }}</td>
+                    <td  style="text-align:center;" class="selname ng-binding" data-id='{{ book.id }}' data-value='{{ book.name }}'>{{ book.name }}</td>
+                    <td  style="text-align:center;" class="selemail ng-binding" data-id='{{ book.id }}' data-value='{{ book.email }}'>{{ book.email }}</td>
+                    <td  style="text-align:center;" class="selnote ng-binding" data-id='{{ book.id }}' data-value='{{ book.note }}'>{{ book.note }}</td>
                     <td style="text-align:center;">
                       <center>
                         <!--a href="{% url 'bootstrap_task:book_delete' book.id %}" class="btn btn-danger">Delete</a-->
-                        <input type="submit" value="Delete" class="btn btn-danger"/>
+                        <input  type="button" value="Delete" class="seldelete btn btn-danger" data-id='{{ book.id }}' />
                       </center>
                     </td>
                     <td style="text-align:center;">
                       <center>
-                        <button type="button" class="btn btn-success" onclick="myFunc('{{ book.id }}','{{ book.name }}','{{ book.email }}','{{ book.note }}')"">
+                        <button type="button" class="selupdate btn btn-success" data-id='{{ book.id }}'>
                             Update
-                            <script>    
-                                myFunc = function(id, name, email, note)
-                                {
-                                  console.log(id, name, email, note);
-                                  $("#id").val(id);
-                                  $("#name").val(name);
-                                  $("#email").val(email);
-                                  $("#note").val(note);
-                                  $("#cmdUpdate").prop("disabled", false);
-                                  $("#cmdCreate").prop("disabled", true);
-                                }
-                                function OnSubmitForm()
-                                {
-                                  id = $("#id").val();
-                                  if(!id)
-                                  {
-                                    document.myform.action ="{% url 'bootstrap_task:book_new' %}";
-                                   
-                                  }
-                                  else    
-                                  {
-                                    url = "{% url 'bootstrap_task:book_edit' 1 %}";
-                                    url = url.substring(0, url.length-1) + id;
-                                    document.myform.action = url;
-                                    $("#cmdUpdate").prop("disabled", true);
-                                    $("#cmdCreate").prop("disabled", false);
-                                  }
-                                  return true;
-                                }
-
-                            </script>
                         </button>
-                        
-                      </center>
+                     </center>
                     </td>
                   </tr>
-                </form>
-                {% endfor %}
+                
+                  {% endfor %}
+                </div>
                 <!-- end ngRepeat: contact in contactlist -->
               </tbody>
             </table>
           </div>
         </div>
 </div>
-
+</div>
 {% endblock %}
