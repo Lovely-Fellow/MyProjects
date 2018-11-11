@@ -7,16 +7,17 @@
           alert("The file API isn't supported on this browser yet.");
       }
   }
-  var href = location.href;
-  var dir = href.substring(0, href.lastIndexOf('/')) + "/"
-
+  
   function readmultifiles(files) {
+    filenames = [];
+    filecontents = [];
     var ul = document.querySelector("#bag>ul");
     while (ul.hasChildNodes()) {
         ul.removeChild(ul.firstChild);
     }
     // Read first file
     setup_reader(files, 0);
+    
   }
 
   // Don't define functions in functions in functions, when possible.
@@ -36,26 +37,143 @@
     // get file content  
     var bin = e.target.result;
     // do sth with text
+    filenames.push(name);
+    filecontents.push(bin);
     
-    DrawTimeLine(name, bin);
     // If there's a file left to load
     if (i < files.length - 1) {
         // Load the next file
         setup_reader(files, i+1);
     }
+    else{
+      redrawchart();
+    }
   }
-
+  //weekdays = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
+  filenames = [];
+  filecontents = [];
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
   
-  function DrawTimeLine(filename, filecontent)
+  function redrawchart()
   {
-    alert(filename + filecontent);
+    
+    var container = document.getElementById('board');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({ type: 'string', id: 'Date' });
+    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    monstr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var options = {
+      timeline: { singleColor: '#558' },
+    };
+     
+    for (i = 0; i < filenames.length; i ++)
+    {
+      weekname = filenames[i].substring(0, filenames[i].lastIndexOf('.txt'));
+      inputline = filecontents[i].split("\n");
+      
+      for (iline = 0; iline < inputline.length; iline ++)
+      {
+          //parsing "Content.js:14 11/2/2018, 10:30:28 AM : The contact goes online/offline"
+          linedata0 = inputline[iline].split(" : ");
+          if (linedata0.length != 2)
+          {
+            alert("Bad File Format 1");
+            return;
+          }
+         
+          on_off_status = linedata0[1];// The contact goes online
+          linedata1 = linedata0[0].split(", ");
+          if (linedata1.length != 2)
+          {
+            alert("Bad File Format 2");
+            return;
+          }
+         
+          time_apm_val = linedata1[1]; // 10:30:28 AM
+          linedata2 = linedata1[0].split(" ");
+          if (linedata2.length != 2)
+          {
+            alert("Bad File Format 3");
+            return;
+          }
+       
+          date_val = linedata2[1]; // 11/2/2018
+          linedata3 = time_apm_val.split(" ");
+          if (linedata3.length != 2)
+          {
+            alert("Bad File Format 4");
+            return;
+          }
+         
+          time_val = linedata3[0]; // 10:30:28
+          apm_val = linedata3[1].toUpperCase(); // PM
+          linedata4 = time_val.split(":");
+          if (linedata4.length != 3)
+          {
+            alert("Bad File Format 5");
+            return;
+          }
+     
+        
+          hour_val = linedata4[0];
+          min_val = linedata4[1];
+          sec_val = linedata4[2];
+     
+          linedata5 = date_val.split("/");
+          if (linedata5.length != 3)
+          {
+            alert("Bad File Format 6");
+            return;
+          }
+          
+          mon_val = linedata5[0];
+          day_val = linedata5[1];
+          year_val = linedata5[2];
+          if (iline == 0)
+            start_day_val = day_val;
+          else if (start_day_val != day_val)
+          {
+            alert("Bad File Format: There is data over one day. Ignore data from here");
+            break;
+          }
+          topic = weekname + "day " + monstr[mon_val - 1] + " " + day_val;
+          
+          if (apm_val == "PM" && hour_val < 12)
+            hour_val = parseInt(hour_val, 10) + 12;
+          else if (apm_val == "AM" && hour_val == 12)
+            hour_val = 0;
+          
+          if (on_off_status.indexOf("online") > 0)
+          {
+              
+              start_date = new Date(0, 0, 0, hour_val, min_val, (parseInt((sec_val - 1)/ 30) + 1) * 30);
+          }
+          else
+          {
+              end_date = new Date(0, 0, 0, hour_val, min_val, parseInt(sec_val / 30) * 30);
+              if (end_date > start_date)
+              {
+                dataTable.addRows([
+                  [ topic, '', start_date,  end_date ]
+                  
+                ]);
+              }
+          }
+ 
+      }
+    }
+    
+    chart.draw(dataTable, options);
+   
   }
   
   function drawChart() {
 
-   var container = document.getElementById('board');
+    var container = document.getElementById('board');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
     dataTable.addColumn({ type: 'string', id: 'Date' });
@@ -64,14 +182,10 @@
     dataTable.addColumn({ type: 'date', id: 'End' });
     
     dataTable.addRows([
-      [ 'Magnolia Room', '',       new Date(0,0,0,12,0,0),  new Date(0,0,0,13,30,0) ],
-      [ 'Magnolia Room', '',    new Date(0,0,0,14,0,0),  new Date(0,0,0,15,30,0) ],
-      [ 'Magnolia Room', '',        new Date(0,0,0,16,0,0),  new Date(0,0,0,17,30,0) ],
-      [ 'Magnolia Room', '',        new Date(0,0,0,24,0,0),  new Date(0,0,0,24,0,0) ],
-      [ 'Willow Room',   '',    new Date(0,0,0,12,30,0), new Date(0,0,0,14,0,0) ],
-      [ 'Willow Room',   '', new Date(0,0,0,14,30,0), new Date(0,0,0,16,0,0) ],
-      [ 'Willow Room',   '',     new Date(0,0,0,16,30,0), new Date(0,0,0,18,0,0) ],
-      [ 'Willow Room',   '',     new Date(0,0,0,24,0,0), new Date(0,0,0,24,0,0) ]]);
+      [ 'Week Month Day', '',       new Date(0,0,0,0,0,0),  new Date(0,0,0,24,0,0) ]
+      
+     ]);
+     
 
     var options = {
       timeline: { singleColor: '#558' },
@@ -88,7 +202,7 @@
 
   <div id="board" ></div>
   <input type="file" id="filesx" name="filesx[]"
-    onchange="readmultifiles(this.files)" multiple=""/>
+    onchange="readmultifiles(this.files);" multiple=""/>
   <div id="bag"><ul/></div>
   <pre id="data"></pre>
 </body>
