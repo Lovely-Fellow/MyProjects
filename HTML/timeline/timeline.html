@@ -1,0 +1,117 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+  /* Select Files from FileDialog */
+  window.onload = function() {
+      if (typeof window.FileReader !== 'function') {
+          alert("The file API isn't supported on this browser yet.");
+      }
+  }
+  alert(location.pathname);
+  function readmultifiles(files) {
+    var ul = document.querySelector("#bag>ul");
+    while (ul.hasChildNodes()) {
+        ul.removeChild(ul.firstChild);
+    }
+
+    function setup_reader(file) {
+        var name = file.name;
+       
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var bin = e.target.result; //get file content
+
+            // do sth with text
+
+            var li = document.createElement("li");
+            li.innerHTML = name;
+            ul.appendChild(li);
+        }
+        reader.readAsBinaryString(file);
+    }
+
+    for (var i = 0; i < files.length; i++) 
+    {
+       setup_reader(files[i]); 
+    }
+  }
+
+  /* Read file contents by filename */
+
+
+
+  function loadFile(o)
+  {
+      var fr = new FileReader();
+      fr.onload = function(e)
+          {
+              showDataFile(e, o);
+          };
+      fr.readAsText(o.files[0]);
+  }
+
+  function showDataFile(e, o)
+  {
+      document.getElementById("data").innerText = e.target.result;
+  }
+
+  function readTextFile(file)
+{
+  alert(file);
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+  google.charts.load("current", {packages:["timeline"]});
+  
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var container = document.getElementById('board');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({ type: 'string', id: 'Room' });
+    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    dataTable.addRows([
+      [ 'Magnolia Room', '',       new Date(0,0,0,12,0,0),  new Date(0,0,0,13,30,0) ],
+      [ 'Magnolia Room', '',    new Date(0,0,0,14,0,0),  new Date(0,0,0,15,30,0) ],
+      [ 'Magnolia Room', '',        new Date(0,0,0,16,0,0),  new Date(0,0,0,17,30,0) ],
+      [ 'Magnolia Room', '',        new Date(0,0,0,24,0,0),  new Date(0,0,0,24,0,0) ],
+      [ 'Willow Room',   '',    new Date(0,0,0,12,30,0), new Date(0,0,0,14,0,0) ],
+      [ 'Willow Room',   '', new Date(0,0,0,14,30,0), new Date(0,0,0,16,0,0) ],
+      [ 'Willow Room',   '',     new Date(0,0,0,16,30,0), new Date(0,0,0,18,0,0) ],
+      [ 'Willow Room',   '',     new Date(0,0,0,24,0,0), new Date(0,0,0,24,0,0) ]]);
+
+    var options = {
+      timeline: { singleColor: '#558' },
+    };
+
+
+    chart.draw(dataTable, options);
+    
+  }
+
+
+</script>
+ <body>
+
+  <div id="board" ></div>
+  <input type="file" id="filesx" name="filesx[]"
+    onchange="readmultifiles(this.files)" multiple=""/>
+  <div id="bag"><ul/></div>
+  <pre id="data"></pre>
+</body>
