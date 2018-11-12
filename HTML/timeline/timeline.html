@@ -68,6 +68,8 @@
     monstr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var options = {
       timeline: { singleColor: '#558' },
+      avoidOverlappingGridLines: false,
+      viewWindow: {min: new Date(0,0,0,0,0,0),  max: new Date(0,0,0,24,0,0)   }
     };
      
     for (i = 0; i < filenames.length; i ++)
@@ -78,18 +80,19 @@
       for (iline = 0; iline < inputline.length; iline ++)
       {
           //parsing "Content.js:14 11/2/2018, 10:30:28 AM : The contact goes online/offline"
+      
           linedata0 = inputline[iline].split(" : ");
           if (linedata0.length != 2)
           {
-            alert("Bad File Format 1");
-            return;
+            console.log("Bad File Format 1");
+            break;
           }
          
           on_off_status = linedata0[1];// The contact goes online
           linedata1 = linedata0[0].split(", ");
           if (linedata1.length != 2)
           {
-            alert("Bad File Format 2");
+            console.log("Bad File Format 2");
             return;
           }
          
@@ -97,7 +100,7 @@
           linedata2 = linedata1[0].split(" ");
           if (linedata2.length != 2)
           {
-            alert("Bad File Format 3");
+            console.log("Bad File Format 3");
             return;
           }
        
@@ -105,7 +108,7 @@
           linedata3 = time_apm_val.split(" ");
           if (linedata3.length != 2)
           {
-            alert("Bad File Format 4");
+            console.log("Bad File Format 4");
             return;
           }
          
@@ -114,7 +117,7 @@
           linedata4 = time_val.split(":");
           if (linedata4.length != 3)
           {
-            alert("Bad File Format 5");
+            console.log("Bad File Format 5");
             return;
           }
      
@@ -126,7 +129,7 @@
           linedata5 = date_val.split("/");
           if (linedata5.length != 3)
           {
-            alert("Bad File Format 6");
+            console.log("Bad File Format 6");
             return;
           }
           
@@ -188,7 +191,8 @@
      
 
     var options = {
-      timeline: { singleColor: '#558' },
+      timeline: { singleColor: '#558'},
+      viewWindow: {min: new Date(0,0,0,0,0,0),  max: new Date(0,0,0,24,0,0)}
     };
 
 
