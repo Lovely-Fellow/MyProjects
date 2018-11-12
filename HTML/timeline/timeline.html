@@ -140,7 +140,7 @@
             alert("Bad File Format: There is data over one day. Ignore data from here");
             break;
           }
-          topic = weekname + "day " + monstr[mon_val - 1] + " " + day_val;
+          topic = weekname + " " + monstr[mon_val - 1] + " " + day_val;
           
           if (apm_val == "PM" && hour_val < 12)
             hour_val = parseInt(hour_val, 10) + 12;
@@ -182,8 +182,8 @@
     dataTable.addColumn({ type: 'date', id: 'End' });
     
     dataTable.addRows([
-      [ 'Week Month Day', '',       new Date(0,0,0,0,0,0),  new Date(0,0,0,24,0,0) ]
-      
+      [ 'Week Month Day', '',       new Date(0,0,0,0,0,0),  new Date(0,0,0,0,0,0) ],
+      [ 'Week Month Day', '',       new Date(0,0,0,24,0,0),  new Date(0,0,0,24,0,0) ]
      ]);
      
 
@@ -200,9 +200,10 @@
 </script>
  <body>
 
-  <div id="board" ></div>
+  
   <input type="file" id="filesx" name="filesx[]"
     onchange="readmultifiles(this.files);" multiple=""/>
   <div id="bag"><ul/></div>
   <pre id="data"></pre>
+  <div id="board" ></div>
 </body>
