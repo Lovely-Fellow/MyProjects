@@ -49,6 +49,11 @@
       redrawchart();
     }
   }
+  // Accepts a Date object or date string that is recognized by the Date.parse() method
+  function getDayOfWeek(date) {
+    var dayOfWeek = new Date(date).getDay();    
+    return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+  }
   //weekdays = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
   filenames = [];
   filecontents = [];
@@ -69,6 +74,8 @@
     var options = {
       timeline: { singleColor: '#558' },
       avoidOverlappingGridLines: false,
+      width: '100%', 
+      height: '100%',
       viewWindow: {min: new Date(0,0,0,0,0,0),  max: new Date(0,0,0,24,0,0)   }
     };
      
@@ -209,5 +216,5 @@
     onchange="readmultifiles(this.files);" multiple=""/>
   <div id="bag"><ul/></div>
   <pre id="data"></pre>
-  <div id="board" ></div>
+  <div id="board" style="height: 100%;" ></div>
 </body>
