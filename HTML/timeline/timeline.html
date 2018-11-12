@@ -49,45 +49,64 @@
       redrawchart();
     }
   }
-  // Accepts a Date object or date string that is recognized by the Date.parse() method
-  function getDayOfWeek(date) {
-    var dayOfWeek = new Date(date).getDay();    
-    return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
-  }
   //weekdays = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
   filenames = [];
   filecontents = [];
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
-  
+  monstr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  weekstr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  function getweekno(weekname)
+  {
+      for (i = 0; i < weekstr.length; i ++)
+        if (weekname == weekstr[i])
+          return i;
+      return -1;
+  }
+
+  function getDayOfWeek(date) {
+    var dayOfWeek = new Date(date).getDay();    
+    return isNaN(dayOfWeek) ? null : weekstr[dayOfWeek];
+  }
+
   function redrawchart()
   {
     
     var container = document.getElementById('board');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
+    interval = document.getElementById('interval').value;
+    dataTable.sort();
+    if (!interval)
+      interval = 30;
     dataTable.addColumn({ type: 'string', id: 'Date' });
     dataTable.addColumn({ type: 'string', id: 'Name' });
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
-    monstr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
     var options = {
       timeline: { singleColor: '#558' },
       avoidOverlappingGridLines: false,
       width: '100%', 
       height: '100%',
-      viewWindow: {min: new Date(0,0,0,0,0,0),  max: new Date(0,0,0,24,0,0)   }
     };
      
+   
+
     for (i = 0; i < filenames.length; i ++)
     {
-      weekname = filenames[i].substring(0, filenames[i].lastIndexOf('.txt'));
+      //weekname0 = filenames[i].substring(0, filenames[i].lastIndexOf('.txt'));
+   
+     
       inputline = filecontents[i].split("\n");
-      
+     
+      //weekno = getweekno(weekname0);
+    
       for (iline = 0; iline < inputline.length; iline ++)
       {
+        
           //parsing "Content.js:14 11/2/2018, 10:30:28 AM : The contact goes online/offline"
-      
           linedata0 = inputline[iline].split(" : ");
           if (linedata0.length != 2)
           {
@@ -143,28 +162,29 @@
           mon_val = linedata5[0];
           day_val = linedata5[1];
           year_val = linedata5[2];
-          if (iline == 0)
-            start_day_val = day_val;
-          else if (start_day_val != day_val)
-          {
-            alert("Bad File Format: There is data over one day. Ignore data from here");
-            break;
-          }
+          
+          weekno = new Date(year_val, mon_val - 1, day_val).getDay();
+         
+          weekname = weekstr[weekno];
+     
+         
           topic = weekname + " " + monstr[mon_val - 1] + " " + day_val;
           
           if (apm_val == "PM" && hour_val < 12)
             hour_val = parseInt(hour_val, 10) + 12;
           else if (apm_val == "AM" && hour_val == 12)
+          {
             hour_val = 0;
-          
+          }
+         
           if (on_off_status.indexOf("online") > 0)
           {
               
-              start_date = new Date(0, 0, 0, hour_val, min_val, (parseInt((sec_val - 1)/ 30) + 1) * 30);
+              start_date = new Date(0, 0, 0, hour_val, min_val, (parseInt((sec_val - 1)/ interval) + 1) * interval);
           }
           else
           {
-              end_date = new Date(0, 0, 0, hour_val, min_val, parseInt(sec_val / 30) * 30);
+              end_date = new Date(0, 0, 0, hour_val, min_val, parseInt(sec_val / interval) * interval);
               if (end_date > start_date)
               {
                 dataTable.addRows([
@@ -198,8 +218,8 @@
      
 
     var options = {
-      timeline: { singleColor: '#558'},
-      viewWindow: {min: new Date(0,0,0,0,0,0),  max: new Date(0,0,0,24,0,0)}
+      timeline: { singleColor: '#558' },
+      width: 0,
     };
 
 
@@ -214,7 +234,10 @@
   
   <input type="file" id="filesx" name="filesx[]"
     onchange="readmultifiles(this.files);" multiple=""/>
+  <label for="interval">interval</label>
+  <input id="interval" value=30 style="text-align: right;" />
+  <input type="button" value="Redraw" onClick="redrawchart();"/>
   <div id="bag"><ul/></div>
-  <pre id="data"></pre>
-  <div id="board" style="height: 100%;" ></div>
+  <pre id="data" ></pre>
+  <div id="board" style="height: 100%; "></div>
 </body>
