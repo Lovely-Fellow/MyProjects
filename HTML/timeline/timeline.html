@@ -10,9 +10,14 @@
       document.getElementById("board").style.zoom = 1;   
   }
   
-  function readmultifiles(files) {
+  function Reload()
+  {
     filenames = [];
     filecontents = [];
+    location.reload();
+  }
+  function readmultifiles(files) {
+  
     var ul = document.querySelector("#bag>ul");
     while (ul.hasChildNodes()) {
         ul.removeChild(ul.firstChild);
@@ -320,6 +325,7 @@
  <body>
 
   
+  <button onclick="Reload();"> Reload </button>
   <input type="file" id="filesx" name="filesx[]"
     onchange="readmultifiles(this.files);" multiple=""/>
   
