@@ -6,6 +6,8 @@
       if (typeof window.FileReader !== 'function') {
           alert("The file API isn't supported on this browser yet.");
       }
+    if (!document.getElementById("board").style.zoom)
+      document.getElementById("board").style.zoom = 1;   
   }
   
   function readmultifiles(files) {
@@ -49,14 +51,33 @@
       redrawchart();
     }
   }
+  
+  /*function week_compare(a, b)
+  {
+    a_week = a.c[0].v.split(" ");
+    a_wno = getweekno(a_week[0]);
+    a_startdate = a.c[1].v;
+    a_enddate = a.c[2].v;
+    
+    b_week = b.c[0].v.split(" ");
+    b_wno = getweekno(b_week[0]);
+    b_startdate = b.c[1].v;
+    b_enddate = b.c[2].v;
+    if (a_wno != b_wno)
+    {
+      alert(a_wno + "," + b_wno);
+      return a_wno < b_wno;
+    }
+    
+    return 0;
+  }*/
   //weekdays = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
   filenames = [];
   filecontents = [];
-  google.charts.load("current", {packages:["timeline"]});
-  google.charts.setOnLoadCallback(drawChart);
   monstr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
   weekstr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
+  google.charts.load("current", {packages:["timeline"]});
+  google.charts.setOnLoadCallback(drawChart);
   function getweekno(weekname)
   {
       for (i = 0; i < weekstr.length; i ++)
@@ -72,20 +93,20 @@
 
   function redrawchart()
   {
-    
     var container = document.getElementById('board');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
     interval = document.getElementById('interval').value;
     barcolor = document.getElementById('barcolor').value;
-    dataTable.sort();
+    
     if (!interval)
       interval = 30;
+    
     dataTable.addColumn({ type: 'string', id: 'Date' });
     dataTable.addColumn({ type: 'string', id: 'Name' });
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
-    
+
     var options = {
       timeline: { singleColor: barcolor },
       avoidOverlappingGridLines: false,
@@ -93,8 +114,6 @@
       height: '100%',
     };
      
-   
-
     for (i = 0; i < filenames.length; i ++)
     {
       //weekname0 = filenames[i].substring(0, filenames[i].lastIndexOf('.txt'));
@@ -103,10 +122,10 @@
       inputline = filecontents[i].split("\n");
      
       //weekno = getweekno(weekname0);
-    
+      
       for (iline = 0; iline < inputline.length; iline ++)
       {
-        
+       
           //parsing "Content.js:14 11/2/2018, 10:30:28 AM : The contact goes online/offline"
           linedata0 = inputline[iline].split(" : ");
           if (linedata0.length != 2)
@@ -168,7 +187,7 @@
          
           weekname = weekstr[weekno];
      
-         
+          
           topic = weekname + " " + monstr[mon_val - 1] + " " + day_val;
           
           if (apm_val == "PM" && hour_val < 12)
@@ -180,14 +199,17 @@
          
           if (on_off_status.indexOf("online") > 0)
           {
-              
               start_date = new Date(0, 0, 0, hour_val, min_val, (parseInt((sec_val - 1)/ interval) + 1) * interval);
+              
           }
           else
           {
+            
               end_date = new Date(0, 0, 0, hour_val, min_val, parseInt(sec_val / interval) * interval);
-              if (end_date > start_date)
+              
+              if (end_date >= start_date)
               {
+                
                 dataTable.addRows([
                   [ topic, '', start_date,  end_date ]
                   
@@ -197,14 +219,14 @@
  
       }
     }
-    
+
     chart.draw(dataTable, options);
-   
+    
   }
   
   function drawChart() {
 
-    var container = document.getElementById('board');
+    /*var container = document.getElementById('board');
     barcolor = document.getElementById('barcolor').value;
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
@@ -217,30 +239,52 @@
       [ 'Week Month Day', '',       new Date(0,0,0,0,0,0),  new Date(0,0,0,0,0,0) ],
       [ 'Week Month Day', '',       new Date(0,0,0,24,0,0),  new Date(0,0,0,24,0,0) ]
      ]);
-     
-
+    
+    
     var options = {
       timeline: { singleColor: barcolor },
       width: 0,
-    };
+    };*/
 
 
-    chart.draw(dataTable, options);
+    //chart.draw(dataTable, options);
     
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd<10) {
+        dd = '0'+dd
+    } 
+
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+
+    today = mm + '/' + dd + '/' + yyyy;
+    filenames.push("Tue.txt");
+    
+    filecontents.push("Content.js:14 " + today + ", 12:0:0 AM : The contact goes online\n" +
+                      "Content.js:14 " + today + ", 12:0:30 AM : The contact goes offline\n" +
+                      "Content.js:14 " + today + ", 23:59:00 PM : The contact goes online\n" + 
+                      "Content.js:14 " + today + ", 23:59:30 PM : The contact goes offline");
+    
+    
+    redrawchart();
+  
   }
 
   function zoomIn()
 
   {
 
-  var Page = document.getElementById('board');
-  alert(Page.style.zoom);
-
-  var zoom = parseInt(Page.style.zoom) + 10 +'%'
-
-  Page.style.zoom = zoom;
-
-  return false;
+    var Page = document.getElementById('board');
+  
+    var zoom = parseFloat(Page.style.zoom) + 0.1;
+    Page.style.zoom = zoom;
+    document.getElementById('zoomvalue').value = zoom.toFixed(1);
+    return false;
 
   }
 
@@ -248,14 +292,28 @@
 
   {
     
-  var Page = document.getElementById('board');
-  alert(Page.style.zoom);
+    var Page = document.getElementById('board');
+  
+    var zoom = parseFloat(Page.style.zoom) - 0.1;
+    if (zoom <= 0)
+    {
+      return false;
+    }
+    
+    Page.style.zoom = zoom;
+    document.getElementById('zoomvalue').value = zoom.toFixed(1);
+    return false;
 
-  var zoom = parseInt(Page.style.zoom) - 10 +'%'
+  }
+  function zoom1()
 
-  Page.style.zoom = zoom;
+  {
+    
+    var Page = document.getElementById('board');
 
-  return false;
+    Page.style.zoom = 1;
+    document.getElementById('zoomvalue').value = 1;
+    return false;
 
   }
 </script>
@@ -264,15 +322,19 @@
   
   <input type="file" id="filesx" name="filesx[]"
     onchange="readmultifiles(this.files);" multiple=""/>
-  <label for="interval">interval</label>
+  
+  <label for="interval">color:</label>
+  <input id="barcolor" type="color" value="#555588"  onchange="redrawchart();"/>
+  <label for="interval">zoom:</label>
+  <button onclick="zoomOut()"> - </button>
+  <input type="button" id="zoomvalue" onclick="zoom1()" value="1"> 
+  <button onclick="zoomIn()"> + </button>
+  <label for="interval">interval:</label>
   <input id="interval" value=30 style="text-align: right;" />
   <input type="button" value="Redraw" onClick="redrawchart();"/>
-  <label for="interval">color</label>
-  <input id="barcolor" type="color" value="#555588"  onchange="redrawchart();"/>
-  <button onclick="zoomIn()">zoom in </button>
-  <button onclick="zoomOut()">zoom out </button>
+  
   <div id="bag"><ul/></div>
   <pre id="data" ></pre>
-  <div id="board" style="height: 100%; "></div>
+  <div id="board" style="height: 100%;"></div>
 
 </body>
