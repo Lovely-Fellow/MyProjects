@@ -77,6 +77,7 @@
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
     interval = document.getElementById('interval').value;
+    barcolor = document.getElementById('barcolor').value;
     dataTable.sort();
     if (!interval)
       interval = 30;
@@ -86,7 +87,7 @@
     dataTable.addColumn({ type: 'date', id: 'End' });
     
     var options = {
-      timeline: { singleColor: '#558' },
+      timeline: { singleColor: barcolor },
       avoidOverlappingGridLines: false,
       width: '100%', 
       height: '100%',
@@ -110,7 +111,7 @@
           linedata0 = inputline[iline].split(" : ");
           if (linedata0.length != 2)
           {
-            console.log("Bad File Format 1");
+            console.log("Bad File Format 1:" + filenames[i]) ;
             break;
           }
          
@@ -118,7 +119,7 @@
           linedata1 = linedata0[0].split(", ");
           if (linedata1.length != 2)
           {
-            console.log("Bad File Format 2");
+            console.log("Bad File Format 2:" + filenames[i]);
             return;
           }
          
@@ -126,7 +127,7 @@
           linedata2 = linedata1[0].split(" ");
           if (linedata2.length != 2)
           {
-            console.log("Bad File Format 3");
+            console.log("Bad File Format 3:" + filenames[i]);
             return;
           }
        
@@ -134,7 +135,7 @@
           linedata3 = time_apm_val.split(" ");
           if (linedata3.length != 2)
           {
-            console.log("Bad File Format 4");
+            console.log("Bad File Format 4:" + filenames[i]);
             return;
           }
          
@@ -143,7 +144,7 @@
           linedata4 = time_val.split(":");
           if (linedata4.length != 3)
           {
-            console.log("Bad File Format 5");
+            console.log("Bad File Format 5:" + filenames[i]);
             return;
           }
      
@@ -155,7 +156,7 @@
           linedata5 = date_val.split("/");
           if (linedata5.length != 3)
           {
-            console.log("Bad File Format 6");
+            console.log("Bad File Format 6:" + filenames[i]);
             return;
           }
           
@@ -204,6 +205,7 @@
   function drawChart() {
 
     var container = document.getElementById('board');
+    barcolor = document.getElementById('barcolor').value;
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
     dataTable.addColumn({ type: 'string', id: 'Date' });
@@ -218,7 +220,7 @@
      
 
     var options = {
-      timeline: { singleColor: '#558' },
+      timeline: { singleColor: barcolor },
       width: 0,
     };
 
@@ -227,7 +229,35 @@
     
   }
 
+  function zoomIn()
 
+  {
+
+  var Page = document.getElementById('board');
+  alert(Page.style.zoom);
+
+  var zoom = parseInt(Page.style.zoom) + 10 +'%'
+
+  Page.style.zoom = zoom;
+
+  return false;
+
+  }
+
+  function zoomOut()
+
+  {
+    
+  var Page = document.getElementById('board');
+  alert(Page.style.zoom);
+
+  var zoom = parseInt(Page.style.zoom) - 10 +'%'
+
+  Page.style.zoom = zoom;
+
+  return false;
+
+  }
 </script>
  <body>
 
@@ -237,7 +267,12 @@
   <label for="interval">interval</label>
   <input id="interval" value=30 style="text-align: right;" />
   <input type="button" value="Redraw" onClick="redrawchart();"/>
+  <label for="interval">color</label>
+  <input id="barcolor" type="color" value="#555588"  onchange="redrawchart();"/>
+  <button onclick="zoomIn()">zoom in </button>
+  <button onclick="zoomOut()">zoom out </button>
   <div id="bag"><ul/></div>
   <pre id="data" ></pre>
   <div id="board" style="height: 100%; "></div>
+
 </body>
