@@ -1,0 +1,209 @@
+(function() {
+
+    'use strict';
+
+    /**
+     * @ngdoc overview
+     * @name components.core.dash.cache
+     * @description
+     *
+     * Responsible for handling dash cache.
+     * Cache hold organization uids, current unread counters and preferences
+     *
+     */
+    var cache = angular.module('components.core.dash.cache', [
+        'components.core.storage'
+    ]);
+
+    cache.constant('DASH_CACHE_EXPIRATION', 60 * 1000);
+
+    cache.factory('eoDashCache', ['eoStorage', '$window', 'STORAGE_PREFIX', 'DASH_CACHE_EXPIRATION',
+        function (eoStorage, $window, STORAGE_PREFIX, DASH_CACHE_EXPIRATION) {
+
+            /**
+             * Class to handle presence info cache
+             */
+            var DashCache = function (userUid) {
+                this.userUid = userUid;
+                this.listeners = [];
+                this._storageChangeBind = this._storageChanged.bind(this);
+            };
+
+            /**
+             * Handles storage change events from window
+             * @param  {StorageEvent} event
+             */
+            DashCache.prototype._storageChanged = function (event) {
+                var storageKey = STORAGE_PREFIX + '.' + this._getKey();
+                if (event.key === storageKey) {
+                    if (!event.newValue) {
+                        return;
+                    }
+                    var value = angular.fromJson(event.newValue);
+                    if (value.data) {
+                        angular.forEach(this.listeners, function (callback) {
+                            callback(value.data);
+                        });
+                    }
+                }
+            };
+
+            /**
+             * Gets the presence info cache key
+             * @return {string}
+             */
+            DashCache.prototype._getKey = function () {
+                return this.userUid + '.Dash';
+            };
+
+            /**
+             * Gets the presece info data
+             * @return {object}
+             */
+            DashCache.prototype.get = function () {
+                var item = eoStorage.getItem(this._getKey());
+                return item ? item.data : {};
+            };
+
+            /**
+             * Clears the cache item
+             */
+            DashCache.prototype.clear = function () {
+                return eoStorage.removeItem(this._getKey());
+            };
+
+            /**
+             * Auxiliary function to convert a plain array into an associative one
+             * @param  {array} items
+             * @param  {string} key
+             * @return {object}
+             */
+            DashCache.prototype.toAssociativeArray = function (items, key) {
+                var out = {};
+                angular.forEach(items, function (item) {
+                    out[item[key]] = item;
+                });
+                return out;
+            };
+
+            /**
+             * Converts an associative array to a plain array
+             * @param  {object} items
+             * @return {array}
+             */
+            DashCache.prototype.toPlainArray = function (items) {
+                var out = [];
+                angular.forEach(items, function (item) {
+                    out.push(item);
+                });
+                return out;
+            };
+
+            /**
+             * Updates the counts, merging with the existing data
+             * @param  {array} counts
+             */
+            DashCache.prototype.updateCounts = function (counts) {
+                var newCounts = angular.extend(
+                    this.toAssociativeArray(this.get().counts || [], 'orgId'),
+                    this.toAssociativeArray(counts, 'orgId')
+                );
+                this.put('counts', this.toPlainArray(newCounts));
+            };
+
+            /**
+             * Overrides only an item from the cache
+             * @param {string} key which item to override
+             * @param {object} newData new data to put
+             */
+            DashCache.prototype.put = function (key, newData) {
+                var data = this.get();
+                data[key] = newData;
+                this.store(data);
+            };
+
+            /**
+             * Stores the presence info cache
+             * @param  {object} data
+             */
+            DashCache.prototype.store = function (data) {
+                eoStorage.setItem(this._getKey(), {
+                    timestamp: Date.now(),
+                    data: data
+                });
+            };
+
+            /**
+             * Mark the cache as fresh
+             */
+            DashCache.prototype.markFresh = function () {
+                this.store(this.get());
+            };
+
+            /**
+             * Adds a listener for this cache, will be fired when the cache changes
+             * @param {Function} callback
+             */
+            DashCache.prototype.addListener = function (callback) {
+
+                // Automatically start listening for storage events
+                // when first listeners is added
+                if (this.listeners.length === 0) {
+                    angular.element($window).bind('storage', this._storageChangeBind);
+                }
+
+                this.listeners.push(callback);
+            };
+
+            /**
+             * Remove a listener for this cache
+             * @param {Function} callback
+             */
+            DashCache.prototype.removeListener = function (callback) {
+                var index = this.listeners.indexOf(callback);
+                if (index !== -1) {
+                    this.listeners.splice(index, 1);
+
+                    // Automatically stop listening for storage events if the
+                    // listeners reached zero
+                    if (this.listeners.length === 0) {
+                        angular.element($window).unbind('storage', this._storageChangeBind);
+                    }
+                }
+            };
+
+            /**
+             * Checks if the cache entry is valid, by checking the expiration and the data stored there
+             * @return {boolean}
+             */
+            DashCache.prototype.isValid = function () {
+                var now = Date.now();
+                var presenceInfo = eoStorage.getItem(this._getKey());
+
+                // Sanity check, the timestamp cannot never be greater than now
+                // that means time was changed at some point
+                // We only accepts cache that have complete data, otherwise ignore it
+                if (!presenceInfo || !presenceInfo.timestamp || !presenceInfo.data ||
+                    !presenceInfo.data.counts || presenceInfo.data.counts.length === 0 ||
+                    !presenceInfo.data.organizations || presenceInfo.data.organizations.length === 0 ||
+                    !presenceInfo.data.preferences || presenceInfo.timestamp > now) {
+                    return false;
+                }
+
+                return presenceInfo.timestamp > now - DASH_CACHE_EXPIRATION;
+            };
+
+            var cacheByUser = {};
+
+            return {
+                get: function (userUid) {
+                    if (!cacheByUser[userUid]) {
+                        cacheByUser[userUid] = new DashCache(userUid);
+                    }
+                    return cacheByUser[userUid];
+                }
+            };
+
+        }]);
+
+})();

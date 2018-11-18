@@ -1,0 +1,1 @@
+define("layout",["./about-service","./body-autoheight-directive","./connection-status-banner-directive","./mobile-download-banner-directive","./notification-permission-banner-directive","./update-banner-directive","./user-menu-directive","./presence-status-menu-directive"]);

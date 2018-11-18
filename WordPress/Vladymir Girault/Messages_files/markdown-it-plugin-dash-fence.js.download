@@ -1,0 +1,1 @@
+define(["./markdown-it-plugin-dash-helpers"],function(e){"use strict";var n=/<[^|]+\|([^>]+)>/gm;return function(t){var r=t.renderer.rules.fence;t.renderer.rules.fence=function(t,c,o,s,u){return t[c].content=s.escaped?e.unescape(t[c].content):t[c].content,t[c].content=e.demask(t[c].content),t[c].content=t[c].content.replace(n,"$1"),r.call(this,t,c,o,s,u)}}});

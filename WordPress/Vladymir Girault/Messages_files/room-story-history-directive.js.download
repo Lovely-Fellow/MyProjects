@@ -1,0 +1,1 @@
+define(["./room","angular"],function(t){"use strict";t.directive("eoRoomStoryHistory",function(){return{restrict:"E",scope:{story:"="},templateUrl:t.templatePath+"room-story-history-directive.html"}})});

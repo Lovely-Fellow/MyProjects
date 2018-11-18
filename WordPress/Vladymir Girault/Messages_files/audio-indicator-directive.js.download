@@ -1,0 +1,1 @@
+define(["./common"],function(t){"use strict";t.directive("eoAudioIndicator",function(){return{restrict:"E",templateUrl:function(){return t.templatePath+"audio-indicator-directive.html"},scope:{muteStream:"=",stream:"="}}})});

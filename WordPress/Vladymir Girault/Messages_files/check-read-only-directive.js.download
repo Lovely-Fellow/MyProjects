@@ -1,0 +1,1 @@
+define(["./common","angular"],function(n){"use strict";n.directive("eoCheckReadOnly",["$compile","eoDashContext",function(n,e){return{link:function(n,o){var t=function(){return n.readOnlyReason=e.isReadOnlyMode()?e.isReadOnlyMode():null,null!==n.readOnlyReason};n.$watch(t,function(){o.attr("disabled",t())})}}}])});

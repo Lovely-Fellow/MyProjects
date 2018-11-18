@@ -1,0 +1,1 @@
+define(["./common","angular"],function(n,r){"use strict";n.filter("nl2br",function(){return function(n){var t=n;return n&&r.isString(n)&&(t=n.replace(/\n/g,"<br />")),t}})});

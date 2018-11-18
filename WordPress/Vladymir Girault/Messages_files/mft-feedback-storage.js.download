@@ -1,0 +1,26 @@
+(function (angular) {
+
+    'use strict';
+
+    angular.module('mftFeedback').factory('MftFeedbackStorageService', MftFeedbackStorageService);
+
+    MftFeedbackStorageService.$inject = ['eoStorage', 'STORAGE_KEY'];
+
+    function MftFeedbackStorageService(eoStorage, STORAGE_KEY) {
+        return {
+            /**
+             * Saves state to the localStorage
+             * @param state
+             */
+            set: function (state) {
+                eoStorage.setItem(STORAGE_KEY, state);
+            },
+            /**
+             * Gets state from the localStorage
+             */
+            get: function () {
+                return eoStorage.getItem(STORAGE_KEY);
+            }
+        };
+    }
+})(angular);

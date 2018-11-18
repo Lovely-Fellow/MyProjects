@@ -1,0 +1,1 @@
+define(["./common","angular","autolinker"],function(n,r,e){"use strict";n.factory("autolinker",function(){var n={newWindow:!0,stripPrefix:!1,urls:!0,email:!0,twitter:!1,phone:!1};return{link:function(t,i){var u;return u=r.isFunction(i)?{replaceFn:function(n){return i(n)}}:i||{},u=r.extend({},n,u),e.link(t,u)},parse:function(n,r){return e.parse(n,r)}}})});

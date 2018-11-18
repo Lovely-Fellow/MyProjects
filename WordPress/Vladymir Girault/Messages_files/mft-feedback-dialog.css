@@ -1,0 +1,18 @@
+.mft-controls-block {
+    border-bottom: solid 1px #E0E0E0;
+}
+.mft-rate {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mft-feedback-modal .mft-rate .checkbox-replacement-helper {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.mft-feedback-modal .mft-rate .radio label {
+    text-align: center !important;
+    border-bottom: none;
+    border-top: none;
+}

@@ -1,0 +1,1 @@
+define(["./common"],function(e){"use strict";e.filter("baseImageUrl",["eoDashConfig",function(e){return function(n){var t=e.assets.url+e.imagesPath;return 0!==n.indexOf("/")&&(t+="/"),t+=n}}])});

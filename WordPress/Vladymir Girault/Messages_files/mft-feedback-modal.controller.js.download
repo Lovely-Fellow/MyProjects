@@ -1,0 +1,39 @@
+(function (angular) {
+
+    'use strict';
+
+    angular.module('mftFeedback').controller('MftFeedbackModalController', MftFeedbackModalController);
+
+    MftFeedbackModalController.$inject = [
+        '$scope',
+        'MftFeedbackStateService',
+        'MftFeedbackApiService'
+    ];
+
+    function MftFeedbackModalController($scope, MftFeedbackStateService, MftFeedbackApiService) {
+        $scope.feedbackResults = {
+            meetsMyNeedsRate: null,
+            easyToUseRate: null,
+            experience: ''
+        };
+        $scope.isSubmitEnabled = false;
+
+        $scope.submit = function () {
+            MftFeedbackApiService.sendFeedback($scope.feedbackResults).then(function () {
+                MftFeedbackStateService.setSubmitted();
+            });
+            $scope.$close(true);
+        };
+
+        $scope.$on('modal.closing', function (event, result, isSubmited) {
+            if (!isSubmited) {
+                MftFeedbackStateService.setDismissed();
+            }
+        });
+
+        $scope.$watchCollection('feedbackResults', function (value) {
+            $scope.isSubmitEnabled = !!value.meetsMyNeedsRate || !!value.easyToUseRate;
+        });
+    }
+
+})(angular);

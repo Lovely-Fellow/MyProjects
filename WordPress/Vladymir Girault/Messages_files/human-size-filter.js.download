@@ -1,0 +1,1 @@
+define(["./common"],function(t){"use strict";t.filter("humanSize",function(){return function(t){if(t<=0)return"0 bytes";var o=["bytes","kB","MB","GB","TB","PB"],n=Math.floor(Math.log(t)/Math.log(1024)),e=0===n?0:2;return(t/Math.pow(1024,Math.floor(n))).toFixed(e)+" "+o[n]}})});

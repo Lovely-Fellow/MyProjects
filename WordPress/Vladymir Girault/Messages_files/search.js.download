@@ -1,0 +1,1 @@
+define(["angular","template-path","ui.utils","config-service"],function(e,o){"use strict";var t=e.module("eoSearch",["ui.utils","eoCommon","eoDashConfig","components.core.log"]);return t.templatePath=o("search/"),t});

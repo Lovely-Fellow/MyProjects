@@ -1,0 +1,1 @@
+define(["../plugins-webhooks/integration-detail","angular"],function(){"use strict";return["$scope","$state","$http","$q","$window","eoRooms","eoRoomDialog","eoAuth","eoPluginsDetailService","googleCode",function(o,e,t,n,i,a,l,g,c,s){c.googleCalendarStoreAccessTokenFromOauthCode(s).then(function(o){e.go("googlecalendarselect",{id:o.applicationId})})}]});

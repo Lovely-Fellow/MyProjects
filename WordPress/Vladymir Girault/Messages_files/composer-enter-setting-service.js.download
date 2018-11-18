@@ -1,0 +1,1 @@
+define(["./common"],function(n){"use strict";n.factory("eoComposerEnterSetting",function(){var n=!1;return{set:function(t){n=t},get:function(){return n}}})});

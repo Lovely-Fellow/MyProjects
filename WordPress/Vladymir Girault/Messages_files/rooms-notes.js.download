@@ -1,0 +1,1 @@
+define(["angular","./rooms-notes-controller","ui.router"],function(o,e){"use strict";var t=o.module("eoRoomsNotes",["ui.router","eoCommon"]);return t.config(["$stateProvider",function(o){o.state("rooms.chat.notes",{url:"/notes",params:{sidePanel:!0},templateUrl:"@templates/rooms/rooms-notes/rooms-notes.html",controller:e})}]),t});

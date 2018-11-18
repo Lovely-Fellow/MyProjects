@@ -1,0 +1,1 @@
+define([],function(){"use strict";return function(e){function r(e){e.env.escaped&&c.test(e.src)&&(e.src=e.src.replace(c,">"))}var c=/^&gt;/gim;e.core.ruler.before("normalize","dash_blockquote",r)}});

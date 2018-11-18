@@ -1,0 +1,1 @@
+define(["./common","angular","lodash"],function(n,t,o){"use strict";n.factory("eoOrganizationCollection",function(){var n={findById:function(n){return o.find(this,{uid:n})},getSoleProprietor:function(){return o.find(this,{type:"SoleProprietor"})}};return{mixInto:function(o){return t.extend(o,n)}}})});

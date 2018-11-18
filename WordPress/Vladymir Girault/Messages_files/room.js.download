@@ -1,0 +1,1 @@
+define(["angular","template-path","ui.utils","config-service","angDragDrop"],function(o,e){"use strict";var a=o.module("eoRoom",["ui.utils","eoCommon","eoDashConfig","ang-drag-drop"]);return a.templatePath=e("room/"),a});

@@ -1,0 +1,1 @@
+define(["./common"],function(e){"use strict";e.factory("eoCacheSync",["$interval","eoAuth","eoDashConfig","eoDashCache","tlSocket",function(e,n,t,c,a){var o,r=function(){if(a.isConnected()){var e=c.get(n.user.userId);try{e.markFresh()}catch(e){}}};return{start:function(){t.enableDashCache&&(o||(o=e(r,59e3,0,!1)))},stop:function(){t.enableDashCache&&o&&(e.cancel(o),o=null)}}}])});

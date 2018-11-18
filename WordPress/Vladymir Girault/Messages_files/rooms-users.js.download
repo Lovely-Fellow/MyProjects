@@ -1,0 +1,1 @@
+define(["angular","./rooms-users-controller","ui.router"],function(r,o){"use strict";var e=r.module("eoRoomsUsers",["ui.router","eoCommon"]);return e.config(["$stateProvider",function(r){r.state("rooms.chat.users",{url:"/users",params:{sidePanel:!0},templateUrl:"@templates/rooms/rooms-users/rooms-users.html",controller:o})}]),e});

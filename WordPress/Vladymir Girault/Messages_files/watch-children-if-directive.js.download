@@ -1,0 +1,1 @@
+define(["./common","angular"],function(n){"use strict";n.directive("watchChildrenIf",function(){return{restrict:"A",link:function(n,i,c){var t=n.$$childHead,d=n.$watch(c.watchChildrenIf,function(i){t=t||n.$$childHead,n.$$childHead=i?t:void 0});n.$on("$destroy",function(){d(),n.$$childHead=t,t=null})}}})});

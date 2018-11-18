@@ -1,0 +1,1 @@
+define(["./common","rxjs"],function(t,n){"use strict";t.factory("upUpdatedStoryObservable",["tlStory",function(t){var r=n.Observable.create(function(n){return t.$on("updatedStory",function(t){n.next(t)})}),e=new n.Subject,o=r.multicast(e).refCount();return o.room=function(t){return o.filter(function(n){return n.roomId===t})},o}])});
