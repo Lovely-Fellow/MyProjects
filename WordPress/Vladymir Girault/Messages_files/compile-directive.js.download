@@ -1,1 +1,0 @@
-define(["./common","angular"],function(n){"use strict";n.directive("eoCompile",["$compile",function(n){return function(e,t,o){e.$watch(function(n){return n.$eval(o.eoCompile)},function(o){t.html(o),n(t.contents())(e)})}}])});

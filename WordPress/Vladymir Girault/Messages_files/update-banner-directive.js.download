@@ -1,1 +1,0 @@
-define(["./layout"],function(e){"use strict";e.directive("eoUpdateBanner",function(){return{restrict:"EA",scope:!0,templateUrl:function(){return e.templatePath+"update-banner-directive.html"}}})});

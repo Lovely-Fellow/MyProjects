@@ -1,1 +1,0 @@
-define(["./room"],function(t){"use strict";t.directive("eoRoomStoryExport",function(){return{restrict:"EA",replace:!0,scope:!0,templateUrl:t.templatePath+"room-story-export-directive.html"}})});

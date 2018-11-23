@@ -1,1 +1,0 @@
-define(["./common"],function(t){"use strict";t.factory("eoApplet",["$window",function(t){return{getVar:function(n){return t.Applet?t.Applet.getVar(n):null},getOrganization:function(){return t.Applet?t.Applet.getOrganization():null}}}])});

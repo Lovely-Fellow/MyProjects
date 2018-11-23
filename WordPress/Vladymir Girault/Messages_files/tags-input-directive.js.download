@@ -1,1 +1,0 @@
-define(["./common"],function(n){"use strict";n.directive("tagsInput",["$timeout",function(n){return{restrict:"E",link:function(t,i,u){"autofocus"in u&&n(function(){i.find("input")[0].focus()},50)}}}])});

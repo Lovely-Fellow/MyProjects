@@ -1,1 +1,0 @@
-define(["angular","./error-controller","ui.router","autofill"],function(r,e){"use strict";var o=r.module("eoError",["ui.router","autofill-directive"]);return o.config(["$stateProvider",function(r){r.state("error",{templateUrl:"@templates/error/error.html",resourceGroups:["public"],controller:e,params:{data:{showDiagnose:!1,showReload:!0}}})}]),o});

@@ -1,1 +1,0 @@
-define(["../room"],function(n){"use strict";n.constant("COMPOSER_MENTION_END_MARKER","​").constant("COMPOSER_LOOKUP_KEY_MARKER","")});

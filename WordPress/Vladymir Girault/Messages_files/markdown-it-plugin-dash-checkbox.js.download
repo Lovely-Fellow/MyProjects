@@ -1,1 +1,0 @@
-define(["markdownItTaskCheckbox"],function(e){"use strict";return function(o){return e(o,{disabled:!1,ulClass:"room-notes-checkbox",liClass:"notes-checkbox-item",idPrefix:"notes_checkbox_"})}});

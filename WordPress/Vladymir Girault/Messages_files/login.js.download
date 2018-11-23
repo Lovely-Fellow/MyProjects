@@ -1,1 +1,0 @@
-define(["angular","./login-controller","ui.router","autofill"],function(o,e){"use strict";return o.module("eoLogin",["ui.router","autofill-directive","eoCommon"]).config(["$stateProvider","eoDashConfig",function(o,l){o.state("login",{url:l.prefixURL+"/login",templateUrl:"@templates/login/login.html",resourceGroups:["public"],controller:e,params:{data:null}})}])});

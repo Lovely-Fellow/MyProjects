@@ -1,1 +1,0 @@
-define("search",["./search","./search-spotlight-directive","./search-service"]);

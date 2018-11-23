@@ -1,1 +1,0 @@
-define([],function(){"use strict";return function(e,r){var t=e.renderer.rules.text;e.renderer.rules.text=function(e,n,o,i,u){var c;return c=t.call(this,e,n,o,i,u),i.emoji&&(c=i.toUnicode?r.shortnameToUnicode(c):r.toImage(c)),c}}});

@@ -1,1 +1,0 @@
-define(["angular","./rooms-panel-controller","ui.router"],function(e,o){"use strict";var r=e.module("eoRoomsPanel",["ui.router","eoCommon"]);return r.config(["$stateProvider",function(e){e.state("rooms.chat.panel",{url:"/panel/{panel}",params:{sidePanel:!0},templateUrl:"@templates/rooms/rooms-panel/rooms-panel.html",controller:o,controllerAs:"panel"})}]),r});

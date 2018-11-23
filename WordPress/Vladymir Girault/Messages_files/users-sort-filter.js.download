@@ -1,1 +1,0 @@
-define(["./common"],function(e){"use strict";e.filter("usersSort",["orderByFilter","eoUserPresence",function(e,r){var n=function(e){return console.log(e.userId,r.presence[e.userId]),"online"===r.presence[e.userId]?1:"away"===r.presence[e.userId]?2:3};return function(r){return e(r,[n,"info.fullName"])}}])});

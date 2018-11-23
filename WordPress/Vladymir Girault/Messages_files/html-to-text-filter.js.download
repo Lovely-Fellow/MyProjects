@@ -1,1 +1,0 @@
-define(["./common","angular","lodash"],function(n,e,t){"use strict";n.filter("htmlToText",["$sanitize",function(n){var r=e.element("<div/>");return function(e){return e?(e=t.trim(e.replace(/<br\s*\/?>\n?/gm,"\n").replace(/<\/p>/g,"</p>\n").replace(/<\/p>\n\n<\/li>/g,"</p>\n</li>"),"\n"),r.html(n(e)).text()):""}}])});

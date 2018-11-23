@@ -1,1 +1,0 @@
-define(["./app-init-common"],function(){"use strict";window.upDashMetrics=window.upDashMetrics||{},window.upDashMetrics.appInitCommonLoaded=window.performance.now(),require(["./app"],function(){window.upDashMetrics.appLoaded=window.performance.now()}),require(["./loading-tip"])});

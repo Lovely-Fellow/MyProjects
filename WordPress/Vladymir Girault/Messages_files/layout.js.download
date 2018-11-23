@@ -1,1 +1,0 @@
-define(["angular","template-path","../common/main"],function(t,e){"use strict";var a=t.module("eoLayout",["eoCommon"]);return a.templatePath=e("layout/"),a});

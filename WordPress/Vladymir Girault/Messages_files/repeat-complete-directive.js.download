@@ -1,1 +1,0 @@
-define(["./common"],function(e){"use strict";e.directive("eoRepeatComplete",function(){return{restrict:"A",scope:!0,link:function(e,t,n){e.$last&&e.$eval(n.eoRepeatComplete)}}})});

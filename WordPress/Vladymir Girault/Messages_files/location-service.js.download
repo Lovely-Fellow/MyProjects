@@ -1,1 +1,0 @@
-define(["./common"],function(n){"use strict";return n.config(["$provide",function(n){n.decorator("$location",["$delegate","$window","$httpParamSerializer",function(n,i,o){return n.navigate=function(n,t){t&&(n+="?"+o(t)),i.location.assign(n)},n}])}])});

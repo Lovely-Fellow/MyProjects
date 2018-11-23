@@ -1,1 +1,0 @@
-define(["./common","emojione","emojione-config"],function(o,n,e){"use strict";o.factory("emojione",function(){return e(n),n})});

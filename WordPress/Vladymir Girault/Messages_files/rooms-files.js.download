@@ -1,1 +1,0 @@
-define(["angular","./rooms-files-controller","ui.router"],function(o,e){"use strict";var r=o.module("eoRoomsFiles",["ui.router","eoCommon"]);return r.config(["$stateProvider",function(o){o.state("rooms.chat.files",{url:"/files",params:{sidePanel:!0},templateUrl:"@templates/rooms/rooms-files/rooms-files.html",controller:e})}]),r});

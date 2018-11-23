@@ -1,1 +1,0 @@
-define(["./common"],function(t){"use strict";t.provider("eoMutationObserver",function(){this.$get=["$window",function(t){function r(t){if(!e)throw new Error('"window.MutationObserver" is not supported');return new e(t)}var e=t.MutationObserver||t.WebKitMutationObserver;return r.supported=!!e,r}]})});

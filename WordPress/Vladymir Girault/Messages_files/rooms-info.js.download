@@ -1,1 +1,0 @@
-define(["angular","./rooms-info-controller","ui.router"],function(o,r){"use strict";var e=o.module("eoRoomsInfo",["ui.router","eoCommon"]);return e.config(["$stateProvider",function(o){o.state("rooms.chat.info",{url:"/info",params:{sidePanel:!0,edit:!1,focus:void 0},templateUrl:"@templates/rooms/rooms-info/rooms-info.html",controller:r})}]),e});
