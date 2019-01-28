@@ -1,0 +1,346 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+  /* Select Files from FileDialog */
+  window.onload = function() {
+      if (typeof window.FileReader !== 'function') {
+          alert("The file API isn't supported on this browser yet.");
+      }
+    if (!document.getElementById("board").style.zoom)
+      document.getElementById("board").style.zoom = 1;   
+  }
+  
+  function Reload()
+  {
+    filenames = [];
+    filecontents = [];
+    location.reload();
+  }
+  function readmultifiles(files) {
+  
+    var ul = document.querySelector("#bag>ul");
+    while (ul.hasChildNodes()) {
+        ul.removeChild(ul.firstChild);
+    }
+    // Read first file
+    setup_reader(files, 0);
+    
+  }
+
+  // Don't define functions in functions in functions, when possible.
+
+  function setup_reader(files, i) {
+    var file = files[i];
+    var name = file.name;
+    var reader = new FileReader();
+    reader.onload = function(e){
+        readerLoaded(e, files, i, name);
+    };
+    reader.readAsBinaryString(file);
+    // After reading, read the next file.
+  }
+
+  function readerLoaded(e, files, i, name) {
+    // get file content  
+    var bin = e.target.result;
+    // do sth with text
+    filenames.push(name);
+    filecontents.push(bin);
+    
+    // If there's a file left to load
+    if (i < files.length - 1) {
+        // Load the next file
+        setup_reader(files, i+1);
+    }
+    else{
+      redrawchart();
+    }
+  }
+  
+  /*function week_compare(a, b)
+  {
+    a_week = a.c[0].v.split(" ");
+    a_wno = getweekno(a_week[0]);
+    a_startdate = a.c[1].v;
+    a_enddate = a.c[2].v;
+    
+    b_week = b.c[0].v.split(" ");
+    b_wno = getweekno(b_week[0]);
+    b_startdate = b.c[1].v;
+    b_enddate = b.c[2].v;
+    if (a_wno != b_wno)
+    {
+      alert(a_wno + "," + b_wno);
+      return a_wno < b_wno;
+    }
+    
+    return 0;
+  }*/
+  //weekdays = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
+  filenames = [];
+  filecontents = [];
+  monstr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  weekstr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  google.charts.load("current", {packages:["timeline"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function getweekno(weekname)
+  {
+      for (i = 0; i < weekstr.length; i ++)
+        if (weekname == weekstr[i])
+          return i;
+      return -1;
+  }
+
+  function getDayOfWeek(date) {
+    var dayOfWeek = new Date(date).getDay();    
+    return isNaN(dayOfWeek) ? null : weekstr[dayOfWeek];
+  }
+
+  function redrawchart()
+  {
+    var container = document.getElementById('board');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    interval = document.getElementById('interval').value;
+    barcolor = document.getElementById('barcolor').value;
+    
+    if (!interval)
+      interval = 30;
+    
+    dataTable.addColumn({ type: 'string', id: 'Date' });
+    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+
+    var options = {
+      timeline: { singleColor: barcolor },
+      avoidOverlappingGridLines: false,
+      width: '100%', 
+      height: '100%',
+    };
+     
+    for (i = 0; i < filenames.length; i ++)
+    {
+      //weekname0 = filenames[i].substring(0, filenames[i].lastIndexOf('.txt'));
+   
+     
+      inputline = filecontents[i].split("\n");
+     
+      //weekno = getweekno(weekname0);
+      
+      for (iline = 0; iline < inputline.length; iline ++)
+      {
+       
+          //parsing "Content.js:14 11/2/2018, 10:30:28 AM : The contact goes online/offline"
+          linedata0 = inputline[iline].split(" : ");
+          if (linedata0.length != 2)
+          {
+            console.log("Bad File Format 1:" + filenames[i]) ;
+            break;
+          }
+         
+          on_off_status = linedata0[1];// The contact goes online
+          linedata1 = linedata0[0].split(", ");
+          if (linedata1.length != 2)
+          {
+            console.log("Bad File Format 2:" + filenames[i]);
+            return;
+          }
+         
+          time_apm_val = linedata1[1]; // 10:30:28 AM
+          linedata2 = linedata1[0].split(" ");
+          if (linedata2.length != 2)
+          {
+            console.log("Bad File Format 3:" + filenames[i]);
+            return;
+          }
+       
+          date_val = linedata2[1]; // 11/2/2018
+          linedata3 = time_apm_val.split(" ");
+          if (linedata3.length != 2)
+          {
+            console.log("Bad File Format 4:" + filenames[i]);
+            return;
+          }
+         
+          time_val = linedata3[0]; // 10:30:28
+          apm_val = linedata3[1].toUpperCase(); // PM
+          linedata4 = time_val.split(":");
+          if (linedata4.length != 3)
+          {
+            console.log("Bad File Format 5:" + filenames[i]);
+            return;
+          }
+     
+        
+          hour_val = linedata4[0];
+          min_val = linedata4[1];
+          sec_val = linedata4[2];
+     
+          linedata5 = date_val.split("/");
+          if (linedata5.length != 3)
+          {
+            console.log("Bad File Format 6:" + filenames[i]);
+            return;
+          }
+          
+          mon_val = linedata5[0];
+          day_val = linedata5[1];
+          year_val = linedata5[2];
+          
+          weekno = new Date(year_val, mon_val - 1, day_val).getDay();
+         
+          weekname = weekstr[weekno];
+     
+          
+          topic = weekname + " " + monstr[mon_val - 1] + " " + day_val;
+          
+          if (apm_val == "PM" && hour_val < 12)
+            hour_val = parseInt(hour_val, 10) + 12;
+          else if (apm_val == "AM" && hour_val == 12)
+          {
+            hour_val = 0;
+          }
+         
+          if (on_off_status.indexOf("online") > 0)
+          {
+              start_date = new Date(0, 0, 0, hour_val, min_val, (parseInt((sec_val - 1)/ interval) + 1) * interval);
+              
+          }
+          else
+          {
+            
+              end_date = new Date(0, 0, 0, hour_val, min_val, parseInt(sec_val / interval) * interval);
+              
+              if (end_date >= start_date)
+              {
+                
+                dataTable.addRows([
+                  [ topic, '', start_date,  end_date ]
+                  
+                ]);
+              }
+          }
+ 
+      }
+    }
+
+    chart.draw(dataTable, options);
+    
+  }
+  
+  function drawChart() {
+
+    /*var container = document.getElementById('board');
+    barcolor = document.getElementById('barcolor').value;
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({ type: 'string', id: 'Date' });
+    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    
+    dataTable.addRows([
+      [ 'Week Month Day', '',       new Date(0,0,0,0,0,0),  new Date(0,0,0,0,0,0) ],
+      [ 'Week Month Day', '',       new Date(0,0,0,24,0,0),  new Date(0,0,0,24,0,0) ]
+     ]);
+    
+    
+    var options = {
+      timeline: { singleColor: barcolor },
+      width: 0,
+    };*/
+
+
+    //chart.draw(dataTable, options);
+    
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd<10) {
+        dd = '0'+dd
+    } 
+
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+
+    today = mm + '/' + dd + '/' + yyyy;
+    filenames.push("Tue.txt");
+    
+    filecontents.push("Content.js:14 " + today + ", 12:0:0 AM : The contact goes online\n" +
+                      "Content.js:14 " + today + ", 12:0:30 AM : The contact goes offline\n" +
+                      "Content.js:14 " + today + ", 23:59:00 PM : The contact goes online\n" + 
+                      "Content.js:14 " + today + ", 23:59:30 PM : The contact goes offline");
+    
+    
+    redrawchart();
+  
+  }
+
+  function zoomIn()
+
+  {
+
+    var Page = document.getElementById('board');
+  
+    var zoom = parseFloat(Page.style.zoom) + 0.1;
+    Page.style.zoom = zoom;
+    document.getElementById('zoomvalue').value = zoom.toFixed(1);
+    return false;
+
+  }
+
+  function zoomOut()
+
+  {
+    
+    var Page = document.getElementById('board');
+  
+    var zoom = parseFloat(Page.style.zoom) - 0.1;
+    if (zoom <= 0)
+    {
+      return false;
+    }
+    
+    Page.style.zoom = zoom;
+    document.getElementById('zoomvalue').value = zoom.toFixed(1);
+    return false;
+
+  }
+  function zoom1()
+
+  {
+    
+    var Page = document.getElementById('board');
+
+    Page.style.zoom = 1;
+    document.getElementById('zoomvalue').value = 1;
+    return false;
+
+  }
+</script>
+ <body>
+
+  
+  <button onclick="Reload();"> Reload </button>
+  <input type="file" id="filesx" name="filesx[]"
+    onchange="readmultifiles(this.files);" multiple=""/>
+  
+  <label for="interval">color:</label>
+  <input id="barcolor" type="color" value="#555588"  onchange="redrawchart();"/>
+  <label for="interval">zoom:</label>
+  <button onclick="zoomOut()"> - </button>
+  <input type="button" id="zoomvalue" onclick="zoom1()" value="1"> 
+  <button onclick="zoomIn()"> + </button>
+  <label for="interval">interval:</label>
+  <input id="interval" value=30 style="text-align: right;" />
+  <input type="button" value="Redraw" onClick="redrawchart();"/>
+  
+  <div id="bag"><ul/></div>
+  <pre id="data" ></pre>
+  <div id="board" style="height: 100%;"></div>
+
+</body>

@@ -1,0 +1,9 @@
+<wpml-config>
+    <custom-types>
+        <custom-type translate="1">customizer</custom-type>
+    </custom-types>
+    <custom-fields>
+        <custom-field action="translate">customizer</custom-field>
+        <custom-field action="translate">customizer-settings</custom-field>
+    </custom-fields>
+</wpml-config>

@@ -1,0 +1,1 @@
+jQuery(function(n){n("#sortable").sortable({update:function(e,t){var i=[],r=n("#sortable")[0].baseURI;n("#sortable tr").each(function(){var e=n(this).find("td");if(0!==r.indexOf("color-settings")){var t={};t.name=e[0].innerHTML,t.value=e[1].innerHTML,i.push(t)}else i.push(e[0].innerHTML)}),i=JSON.stringify(i),n.post(r,{new_position:i})}})});
