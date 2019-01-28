@@ -1,9 +1,0 @@
-.idea/
-*.pyc
-__pycache__/
-log/
-*.pid
-*.sqlite3
-*.sh
-*.map
-temp/
