@@ -1,0 +1,123 @@
+var xscape_vex_blog;
+
+(function ($, window, document, undefined) {
+    xscape_vex_blog = {
+        init: function() {
+            $("#d4p-contact-dropdown").change(function(){
+                var selected = $(this).val();
+
+                $(".d4p-contact-box").hide();
+
+                if (selected !== "") {
+                    $(".d4p-contact-" + selected).show();
+                }
+            });
+
+            if ($("body.page-template-templatesstatistics-php").length > 0) {
+                xscape_vex_blog.stats();
+            }
+        },
+        stats: function() {
+            var php = JSON.parse($("#stats-for-php-data").html()),
+                ctx_php = document.getElementById("stats-for-php-canvas"),
+                mysql = JSON.parse($("#stats-for-mysql-data").html()),
+                ctx_mysql = document.getElementById("stats-for-mysql-canvas"),
+                wp = JSON.parse($("#stats-for-wordpress-data").html()),
+                ctx_wp = document.getElementById("stats-for-wordpress-canvas");
+
+            new Chart(ctx_php, {
+                type: 'pie',
+                data: php,
+                options: {
+                    title: {
+                        display: true,
+                        fontSize: 24,
+                        fontFamily: "Roboto Slab, serif",
+                        text: 'PHP Usage Statistics'
+                    },
+                    legend: {
+                        position: "top",
+                        labels: {
+                            fontSize: 14,
+                            padding: 12
+                        }
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: xscape_vex_blog.chart.tooltip
+                        }
+                    }
+                }
+            });
+
+            new Chart(ctx_mysql, {
+                type: 'pie',
+                data: mysql,
+                options: {
+                    title: {
+                        display: true,
+                        fontSize: 24,
+                        fontFamily: "Roboto Slab, serif",
+                        text: 'MySQL Usage Statistics'
+                    },
+                    legend: {
+                        position: "top",
+                        labels: {
+                            fontSize: 14,
+                            padding: 12
+                        }
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: xscape_vex_blog.chart.tooltip
+                        }
+                    }
+                }
+            });
+
+            new Chart(ctx_wp, {
+                type: 'pie',
+                data: wp,
+                options: {
+                    title: {
+                        display: true,
+                        fontSize: 24,
+                        fontFamily: "Roboto Slab, serif",
+                        text: 'WordPress Usage Statistics'
+                    },
+                    legend: {
+                        position: "top",
+                        labels: {
+                            fontSize: 14,
+                            padding: 12
+                        }
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: xscape_vex_blog.chart.tooltip
+                        }
+                    }
+                }
+            });
+        },
+        chart: {
+            tooltip: function(tooltipItem, data) {
+                var allData = data.datasets[tooltipItem.datasetIndex].data,
+                    length = allData.length,
+                    tooltipLabel = data.labels[tooltipItem.index],
+                    tooltipData = allData[tooltipItem.index],
+                    total = 0, i;
+
+                for (i = 0; i < length; i++) {
+                    total += allData[i];
+                }
+
+                var tooltipPercentage = Math.round((tooltipData / total) * 10000) / 100;
+
+                return tooltipLabel + ': ' + tooltipPercentage + '%';
+            }
+        }
+    };
+
+    xscape_vex_blog.init();
+}(jQuery, window, window.document));

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://wordpress.org/plugins/wp-all-export/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" class="gr__wordpress_org"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" async="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/analytics.js.download"></script><script async="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P24PF4B');</script>
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export WordPress data to XML/CSV | WordPress.org</title>
+<meta name="referrer" content="always">
+
+
+<link rel="shortcut icon" href="https://s.w.org/favicon.ico?2" type="image/x-icon">
+<link rel="pingback" href="https://wordpress.org/plugins/xmlrpc.php">
+<script type="application/ld+json">
+	[
+		{
+			"@context": "http://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"item": {
+						"@id": "https://wordpress.org/",
+						"name": "WordPress"
+					}
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"item": {
+						"@id": "https:\/\/wordpress.org\/plugins\/",
+						"name": "WordPress Plugins"
+					}
+				}
+			]
+		},
+		{
+			"@context": "http://schema.org",
+			"@type": "SoftwareApplication",
+			"applicationCategory": "http://schema.org/OtherApplication",
+			"name": "Export WordPress data to XML\/CSV",
+			"description": "WP All Export is an extremely powerful exporter that makes it easy to export any XML, CSV, or Excel file from WordPress.",
+			"softwareVersion": "1.2.1",
+			"fileFormat": "application/zip",
+			"downloadUrl": "https:\/\/downloads.wordpress.org\/plugin\/wp-all-export.1.2.1.zip",
+			"dateModified": "2018-08-30T20:40:50+00:00",
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"worstRating": 0,
+				"bestRating": 5,
+				"ratingValue": "4.6",
+				"ratingCount": 177,
+				"reviewCount": 177
+			},
+			"interactionStatistic": {
+				"@type": "InteractionCounter",
+				"interactionType": "http://schema.org/DownloadAction",
+				"userInteractionCount": 400397
+			},
+			"offers": {
+				"@type": "Offer",
+				"price": "0.00",
+				"priceCurrency": "USD",
+				"seller": {
+					"@type": "Organization",
+					"name": "WordPress.org",
+					"url": "https://wordpress.org"
+				}
+			}
+		}
+	]
+</script>
+		<meta name="description" value="WP All Export is an extremely powerful exporter that makes it easy to export any XML, CSV, or Excel file from WordPress."><link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" href="https://wordpress.org/plugins/wp-all-export/" hreflang="en">
+<link rel="alternate" href="https://wordpress.org/plugins/wp-all-export/" hreflang="x-default">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/wordpress.org\/plugins\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0-RC1-43947"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Export WordPress data to XML_CSV _ WordPress.org_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="dashicons-css" href="./Export WordPress data to XML_CSV _ WordPress.org_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Export WordPress data to XML_CSV _ WordPress.org_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Export WordPress data to XML_CSV _ WordPress.org_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="open-sans-css" href="./Export WordPress data to XML_CSV _ WordPress.org_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="wporg-style-css" href="./Export WordPress data to XML_CSV _ WordPress.org_files/style.css" type="text/css" media="all">
+<link rel="https://api.w.org/" href="https://wordpress.org/plugins/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://wordpress.org/plugins/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://wordpress.org/plugins/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.0-RC1-43947">
+<link rel="canonical" href="https://wordpress.org/plugins/wp-all-export/">
+<link rel="shortlink" href="https://wordpress.org/plugins/?p=27150">
+<link rel="alternate" type="application/json+oembed" href="https://wordpress.org/plugins/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwp-all-export%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://wordpress.org/plugins/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwp-all-export%2F&amp;format=xml">
+	<style>
+		@media screen and (max-width: 782px) {
+			#wpadminbar li#wp-admin-bar-log-in,
+			#wpadminbar li#wp-admin-bar-register {
+				display: block;
+			}
+
+			#wpadminbar li#wp-admin-bar-log-in a,
+			#wpadminbar li#wp-admin-bar-register a {
+				padding: 0 8px;
+			}
+		}
+	</style>
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<meta property="og:title" content="Export WordPress data to XML/CSV">
+<meta property="og:description" content="WP All Export is an extremely powerful exporter that makes it easy to export any XML, CSV, or Excel file from WordPress.">
+<meta property="og:site_name" content="WordPress.org">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wordpress.org/plugins/wp-all-export/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@WordPress">
+<meta property="og:image" content="https://ps.w.org/wp-all-export/assets/banner-772x250.png?rev=835969">
+<meta name="thumbnail" content="https://ps.w.org/wp-all-export/assets/icon-256x256.png?rev=1216907">
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+
+</head>
+
+
+<body id="wordpress-org" class="plugin-template-default single single-plugin postid-27150 admin-bar no-customize-support js" data-gr-c-s-loaded="true">
+<script type="text/javascript">document.body.className = document.body.className.replace('no-js','js');</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P24PF4B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="wporg-header">
+	<div class="wrapper">
+		<button id="mobile-menu-button" aria-expanded="false"><span class="screen-reader-text">Toggle Menu</span></button>
+	<h1><a href="https://wordpress.org/">WordPress.org</a></h1>				<div id="head-search">
+		<form action="https://wordpress.org/search/do-search.php" method="get">
+			<label for="global-search" class="screen-reader-text">Search WordPress.org for:</label>
+			<input id="global-search" class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org">
+			<button type="submit" class="button"><span class="screen-reader-text">Submit</span></button>
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul id="wporg-header-menu" aria-expanded="false" class=" nav-menu">
+<li class="menu-item"><a href="https://wordpress.org/showcase/" title="See some of the sites built on WordPress.">Showcase</a></li>
+<li class="menu-item"><a href="https://wordpress.org/themes/" title="Find just the right look for your website.">Themes</a></li>
+<li class="menu-item"><a href="https://wordpress.org/plugins/" title="Plugins can extend WordPress to do almost anything you can imagine." class="current">Plugins</a><div class="uparrow"></div></li>
+<li class="menu-item"><a href="https://wordpress.org/mobile/" title="Take your website on the go!">Mobile</a></li>
+<li class="menu-item"><a href="https://wordpress.org/support/" title="Forums, documentation, help.">Support</a><ul class="nav-submenu"><li><a href="https://wordpress.org/support/" title="Support and discussion forums.">Forums</a></li><li><a href="https://codex.wordpress.org/Main_Page" title="Documentation, tutorials, best practices.">Documentation</a></li></ul><div class="uparrow"></div></li>
+<li class="menu-item"><a href="https://make.wordpress.org/" title="Contribute your knowledge.">Get Involved</a></li>
+<li class="menu-item"><a href="https://wordpress.org/about/" title="About the WordPress Organization, and where we&#39;re going.">About</a></li>
+<li class="menu-item"><a href="https://wordpress.org/news/" title="Come here for the latest scoop.">Blog</a></li>
+<li class="menu-item"><a href="https://wordpress.org/hosting/" title="Find a home for your blog.">Hosting</a></li>
+<li id="download" class="button download-button menu-item"><a href="https://wordpress.org/download/" title="Get it. Got it? Good.">Get WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="https://wordpress.org/plugins/wp-all-export/#main">Skip to content</a>
+
+	<div id="content" class="site-content">
+		<header id="masthead" class="site-header " role="banner">
+			<div class="site-branding">
+									<p class="site-title"><a href="https://wordpress.org/plugins/" rel="home">Plugins</a></p>
+
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+						<button class="menu-toggle dashicons dashicons-arrow-down-alt2" aria-controls="primary-menu" aria-expanded="false" aria-label="Primary Menu"></button>
+						<div id="primary-menu" class="menu">
+							<ul aria-expanded="false" class=" nav-menu">
+																<li class="page_item"><a class="" href="https://wordpress.org/plugins/browse/favorites/">My Favorites</a></li>
+																<li class="page_item"><a class="" href="https://wordpress.org/plugins/browse/beta/">Beta Testing</a></li>
+																<li class="page_item"><a class="" href="https://wordpress.org/plugins/developers/">Developers</a></li>
+																<li><form role="search" method="get" class="search-form" action="https://wordpress.org/plugins/">
+	<label for="s" class="screen-reader-text">Search for:</label>
+	<input type="search" id="s" class="search-field" placeholder="Search plugins" value="" name="s">
+	<button class="button button-primary button-search"><i class="dashicons dashicons-search"></i><span class="screen-reader-text">Search plugins</span></button>
+</form>
+</li>
+							</ul>
+						</div>
+					</nav><!-- #site-navigation -->
+							</div><!-- .site-branding -->
+		</header><!-- #masthead -->
+
+	<main id="main" class="site-main" role="main">
+
+		
+<article id="post-27150" class="post-27150 plugin type-plugin status-publish hentry plugin_category-utilities-and-tools plugin_contributors-soflyy plugin_contributors-wpallimport plugin_committers-soflyy plugin_tags-csv plugin_tags-datafeed plugin_tags-wordpress-csv-export plugin_tags-wordpress-xml-export plugin_tags-xml">
+	<style type="text/css">#plugin-banner-wp-all-export { background-image: url('https://ps.w.org/wp-all-export/assets/banner-772x250.png?rev=835969'); }</style><div class="plugin-banner" id="plugin-banner-wp-all-export"></div>
+	<header class="plugin-header">
+		
+		<div class="entry-thumbnail">
+			<style type="text/css">#plugin-icon-wp-all-export { background-image: url('https://ps.w.org/wp-all-export/assets/icon-128x128.png?rev=1216907'); }@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) { #plugin-icon-wp-all-export { background-image: url('https://ps.w.org/wp-all-export/assets/icon-256x256.png?rev=1216907'); } }</style><div class="plugin-icon" id="plugin-icon-wp-all-export"></div>		</div>
+
+		<div class="plugin-actions">
+			
+							<a class="plugin-download button download-button button-large" href="https://downloads.wordpress.org/plugin/wp-all-export.1.2.1.zip">Download</a>
+					</div>
+
+				<h1 class="plugin-title">Export WordPress data to XML/CSV</h1>
+		
+		<span class="byline">By <span class="author vcard">Soflyy</span></span>
+	</header><!-- .entry-header -->
+
+			<script type="text/javascript">if ( '#changelog' == window.location.hash ) { window.location.hash = '#developers'; }</script>
+		<span id="description"></span>
+		<span id="reviews"></span>
+		<span id="installation"></span>
+		<span id="developers"></span>
+		<ul class="tabs clear">
+			<li id="tablink-description"><a href="https://wordpress.org/plugins/wp-all-export/#description">Details</a></li>
+			<li id="tablink-reviews"><a href="https://wordpress.org/plugins/wp-all-export/#reviews">Reviews</a></li>
+							<li id="tablink-installation">
+					<a href="https://wordpress.org/plugins/wp-all-export/#installation">Installation</a>
+				</li>
+						<li id="tablink-support">
+				<a href="https://wordpress.org/support/plugin/wp-all-export">Support</a>
+			</li>
+			<li id="tablink-developers"><a href="https://wordpress.org/plugins/wp-all-export/#developers">Development</a></li>
+		</ul>
+	
+	<div class="entry-content">
+		
+<div id="tab-description" class="plugin-description section">
+	<h2 id="description-header">Description</h2>
+	<p>WP All Export features a three step export process and an intuitive drag &amp; drop interface that makes complicated export tasks simple and fast.</p>
+<p>With WP All Export you can: export data for easy editing, migrate content from WordPress to another site, create a WooCommerce affiliate feed, generate filtered lists of WooCommerce orders, export the email addresses of new customers, create and publish customized WordPress RSS feeds – and much more.<br>
+<span class="embed-youtube" style="text-align:center; display: block;"><iframe class="youtube-player" type="text/html" width="640" height="360" src="./Export WordPress data to XML_CSV _ WordPress.org_files/a-z0R-Ldkqo.html" allowfullscreen="true" style="border:0;"></iframe></span></p>
+<ul>
+<li>
+<p><strong>Turn your WordPress data into a customized CSV or XML</strong></p>
+</li>
+<li>
+<p><strong>Choose which data to export:</strong> WP All Export’s drag and drop interface makes it easy to select exactly which data you’d like to export</p>
+</li>
+<li>
+<p><strong>Structure your export file however you like:</strong> Rename CSV columns and XML elements, rearrange them, whatever you want to do.</p>
+</li>
+<li>
+<p><strong>Export any custom post type, any custom field:</strong> Lots of plugins and themes store custom data in WordPress. You can export all of it with WP All Export.</p>
+</li>
+<li>
+<p><strong>Easy integration with WP All Import:</strong> WP All Export will generate your WP All Import settings for you so importing your data back into WordPress is easy, simple, and fast.</p>
+</li>
+</ul>
+<p><strong>Wish you could edit your WordPress data in Excel? Now you can – export it with WP All Export, edit it, and then import it again with WP All Import.</strong></p>
+<p>For technical support from the developers, please consider purchasing WP All Export Pro.</p>
+<h4>WP All Export Professional Edition</h4>
+<p><strong>WP All Export Pro</strong> is a paid upgrade that includes premium support and adds the following features:</p>
+<ul>
+<li>
+<p><strong>Send your data to 500+ apps:</strong> Full integration with Zapier allows you to send your exported WordPress data to services like Dropbox and Google Drive, to create and update reports in Google Sheets, send email updates, or anything else you can think of. This is especially useful when you export WooCommerce orders to CSV.</p>
+<p><a href="https://zapier.com/zapbook/wp-all-export-pro/" rel="nofollow">Read more about WP All Export Pro and Zapier.</a></p>
+</li>
+<li>
+<p><strong>Schedule exports to run automatically:</strong> Exports can be configured to run on any schedule you like. You can export new sales every week, recent user sign ups, new affiliate products added to your site, daily product stock reports, etc. Scheduled exports are very powerful when combined with Zapier.</p>
+</li>
+<li>
+<p><strong>Add rules to filter data:</strong> WP All Export Pro makes it easy to export the exact posts/products/orders you need. Want to export all WooCommerce orders over $100? Want to export all of the green shirts from your WooCommerce store? Want to export all new posts from 2014, except the ones added by Steve?</p>
+<p>You can with a simple to use interface on the ‘New Export’ page in WP All Export Pro.</p>
+</li>
+<li>
+<p><strong>Export WordPress users:</strong> WP All Export Pro adds the ability to export WordPress users and all custom data associated with them. Available data is organized and cleaned up so you don’t need to know anything about how WordPress stores users in order to export them.</p>
+</li>
+<li>
+<p><strong>Export WooCommerce orders:</strong> Export WooCommerce Order item data with WP All Export Pro. Just as with any other custom post type, you can export WooCommerce orders with the free version of WP All Export. However, the order item data is stored by WooCommerce in several custom database tables and this custom data is only accessible with WP All Export Pro.</p>
+</li>
+<li>
+<p><strong>Pass data through custom PHP functions:</strong> With WP All Export Pro you can pass your data through a custom function before it is added to your export file. This will allow you to manipulate your data any way you see fit.</p>
+</li>
+<li>
+<p><strong>Guaranteed technical support via e-mail.</strong></p>
+</li>
+</ul>
+<p><a href="http://www.wpallimport.com/upgrade-to-wp-all-export-pro/?utm_source=wordpress.org&amp;utm_medium=wordpress-dot-org-slash-wpae&amp;utm_campaign=free+wp+all+export+plugin" rel="nofollow">Upgrade to the Pro edition of WP All Export.</a></p>
+<h4>Automatic Scheduling</h4>
+<p>A new service from Soflyy, Automatic Scheduling provides a simple interface for setting exports to run on a schedule. The service will make sure that your exports start on time and that they successfully complete without the need to set up individual cron jobs.</p>
+<p>It costs $9/mo and can be used with WP All Export and WP All Import. You can set up as many exports and imports on as many sites as you like.</p>
+<p><strong>What information is shared with Soflyy?</strong> If you set an export to run on a schedule, WP All Export will open an encrypted connection to Soflyy servers. It will send the license key, site URL, ID of the export you want to run, export security key, and times that you want the export to run.</p>
+<h4>WordPress CSV Exports</h4>
+<p>A CSV is a very simple type of spreadsheet file where each column is separated by a comma. With WP All Export you can very easily set up a WordPress CSV export and control the order and title of the columns.</p>
+<p>Very often you’ll want to edit your data with Microsoft Excel, Google Sheets, Numbers, or maybe something else. This is why a CSV export is so powerful – all spreadsheet software can read, edit, and save CSV files. WP All Export allows you edit your WordPress data using whatever spreadsheet software you are most comfortable with.</p>
+<h4>WordPress XML Exports</h4>
+<p>Sometimes you’ll want to export your data so that some other tool, software, or service can use it. Very often they will require your data to be formatted as an XML file. XML is very similar to HTML, but you don’t need to know anything about that in order to set up an XML export with WP All Export.</p>
+<p>If you want to set up a WordPress XML export all you need to do is select ‘XML’ when configuring your export template. And just like a CSV export, an XML export will allow you to customize the element names and put them in any order you wish.</p>
+<h3>Premium Support</h3>
+<p>Upgrade to the Pro edition of WP All Export for premium support.</p>
+<p>E-mail: support@wpallimport.com</p></div>
+
+<div data-reactroot="" id="screenshots" class="plugin-screenshots"><h2>Screenshots</h2><section class="image-gallery"><div class="image-gallery-content"><span><button type="button" class="button-link image-gallery-left-nav"></button><button type="button" class="button-link image-gallery-right-nav"></button></span><div class="image-gallery-slides"><div class="image-gallery-slide center" style="transform: translate3d(0%, 0px, 0px); z-index: 3;"><figure class="image-gallery-image"><a href="./Export WordPress data to XML_CSV _ WordPress.org_files/screenshot-1.png"><img src="./Export WordPress data to XML_CSV _ WordPress.org_files/screenshot-1.png" alt=""></a></figure></div><div class="image-gallery-slide right" style="transform: translate3d(100%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./Export WordPress data to XML_CSV _ WordPress.org_files/screenshot-2.png"><img src="./Export WordPress data to XML_CSV _ WordPress.org_files/screenshot-2.png" alt=""></a></figure></div></div></div><div class="image-gallery-thumbnails"><div class="image-gallery-thumbnails-container" style="transform: translate3d(0px, 0px, 0px);"><button type="button" class="button-link image-gallery-thumbnail active"><img src="./Export WordPress data to XML_CSV _ WordPress.org_files/screenshot-1.png" alt=""><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./Export WordPress data to XML_CSV _ WordPress.org_files/screenshot-2.png" alt=""><div class="image-gallery-thumbnail-label"></div></button></div></div></section></div>
+
+<div id="tab-installation" class="plugin-installation section">
+	<h2 id="installation-header">Installation</h2>
+	<p>Either: –</p>
+<ul>
+<li>Upload the plugin from the Plugins page in WordPress</li>
+<li>Unzip wp-all-export.zip and upload the contents to /wp-content/plugins/, and then activate the plugin from the Plugins page in WordPress</li>
+</ul></div>
+
+<div id="tab-reviews" class="plugin-reviews section">
+	<h2 id="reviews-header">Reviews</h2>
+	<div class="plugin-reviews">
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/b4d98992915568e348e42152a8fb09e8.png" srcset="https://secure.gravatar.com/avatar/b4d98992915568e348e42152a8fb09e8?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10863090">Great plugin</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/flofre" title="Posts by Flofre" rel="author">Flofre</a></span>
+						</header>
+						<div class="review-content"><p>We use WP all export pro to transfer products to the ERP system and we have done so with 1000’s of products</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/970bf9d76ec389167e3f8df3807b5035.png" srcset="https://secure.gravatar.com/avatar/970bf9d76ec389167e3f8df3807b5035?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10854424">The missing Export tool</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/etic" title="Posts by Etic" rel="author">Etic</a></span>
+						</header>
+						<div class="review-content"><p>I’m only using the PRO version, don’t know about the free one.</p>
+<p>This tool is unbelievable, I was able to create specific reports for Woocommerce directly to Excel. This tool is the missing export tool for every needs.</p>
+<p>The export customization is juste awesome, mostly because of the custom function.</p>
+<p>Also support is perfect!</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/0480655a48c2e85235b5d4c93cdb3053.png" srcset="https://secure.gravatar.com/avatar/0480655a48c2e85235b5d4c93cdb3053?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10801192">Both plugin and support – great!</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/rgbcom" title="Posts by rgbcom" rel="author">rgbcom</a></span>
+						</header>
+						<div class="review-content"><p>Opened a ticket on a weekend and got response next day. With a solution that worked. Had a conflict with another plugin that hadn’t been updated by developer fir three years. </p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/4b715ec6d28cbffe1284aaeb2e79404b.png" srcset="https://secure.gravatar.com/avatar/4b715ec6d28cbffe1284aaeb2e79404b?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10761688">Exactly What I Needed</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/wordpressuser832" title="Posts by wordpressuser832" rel="author">wordpressuser832</a></span>
+						</header>
+						<div class="review-content"><p>This plugin did exactly what I needed and exported my data to a csv, so I can view it on excel.</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/b6f1157f117fee7cacba4fc12dd9e2a3.png" srcset="https://secure.gravatar.com/avatar/b6f1157f117fee7cacba4fc12dd9e2a3?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10748336">Mantul</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/aganfrusciante" title="Posts by aganfrusciante" rel="author">aganfrusciante</a></span>
+						</header>
+						<div class="review-content"><p>Mantap Betuuuul</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/dfbcae7abbe8f3a69447e6abde0c59d9.jpeg" srcset="https://secure.gravatar.com/avatar/dfbcae7abbe8f3a69447e6abde0c59d9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10734212">Great plugin</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/hozaya" title="Posts by Noz" rel="author">Noz</a></span>
+						</header>
+						<div class="review-content"><p>Great plugin and support team..thank you</p>
+</div>
+					</div>
+				</article>
+					</div>
+		
+		<a class="reviews-link" href="https://wordpress.org/support/plugin/wp-all-export/reviews/">
+			Read all 177 reviews		</a></div>
+
+<div id="tab-developers" class="plugin-developers section">
+	<h2 id="developers-header">Contributors &amp; Developers</h2>
+	<div class="plugin-contributors"><p>“Export WordPress data to XML/CSV” is open source software. The following people have contributed to this plugin.</p><span class="screen-reader-text">Contributors</span>
+		<ul id="contributors-list" class="contributors-list">
+						<li>
+				<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/f2715da5db3ef103362c6c5ce0b43e75.png" srcset="https://secure.gravatar.com/avatar/f2715da5db3ef103362c6c5ce0b43e75?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">				<a href="https://profiles.wordpress.org/soflyy">
+					Soflyy				</a>
+			</li>
+						<li>
+				<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/c67e53189cba582b4526f664120b612e.png" srcset="https://secure.gravatar.com/avatar/c67e53189cba582b4526f664120b612e?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">				<a href="https://profiles.wordpress.org/wpallimport">
+					WP All Import				</a>
+			</li>
+					</ul>
+
+		</div><div class="plugin-development"><p><a href="https://translate.wordpress.org/projects/wp-plugins/wp-all-export">Translate “Export WordPress data to XML/CSV” into your language.</a></p><h3>Interested in development?</h3><p><a href="https://plugins.trac.wordpress.org/browser/wp-all-export/">Browse the code</a>, check out the <a href="https://plugins.svn.wordpress.org/wp-all-export/">SVN repository</a>, or subscribe to the <a href="https://plugins.trac.wordpress.org/log/wp-all-export/">development log</a> by <a href="https://plugins.trac.wordpress.org/log/wp-all-export/?limit=100&amp;mode=stop_on_copy&amp;format=rss">RSS</a>.</p></div></div>
+
+<div id="tab-changelog" class="plugin-changelog section">
+	<h2 id="changelog-header">Changelog</h2>
+	<h4>1.2.1</h4>
+<ul>
+<li>new filter: added pmxe_after_iteration action</li>
+<li>bugfix: increase custom query meta limit</li>
+<li>bugfix: remove deprecated function calls for PHP 7.2 compatibility</li>
+<li>bugfix: address various PHP warnings and notices</li>
+<li>bugfix: graceful failure for non:writable uploads folder</li>
+<li>bugfix: warning when exporting WooCommerce orders using Automatic Scheduling</li>
+<li>bugfix: WooCommerce product variations exported as separate products when adding product attributes to custom export fields</li>
+<li>bugfix: small UI and spacing issues</li>
+<li>bugfix: prices with more than two decimal places are not exported correctly</li>
+<li>bugfix: exporting empty ACF values shifts rows in CSV exports</li>
+<li>bugfix: Australia missing from scheduling timezones</li>
+<li>bugfix: unable to filter or export WooCommerce product visibility data</li>
+<li>bugfix: Automatic scheduling UI spacing issues</li>
+<li>bugfix: unrelated errors are reported in functions.php file</li>
+</ul>
+<h4>1.2.0</h4>
+<ul>
+<li>new feature: Automatic Scheduling – A new, optional service from Soflyy that makes scheduling exports incredibly easy.</li>
+<li>improvement: Support migrating users &amp; keeping passwords</li>
+<li>improvement: Better error reporting for errors in custom functions</li>
+<li>improvement: Support for WooCommerce Short Description</li>
+<li>improvement: Better price formatting</li>
+<li>improvement: Add author information to Available Data</li>
+<li>improvement: Add Featured Image to Available Data › Media</li>
+<li>new filter: Disable price formatting – wp_all_export_raw_prices</li>
+<li>new filter: Called before each order item – wp_all_export_order_item</li>
+<li>new filter: Use custom CSV writer when default affected by https://bugs.php.net/bug.php?id=43225 – wp_all_export_use_csv_compliant_line_endings</li>
+<li>new filter: Output content before CSV headers – wp_all_export_pre_csv_headers</li>
+<li>bugfix: Error thrown when uploads folder is not writable</li>
+<li>bugfix: Autoloading broken when class names contain “_”</li>
+<li>bugfix: Error when activating Pro version and Free version</li>
+<li>bugfix: moment.js causes false positives for virus scanners</li>
+<li>bugfix: Comment status updated by default and causes problems</li>
+<li>bugfix: CSV Writer can’t handle slash double quote – https://bugs.php.net/bug.php?id=43225</li>
+<li>bugfix: WPAE prevents Jetpack from connecting to WordPress.com</li>
+<li>bugfix: Exported Excel files are corrupted in some cases</li>
+<li>bugfix: Plugin conflicts change the post order</li>
+<li>bugfix: CSV headers broken when field names contain quotes</li>
+<li>bugfix: Product visibility broken for old WooCommerce versions</li>
+<li>bugfix: Preview is broken for date fields</li>
+<li>bugfix: Custom Export Field values not saved in some cases</li>
+<li>bugfix: Headers broken when Custom Export Fields contain special characters</li>
+<li>bugfix: Loading order for styles optimized to reduce conflicts</li>
+<li>bugfix: Available Data broken when there’s more than 500 data elements</li>
+</ul>
+<h4>1.1.5</h4>
+<ul>
+<li>improvement: removed autoload=true from wp_options</li>
+<li>improvement: WPML options in separate section</li>
+<li>bug fix: allow underscores in main xml tags</li>
+<li>bug fix: prevent uploading import template into wpae</li>
+<li>bug fix: ID column in CSV</li>
+<li>bug fix: ACF repeater headers</li>
+</ul>
+<h4>1.1.4</h4>
+<ul>
+<li>improvement: removed autoload=true from wp_options</li>
+<li>improvement: WPML options in separate section</li>
+<li>bug fix: allow underscores in main xml tags</li>
+<li>bug fix: prevent uploading import template into wpae</li>
+<li>bug fix: ID column in CSV</li>
+<li>bug fix: ACF repeater headers</li>
+</ul>
+<h4>1.1.3</h4>
+<ul>
+<li>improvement: added post_modified field</li>
+<li>bug fix: export attributes for simple products</li>
+<li>bug fix: db schema updating</li>
+<li>bug fix: variations with trashed parents shouldn’t be included in the export</li>
+</ul>
+<h4>1.1.2</h4>
+<ul>
+<li>improvement: choose WPML language in export options</li>
+<li>bug fix: export ACF message field</li>
+<li>bug fix: export product categories with AFC repeater fields</li>
+<li>bug fix: export duplicate images from gallery</li>
+<li>bug fix: export search</li>
+<li>bug fix: export product variation attribute names</li>
+<li>bug fix: migrating hierarchical posts and pages</li>
+</ul>
+<h4>1.1.1</h4>
+<ul>
+<li>improvement: compatibility with PHP 7.x</li>
+</ul>
+<h4>1.1.0</h4>
+<ul>
+<li>improvement: added ACF fields to ‘migrate’ &amp; ‘add all fields’ features</li>
+<li>improvement: added new filter ‘wp_all_export_field_name’</li>
+<li>improvement: changed default date export to Y/m/d</li>
+<li>bug fix: export shipping class for product variations</li>
+<li>bug fix: import template for ACF relationship fields</li>
+<li>bug fix: export empty images metadata</li>
+<li>bug fix: import template for ACF gallery</li>
+<li>bug fix: import template for variation_description</li>
+<li>bug fix: import template for default product attributes</li>
+<li>bug fix: automatically adding parent_id column on products export</li>
+</ul>
+<h4>1.0.9</h4>
+<ul>
+<li>bug fix: fixed compatibility with PHP 5.3</li>
+</ul>
+<h4>1.0.8</h4>
+<ul>
+<li>improvement: pull the parent taxonomy data when exporting variations</li>
+<li>improvement: remove spaces from export filename</li>
+<li>improvement: new filter wp_all_export_after_csv_line</li>
+<li>improvement: date options for sale price dates from/to</li>
+<li>improvement: possibility to use tab as csv delimiter</li>
+<li>improvement: new filter ‘wp_all_export_csv_headers’</li>
+<li>bug fix: db schema on multisite</li>
+<li>bug fix: import template for media items</li>
+<li>bug fix: export ACF repeater in XML format</li>
+<li>bug fix: export in CSV format when ‘Main XML Tag’ &amp; ‘Record XML Tag’ option are blank</li>
+<li>bug fix: export ACF date_time_picker</li>
+</ul>
+<h4>1.0.7</h4>
+<ul>
+<li>fixed db schema for multisite</li>
+<li>fixed export order items date</li>
+<li>fixed media items export ordering</li>
+<li>fixed import template for media items</li>
+<li>fixed export ACF repeater in XML format</li>
+<li>added new filter ‘wp_all_export_csv_headers’</li>
+<li>added possibility to use tab as csv delimiter “\t”</li>
+<li>updated french translation</li>
+</ul>
+<h4>1.0.6</h4>
+<ul>
+<li>added new filters ‘wp_all_export_is_wrap_value_into_cdata’, ‘wp_all_export_add_before_element’, ‘wp_all_export_add_after_element’</li>
+<li>added ‘WPML Translation ID’ element to available data</li>
+<li>modified preview to show first 10 records</li>
+<li>fixed csv export with non comma delimiter</li>
+<li>fixed conflict with WP Google Maps Pro plugin</li>
+</ul>
+<h4>1.0.5</h4>
+<ul>
+<li>fixed misaligned columns on exporting product attributes</li>
+<li>fixed export nested repeaters field in CSV format</li>
+<li>fixed live records counting for advanced export mode</li>
+<li>fixed Events Calendar conflict</li>
+<li>added new filters ‘wp_all_export_add_before_node’, ‘wp_all_export_add_after_node’</li>
+<li>added possibility export repeater rows one per line</li>
+<li>exclude orphaned variations from exprt file</li>
+<li>changed UI for export media data ( images &amp; attachments )</li>
+</ul>
+<h4>1.0.4</h4>
+<ul>
+<li>fixed export attachment meta alt</li>
+<li>fixed export manually stored ACF</li>
+<li>fixed export repeater field for users in csv format</li>
+<li>fixed import export templates</li>
+<li>fixed ajaxurl conflict with WPML</li>
+<li>added French &amp; Latvian translations</li>
+<li>added ‘Variation Description’ field</li>
+</ul>
+<h4>1.0.3</h4>
+<ul>
+<li>fixed manage exports screen: “Info and options” disappears when WPAI plugin is disabled</li>
+<li>fixed css for WordPress 4.4</li>
+<li>fixed export ACF repeater field</li>
+<li>updated re-run export screen</li>
+<li>added hidden post types to the dropdown list on step 1</li>
+<li>added export templates</li>
+<li>added possibility to control main xml tag names &amp; put additional info into xml file: apply_filters(‘wp_all_export_additional_data’, array(), $exportOptions)</li>
+<li>added ‘pmxe_exported_post’ action: do_action(‘pmxe_exported_post’, $record-&gt;ID );</li>
+<li>added option ‘Create a new export file each time export is run’</li>
+<li>added option ‘Only export posts once’</li>
+<li>added option ‘Split large exports into multiple files’</li>
+<li>added possibility to change export field name ( related to export WooCommerce orders )</li>
+<li>added es_ES translation</li>
+<li>added possibility to add NS to field names</li>
+</ul>
+<h4>1.0.2</h4>
+<ul>
+<li>fixed download bundle</li>
+<li>fixed export repeater fields for ACF 4.x</li>
+<li>fixed import template for custom product attributes</li>
+<li>added new option ‘include BOM to export file</li>
+<li>added RU translation</li>
+<li>removed hidden post types from dropdown in step 1</li>
+</ul>
+<h4>1.0.1</h4>
+<ul>
+<li>fixed export taxonomy: name instead of slug</li>
+<li>fixed pass data through php function</li>
+<li>added advanced (custom fields) section to export woo orders</li>
+<li>added draggable element deletion</li>
+<li>added auto-generate product export fields</li>
+<li>added ‘attributes’ field to product data</li>
+<li>added button to download bundle for WP All Import</li>
+<li>updated export file name</li>
+<li>changed export files destination to /exports</li>
+</ul>
+<h4>1.0.0</h4>
+<ul>
+<li>WP All Export exits beta</li>
+</ul>
+<h4>0.9.1</h4>
+<ul>
+<li>critical security fix – stopping non-logged in users from accessing adminInit http://www.wpallimport.com/2015/02/wp-import-4-1-1-mandatory-security-update/</li>
+</ul>
+<h4>0.9</h4>
+<ul>
+<li>Initial release on WordPress.org.</li>
+</ul></div>
+	</div><!-- .entry-content -->
+
+	<div class="entry-meta">
+		<div class="widget plugin-meta">
+		<h3 class="screen-reader-text">Meta</h3>
+
+		<ul>
+			
+			<li>
+				Version: <strong>1.2.1</strong>			</li>
+
+			<li>
+				Last updated: <strong><span>3 months</span> ago</strong>			</li>
+			<li>
+				Active installations: <strong>50,000+</strong>			</li>
+
+							<li>
+					WordPress Version:					<strong>
+						4.1 or higher					</strong>
+				</li>
+			
+							<li>
+					Tested up to: <strong>4.9.8</strong>				</li>
+			
+			
+			
+							<li class="clear">
+					Tags: <div class="tags"><a href="https://wordpress.org/plugins/tags/csv/" rel="tag">csv</a><a href="https://wordpress.org/plugins/tags/datafeed/" rel="tag">datafeed</a><a href="https://wordpress.org/plugins/tags/wordpress-csv-export/" rel="tag">wordpress csv export</a><a href="https://wordpress.org/plugins/tags/wordpress-xml-export/" rel="tag">wordpress xml export</a><a href="https://wordpress.org/plugins/tags/xml/" rel="tag">xml</a></div>				</li>
+			
+							<li class="hide-if-no-js">
+					<strong><a class="plugin-admin" href="https://wordpress.org/plugins/wp-all-export/advanced/">Advanced View</a></strong>				</li>
+					</ul>
+
+		</div><div class="widget plugin-ratings"><h3 class="widget-title">Ratings</h3>			<a class="reviews-link" href="https://wordpress.org/support/plugin/wp-all-export/reviews/">See all</a>
+
+			<div class="rating">
+				<div class="wporg-ratings" aria-label="4.5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="4.5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span></div>			</div>
+
+			<ul class="ratings-list">
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-all-export/reviews/?filter=5">
+							<span class="counter-label">5 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 88.700564971751%;"></span>
+					</span>
+							<span class="counter-count">157</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-all-export/reviews/?filter=4">
+							<span class="counter-label">4 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 1.1299435028249%;"></span>
+					</span>
+							<span class="counter-count">2</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-all-export/reviews/?filter=3">
+							<span class="counter-label">3 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 0%;"></span>
+					</span>
+							<span class="counter-count">0</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-all-export/reviews/?filter=2">
+							<span class="counter-label">2 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 0.56497175141243%;"></span>
+					</span>
+							<span class="counter-count">1</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-all-export/reviews/?filter=1">
+							<span class="counter-label">1 star</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 9.6045197740113%;"></span>
+					</span>
+							<span class="counter-count">17</span>
+						</a>
+					</li>
+							</ul>
+
+		
+		</div><div id="plugin-contributors" class="widget plugin-contributors"><h4 class="widget-title">Contributors</h4>
+		<ul id="contributors-list" class="contributors-list">
+						<li>
+				<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/f2715da5db3ef103362c6c5ce0b43e75.png" srcset="https://secure.gravatar.com/avatar/f2715da5db3ef103362c6c5ce0b43e75?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">				<a href="https://profiles.wordpress.org/soflyy">
+					Soflyy				</a>
+			</li>
+						<li>
+				<img alt="" src="./Export WordPress data to XML_CSV _ WordPress.org_files/c67e53189cba582b4526f664120b612e.png" srcset="https://secure.gravatar.com/avatar/c67e53189cba582b4526f664120b612e?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">				<a href="https://profiles.wordpress.org/wpallimport">
+					WP All Import				</a>
+			</li>
+					</ul>
+
+		</div><div class="widget plugin-support"><h3 class="widget-title">Support</h3>			<p class="aside">Issues resolved in last two months:</p>
+			<p class="counter-container">
+				<span class="counter-back">
+					<span class="counter-bar" style="width: 55.555555555556%;"></span>
+				</span>
+				<span class="counter-count">
+					5 out of 9				</span>
+			</p>
+
+		
+		<p>
+			<a class="button" href="https://wordpress.org/support/plugin/wp-all-export">View support forum</a>
+		</p>
+
+		</div>	</div><!-- .entry-meta -->
+</article><!-- #post-## -->
+
+	</main><!-- #main -->
+
+
+	</div><!-- #content -->
+
+
+<div id="wporg-footer">
+	<div class="wrapper">
+		<ul>
+			<li><a href="https://wordpress.org/about/" title="An introduction to the WordPress project">About</a></li>
+			<li><a href="https://wordpress.org/news/" title="News and Updates">Blog</a></li>
+			<li><a href="https://wordpress.org/hosting/" title="Recommended web hosting providers">Hosting</a></li>
+			<li><a href="https://wordpressfoundation.org/donate/" title="Donate to the WordPress Foundation">Donate</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://wordpress.org/support/" title="Forums, documentation, and other resources">Support</a></li>
+			<li><a href="https://developer.wordpress.org/" title="Resources for WordPress developers">Developers</a></li>
+			<li><a href="https://make.wordpress.org/" title="Give back to WordPress through code, support, translation and more">Get Involved</a></li>
+			<li><a href="https://learn.wordpress.org/" title="Workshops and training materials">Learn</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://wordpress.org/showcase/" title="Some of the best WordPress sites on the Web">Showcase</a></li>
+			<li><a href="https://wordpress.org/plugins/" title="Add extra functionality to WordPress">Plugins</a></li>
+			<li><a href="https://wordpress.org/themes/" title="Make your WordPress pretty">Themes</a></li>
+			<li><a href="https://wordpress.org/ideas/" title="Share your ideas for improving WordPress">Ideas</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://central.wordcamp.org/" title="Find a WordPress event near you">WordCamp</a></li>
+			<li><a href="https://wordpress.tv/" title="Videos, tutorials, and WordCamp sessions">WordPress.TV</a></li>
+			<li><a href="https://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress</a></li>
+			<li><a href="https://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://wordpress.com/?ref=wporg-footer" title="Hassle-free WordPress hosting">WordPress.com</a></li>
+			<li><a href="https://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a></li>
+			<li><a href="https://wordpress.org/about/privacy/" title="WordPress.org Privacy Policy">Privacy</a></li>
+			<li><a href="https://publiccode.eu/" target="_blank">Public Code</a></li>
+		</ul>
+
+		<ul>
+			<li>
+				<iframe title="Follow @WordPress on Twitter" allowtransparency="true" frameborder="0" scrolling="no" src="./Export WordPress data to XML_CSV _ WordPress.org_files/follow_button.html" style="width:135px; height:20px;"></iframe>
+			</li>
+			<li>
+				<iframe title="Like WordPress on Facebook" src="./Export WordPress data to XML_CSV _ WordPress.org_files/like.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:135px; height:21px;" allowtransparency="true"></iframe>
+			</li>
+		</ul>
+	</div>
+
+		<p class="cip cip-image">Code is Poetry.</p>
+</div>
+
+<script type="text/javascript">
+	/**
+	 * Handles toggling the navigation menu for small screens and enables TAB key
+	 * navigation support for dropdown menus.
+	 */
+	( function( $ ) {
+		var container, button, menu, links, i, len;
+
+		container = document.getElementById( 'wporg-header' );
+		if ( ! container ) {
+			return;
+		}
+
+		button = container.getElementsByTagName( 'button' )[0];
+		if ( 'undefined' === typeof button ) {
+			return;
+		}
+
+		menu = container.getElementsByTagName( 'ul' )[0];
+
+		// Hide menu toggle button if menu is empty and return early.
+		if ( 'undefined' === typeof menu ) {
+			button.style.display = 'none';
+			return;
+		}
+
+		menu.setAttribute( 'aria-expanded', 'false' );
+		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+			menu.className += ' nav-menu';
+		}
+
+		button.onclick = function() {
+			if ( -1 !== menu.className.indexOf( 'toggled' ) ) {
+				menu.className = menu.className.replace( ' toggled', '' );
+				button.setAttribute( 'aria-expanded', 'false' );
+				menu.setAttribute( 'aria-expanded', 'false' );
+			} else {
+				menu.className += ' toggled';
+				button.setAttribute( 'aria-expanded', 'true' );
+				menu.setAttribute( 'aria-expanded', 'true' );
+			}
+		};
+
+		// Get all the link elements within the menu.
+		links = menu.getElementsByTagName( 'a' );
+
+		// Each time a menu link is focused or blurred, toggle focus.
+		for ( i = 0, len = links.length; i < len; i++ ) {
+			links[i].addEventListener( 'focus', toggleFocus, true );
+			links[i].addEventListener( 'blur', toggleFocus, true );
+		}
+
+		/**
+		 * Sets or removes .focus class on an element.
+		 */
+		function toggleFocus() {
+			var self = this;
+
+			// Move up through the ancestors of the current link until we hit .nav-menu.
+			while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+
+				// On li elements toggle the class .focus.
+				if ( 'li' === self.tagName.toLowerCase() ) {
+					if ( -1 !== self.className.indexOf( 'focus' ) ) {
+						self.className = self.className.replace( ' focus', '' );
+					} else {
+						self.className += ' focus';
+					}
+				}
+
+				self = self.parentElement;
+			}
+		}
+
+		/**
+		 * Toggles `focus` class to allow submenu access on tablets.
+		 */
+		( function( container ) {
+			var touchStartFn, i,
+				parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+
+			if ( 'ontouchstart' in window ) {
+				touchStartFn = function( e ) {
+					var menuItem = this.parentNode, i;
+
+					if ( ! menuItem.classList.contains( 'focus' ) ) {
+						e.preventDefault();
+						for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
+							if ( menuItem === menuItem.parentNode.children[i] ) {
+								continue;
+							}
+							menuItem.parentNode.children[i].classList.remove( 'focus' );
+						}
+						menuItem.classList.add( 'focus' );
+					} else {
+						menuItem.classList.remove( 'focus' );
+					}
+				};
+
+				for ( i = 0; i < parentLink.length; ++i ) {
+					parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
+				}
+			}
+		}( container ) );
+	} )();
+</script>
+<!-- 12 queries. 0.219 seconds -->
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/admin-bar.min.js.download"></script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/navigation.js.download"></script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/skip-link-focus-fix.js.download"></script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/popover.js.download"></script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/section-faq.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wporgLocaleBanner = {"apiURL":"https:\/\/wordpress.org\/plugins\/wp-json\/plugins\/v1\/locale-banner","currentPlugin":"wp-all-export"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/locale-banner.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var pluginDirectory = {"endpoint":"https:\/\/wordpress.org\/plugins\/wp-json","nonce":"56b471d2f2","base":"\/plugins\/","userId":"0"};
+var localeData = {"":{"Plural-Forms":"nplurals=2; plural=n != 1;","Language":"en","localeSlug":"en"},"screenshots":"Screenshots"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/theme.js.download"></script>
+<script type="text/javascript" src="./Export WordPress data to XML_CSV _ WordPress.org_files/wp-embed.min.js.download"></script>
+		
+
+		
+
+</div><div id="wpadminbar" class="nojq ">
+							<a class="screen-reader-shortcut" href="https://wordpress.org/plugins/wp-all-export/#wp-toolbar" tabindex="1">Skip to toolbar</a>
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://wordpress.org/about/"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item" href="https://wordpress.org/about/">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item" href="https://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="https://wordpress.org/plugins/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"></form></div>		</li>
+		<li id="wp-admin-bar-log-in"><a class="ab-item" href="https://login.wordpress.org/?locale=en_US">Log In</a>		</li>
+		<li id="wp-admin-bar-register"><a class="ab-item" href="https://login.wordpress.org/register?locale=en_US">Register</a>		</li></ul>			</div>
+					</div></body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>

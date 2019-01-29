@@ -1,0 +1,39 @@
+/*jslint regexp: true, nomen: true, undef: true, sloppy: true, eqeq: true, vars: true, white: true, plusplus: true, maxerr: 50, indent: 4 */
+/*global d4pupd_data, Cookies*/
+var d4pcore_cookies;
+
+;(function($, window, document, undefined) {
+    d4pcore_cookies = {
+        init: function() {
+            $(document).on("click", ".dev4press-cookies-opt-out", function(e) {
+                e.preventDefault();
+
+                window.dev4press.cookies.clear();
+
+                alert("All 1st party cookie are removed.\n\nIf you continue to browse our website or using our\nservices, you understand that you soft opt-in to our\n1st party and 3rd party cookies.");
+            });
+        },
+        clear: function() {
+            var cookies = Cookies.get();
+
+            for (var name in cookies) {
+                if (cookies.hasOwnProperty(name)) {
+                    Cookies.remove(name);
+                    Cookies.remove(name, {
+                        path  : '/',
+                        domain: '.' + window.location.hostname
+                    });
+                    Cookies.remove(name, {
+                        path  : '/',
+                        domain: window.dev4press.domain
+                    });
+                }
+            }
+        }
+    };
+
+    window.dev4press = window.dev4press || {};
+    window.dev4press.cookies = d4pcore_cookies;
+
+    window.dev4press.cookies.init();
+})(jQuery, window, document);

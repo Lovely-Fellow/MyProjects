@@ -1,0 +1,132 @@
+/*
+	Divi Cake Main Scripts
+*/
+
+(function($) {
+	
+	
+	/* Ajax Add-To-Cart Button */
+		$('body').on('click.eddAddToCart', '.edd-add-to-cart', function (e) {
+			
+			e.preventDefault();
+			
+			var $this = $(this);
+			var container = $this.closest('div');
+
+			var download = $this.data('download-id');
+			var variable_price = $this.data('variable-price');
+			var item_price_id = false;
+			if(typeof variable_price !== 'undefined' && variable_price !== false) {
+				item_price_id = $('.edd_price_option_' + download + ':checked').val();
+			}
+			
+			var action = $this.data('action'),
+				data = {
+					action: action,
+					download_id: download,
+					price_id : item_price_id,
+					nonce: edd_scripts.ajax_nonce
+				};
+
+			$.post(edd_scripts.ajaxurl, data, function (cart_item_response) {
+				
+				// add the new item to the cart widget
+				var existingHeaderCartValue = $('#dc-header-cart-itemno').html();
+				existingHeaderCartValue.trim();
+				existingHeaderCartValue = existingHeaderCartValue.split(' ');
+				existingHeaderCartValue = parseInt(existingHeaderCartValue[0]);
+				
+				var updatedHeaderCartValue = existingHeaderCartValue + 1;			
+				
+				$('#dc-header-cart-itemno').html( updatedHeaderCartValue );
+				
+				
+				if ( updatedHeaderCartValue == 1 ) {
+					$('#dc-header-cart-itemno').append( ' Item' );
+				} else {
+					updatedHeaderCartValue = updatedHeaderCartValue + ' Items';
+					$('#dc-header-cart-itemno').append( ' Items' );
+				}
+
+			});
+			return false;
+		});
+	/* END Ajax Add-To-Cart Button */
+	
+	
+	/* Mobile Header Nav Menu */
+		$( document ).ready(function() {
+			$('.et_mobile_menu').prepend( $('#dc-top-nav-menu').html() );
+			var logout = $('#dc-header-logout').html();
+			if ( logout ) {
+				$('.et_mobile_menu').append( '<li class="menu-item menu-item-type-post_type menu-item-object-page" id="dc-mobile-logout">' + logout + '</li>' );
+			}
+		});
+	/* END Mobile Header Nav Menu */
+	
+	
+	/* Homepage Choice Blurb Links */
+		$('.homepage-choice').click(function() {
+			window.location = $(this).find('a').attr('href'); 
+			return false;
+		});
+	/* END Homepage Choice Blurb Links */
+		
+	
+	/* Black Friday Page */
+		var tid = setTimeout(advanceBFProductSlider, 6000);
+		function advanceBFProductSlider() {
+			$('.et-pb-arrow-next').click();
+		  	tid = setTimeout(advanceBFProductSlider, 6000); // repeat this function
+		}
+		
+		
+		$('#dc-bfsorting').on('change', function() {
+			console.log( this.value );
+			// similar behavior as an HTTP redirect
+			window.location.replace( '/black-friday/?bfsortby=' + this.value + '#bfriday_sectiontop' );
+		});
+		
+		
+		if ( window.location.href.indexOf( 'bfsortby' ) > -1 ) { // url contains bfsortby
+			$('#dc-bfsorting').val( getParameterByName( 'bfsortby' ) ); // set value of sorting dropdown
+	    }
+		
+		
+		if ( window.location.href.indexOf( 'bfproducttype' ) > -1 ) { // url contains bfproducttype
+			switch( getParameterByName( 'bfproducttype' ) ) {
+			    case 'Themes':
+			        $( '#dc-bfchoiceThemes' ).addClass( 'active' );
+			        break;
+			    case 'Plugins':
+			        $( '#dc-bfchoicePlugins' ).addClass( 'active' );
+			        break;
+			    case 'Layouts':
+			        $( '#dc-bfchoiceLayouts' ).addClass( 'active' );
+			}
+	    }
+	    
+		
+		function getParameterByName(name, url) {
+		    if (!url) url = window.location.href;
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		        results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+	/* END Black Friday Page */
+	
+	
+	/* Holiday Snow
+	$('.dc-blue-green-gradient').parent().attr( 'id', 'dc-holidaysnow' );
+	particlesJS.load('dc-holidaysnow', '/wp-content/themes/Divi_Cake/includes/js/dc-snow-particlesjs-config.json', function() {
+		//console.log('holiday snow config loaded');
+	});
+	particlesJS.load('dc-homepage-hero', '/wp-content/themes/Divi_Cake/includes/js/dc-snow-particlesjs-config.json', function() {
+		//console.log('homepage holiday snow config loaded');
+	});
+	END Holiday Snow */
+		
+})(jQuery);

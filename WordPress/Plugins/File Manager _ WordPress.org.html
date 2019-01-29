@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://wordpress.org/plugins/wp-file-manager/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" class="gr__wordpress_org"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" async="" src="./File Manager _ WordPress.org_files/analytics.js.download"></script><script async="" src="./File Manager _ WordPress.org_files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P24PF4B');</script>
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File Manager | WordPress.org</title>
+<meta name="referrer" content="always">
+
+
+<link rel="shortcut icon" href="https://s.w.org/favicon.ico?2" type="image/x-icon">
+<link rel="pingback" href="https://wordpress.org/plugins/xmlrpc.php">
+<script type="application/ld+json">
+	[
+		{
+			"@context": "http://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"item": {
+						"@id": "https://wordpress.org/",
+						"name": "WordPress"
+					}
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"item": {
+						"@id": "https:\/\/wordpress.org\/plugins\/",
+						"name": "WordPress Plugins"
+					}
+				}
+			]
+		},
+		{
+			"@context": "http://schema.org",
+			"@type": "SoftwareApplication",
+			"applicationCategory": "http://schema.org/OtherApplication",
+			"name": "File Manager",
+			"description": "file manager provides you ability to edit, delete, upload, download, copy and paste files and folders.",
+			"softwareVersion": "3.7",
+			"fileFormat": "application/zip",
+			"downloadUrl": "https:\/\/downloads.wordpress.org\/plugin\/wp-file-manager.zip",
+			"dateModified": "2018-12-03T11:17:23+00:00",
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"worstRating": 0,
+				"bestRating": 5,
+				"ratingValue": "4.7",
+				"ratingCount": 372,
+				"reviewCount": 372
+			},
+			"interactionStatistic": {
+				"@type": "InteractionCounter",
+				"interactionType": "http://schema.org/DownloadAction",
+				"userInteractionCount": 1736288
+			},
+			"offers": {
+				"@type": "Offer",
+				"price": "0.00",
+				"priceCurrency": "USD",
+				"seller": {
+					"@type": "Organization",
+					"name": "WordPress.org",
+					"url": "https://wordpress.org"
+				}
+			}
+		}
+	]
+</script>
+		<meta name="description" value="file manager provides you ability to edit, delete, upload, download, copy and paste files and folders."><link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" href="https://wordpress.org/plugins/wp-file-manager/" hreflang="en">
+<link rel="alternate" href="https://wordpress.org/plugins/wp-file-manager/" hreflang="x-default">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/wordpress.org\/plugins\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0-RC2-43960"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./File Manager _ WordPress.org_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="dashicons-css" href="./File Manager _ WordPress.org_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./File Manager _ WordPress.org_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./File Manager _ WordPress.org_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="open-sans-css" href="./File Manager _ WordPress.org_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="wporg-style-css" href="./File Manager _ WordPress.org_files/style.css" type="text/css" media="all">
+<link rel="https://api.w.org/" href="https://wordpress.org/plugins/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://wordpress.org/plugins/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://wordpress.org/plugins/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.0-RC2-43960">
+<link rel="canonical" href="https://wordpress.org/plugins/wp-file-manager/">
+<link rel="shortlink" href="https://wordpress.org/plugins/?p=50145">
+<link rel="alternate" type="application/json+oembed" href="https://wordpress.org/plugins/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwp-file-manager%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://wordpress.org/plugins/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwp-file-manager%2F&amp;format=xml">
+	<style>
+		@media screen and (max-width: 782px) {
+			#wpadminbar li#wp-admin-bar-log-in,
+			#wpadminbar li#wp-admin-bar-register {
+				display: block;
+			}
+
+			#wpadminbar li#wp-admin-bar-log-in a,
+			#wpadminbar li#wp-admin-bar-register a {
+				padding: 0 8px;
+			}
+		}
+	</style>
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<meta property="og:title" content="File Manager">
+<meta property="og:description" content="file manager provides you ability to edit, delete, upload, download, copy and paste files and folders.">
+<meta property="og:site_name" content="WordPress.org">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wordpress.org/plugins/wp-file-manager/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@WordPress">
+<meta property="og:image" content="https://ps.w.org/wp-file-manager/assets/banner-772x250.jpg?rev=1846030">
+<meta name="thumbnail" content="https://ps.w.org/wp-file-manager/assets/icon-128x128.png?rev=1846029">
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+
+</head>
+
+
+<body id="wordpress-org" class="plugin-template-default single single-plugin postid-50145 admin-bar no-customize-support js" data-gr-c-s-loaded="true">
+<script type="text/javascript">document.body.className = document.body.className.replace('no-js','js');</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P24PF4B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="wporg-header">
+	<div class="wrapper">
+		<button id="mobile-menu-button" aria-expanded="false"><span class="screen-reader-text">Toggle Menu</span></button>
+	<h1><a href="https://wordpress.org/">WordPress.org</a></h1>				<div id="head-search">
+		<form action="https://wordpress.org/search/do-search.php" method="get">
+			<label for="global-search" class="screen-reader-text">Search WordPress.org for:</label>
+			<input id="global-search" class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org">
+			<button type="submit" class="button"><span class="screen-reader-text">Submit</span></button>
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul id="wporg-header-menu" aria-expanded="false" class=" nav-menu">
+<li class="menu-item"><a href="https://wordpress.org/showcase/" title="See some of the sites built on WordPress.">Showcase</a></li>
+<li class="menu-item"><a href="https://wordpress.org/themes/" title="Find just the right look for your website.">Themes</a></li>
+<li class="menu-item"><a href="https://wordpress.org/plugins/" title="Plugins can extend WordPress to do almost anything you can imagine." class="current">Plugins</a><div class="uparrow"></div></li>
+<li class="menu-item"><a href="https://wordpress.org/mobile/" title="Take your website on the go!">Mobile</a></li>
+<li class="menu-item"><a href="https://wordpress.org/support/" title="Forums, documentation, help.">Support</a><ul class="nav-submenu"><li><a href="https://wordpress.org/support/forums/" title="Support and discussion forums.">Forums</a></li><li><a href="https://codex.wordpress.org/Main_Page" title="Documentation, tutorials, best practices.">Documentation</a></li></ul><div class="uparrow"></div></li>
+<li class="menu-item"><a href="https://make.wordpress.org/" title="Contribute your knowledge.">Get Involved</a></li>
+<li class="menu-item"><a href="https://wordpress.org/about/" title="About the WordPress Organization, and where we&#39;re going.">About</a></li>
+<li class="menu-item"><a href="https://wordpress.org/news/" title="Come here for the latest scoop.">Blog</a></li>
+<li class="menu-item"><a href="https://wordpress.org/hosting/" title="Find a home for your blog.">Hosting</a></li>
+<li id="download" class="button download-button menu-item"><a href="https://wordpress.org/download/" title="Get it. Got it? Good.">Get WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="https://wordpress.org/plugins/wp-file-manager/#main">Skip to content</a>
+
+	<div id="content" class="site-content">
+		<header id="masthead" class="site-header " role="banner">
+			<div class="site-branding">
+									<p class="site-title"><a href="https://wordpress.org/plugins/" rel="home">Plugins</a></p>
+
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+						<button class="menu-toggle dashicons dashicons-arrow-down-alt2" aria-controls="primary-menu" aria-expanded="false" aria-label="Primary Menu"></button>
+						<div id="primary-menu" class="menu">
+							<ul aria-expanded="false" class=" nav-menu">
+																<li class="page_item"><a class="" href="https://wordpress.org/plugins/browse/favorites/">My Favorites</a></li>
+																<li class="page_item"><a class="" href="https://wordpress.org/plugins/browse/beta/">Beta Testing</a></li>
+																<li class="page_item"><a class="" href="https://wordpress.org/plugins/developers/">Developers</a></li>
+																<li><form role="search" method="get" class="search-form" action="https://wordpress.org/plugins/">
+	<label for="s" class="screen-reader-text">Search for:</label>
+	<input type="search" id="s" class="search-field" placeholder="Search plugins" value="" name="s">
+	<button class="button button-primary button-search"><i class="dashicons dashicons-search"></i><span class="screen-reader-text">Search plugins</span></button>
+</form>
+</li>
+							</ul>
+						</div>
+					</nav><!-- #site-navigation -->
+							</div><!-- .site-branding -->
+		</header><!-- #masthead -->
+
+	<main id="main" class="site-main" role="main">
+
+		
+<article id="post-50145" class="post-50145 plugin type-plugin status-publish hentry plugin_category-editor-and-writing plugin_contributors-mndpsingh287 plugin_committers-mndpsingh287 plugin_tags-elfinder plugin_tags-file-manager plugin_tags-ftp plugin_tags-wordpress-file-manager plugin_tags-wp-file-manager">
+	<style type="text/css">#plugin-banner-wp-file-manager { background-image: url('https://ps.w.org/wp-file-manager/assets/banner-772x250.jpg?rev=1846030'); }</style><div class="plugin-banner" id="plugin-banner-wp-file-manager"></div>
+	<header class="plugin-header">
+		
+		<div class="entry-thumbnail">
+			<style type="text/css">#plugin-icon-wp-file-manager { background-image: url('https://ps.w.org/wp-file-manager/assets/icon-128x128.png?rev=1846029'); }</style><div class="plugin-icon" id="plugin-icon-wp-file-manager"></div>		</div>
+
+		<div class="plugin-actions">
+			
+							<a class="plugin-download button download-button button-large" href="https://downloads.wordpress.org/plugin/wp-file-manager.zip">Download</a>
+					</div>
+
+				<h1 class="plugin-title">File Manager</h1>
+		
+		<span class="byline">By <span class="author vcard"><a class="url fn n" rel="nofollow" href="https://profiles.wordpress.org/mndpsingh287">mndpsingh287</a></span></span>
+	</header><!-- .entry-header -->
+
+			<script type="text/javascript">if ( '#changelog' == window.location.hash ) { window.location.hash = '#developers'; }</script>
+		<span id="description"></span>
+		<span id="reviews"></span>
+		<span id="installation"></span>
+		<span id="developers"></span>
+		<ul class="tabs clear">
+			<li id="tablink-description"><a href="https://wordpress.org/plugins/wp-file-manager/#description">Details</a></li>
+			<li id="tablink-reviews"><a href="https://wordpress.org/plugins/wp-file-manager/#reviews">Reviews</a></li>
+							<li id="tablink-installation">
+					<a href="https://wordpress.org/plugins/wp-file-manager/#installation">Installation</a>
+				</li>
+						<li id="tablink-support">
+				<a href="https://wordpress.org/support/plugin/wp-file-manager">Support</a>
+			</li>
+			<li id="tablink-developers"><a href="https://wordpress.org/plugins/wp-file-manager/#developers">Development</a></li>
+		</ul>
+	
+	<div class="entry-content">
+		
+<div id="tab-description" class="plugin-description section">
+	<h2 id="description-header">Description</h2>
+	<h4>File Manager provides you features to edit, delete, upload, download, copy and paste files and folders. You can easily copy, move files folder or any files from one location to another location.</h4>
+<p>Multi Langauges Added</p>
+<h4>Key Features in File Manager free Version Plugin</h4>
+<ul>
+<li><strong>Operations:</strong> Various operations with files and folders on a remote server (copy, move, upload, create folder/file, rename, edit, delete etc.)</li>
+<li><strong>Move/Copy:</strong> Admin can Move/Copy files with Drag &amp; Drop.</li>
+<li><strong>Archives:</strong> Admin can create/extract files(zip, rar, tar, gzip).</li>
+<li><strong>File Size:</strong> Admin/User can upload any size files.</li>
+<li><strong>File Type:</strong> Control what files can be uploaded and what file can be downloaded.</li>
+<li><strong>Shortcode:</strong> Available only for File Manager Pro Edition</li>
+<li><strong>Private Folder:</strong> Available only for File Manager Pro Edition</li>
+<li><strong>Multiple Themes:</strong> Multiple File Manager Themes Available – New Feature</li>
+</ul>
+<h4>Key Features in File Manager Pro Editions</h4>
+<ul>
+<li><strong>File Type:</strong> Control what files can be uploaded and what file can be downloaded.**</li>
+<li><strong>Operations:</strong> Various operations with files and folders on a remote server (copy, move, upload, create folder/file, rename, edit, delete etc.)</li>
+<li><strong>Shortcode:</strong> Available with custom attributes for frontend.</li>
+<li><strong>Private Folder:</strong> Admin can give access of same and different folder to different users roles and different users.</li>
+<li><strong>Move/Copy:</strong> Admin can Move/Copy files with Drag &amp; Drop.</li>
+<li><strong>Archives:</strong> Admin can create/extract files(zip, rar, tar, gzip).</li>
+<li><strong>File Size:</strong> Admin/User can control file upload size.</li>
+<li><strong>Fullscreen View:</strong> Admin can control code editor fullscreen view.</li>
+<li><strong>Editor</strong>: There are a lots of themes available for code editor. Admin can control code editor themes.</li>
+<li><strong>Hide Files/Folder:</strong> Here admin is able to hide files and folders for user roles and for users.</li>
+<li><strong>File Type:</strong> Control what files can be uploaded and what file can be downloaded.</li>
+<li><strong>User Role:</strong> admin is able to control file operations and hide and lock Files and Folders for user roles .</li>
+<li><strong>Users:</strong> admin is able to control file operations and hide and lock Files and Folders for paticular user .</li>
+<li><strong>High performance:</strong> High performance server backend and light client UI.</li>
+<li><strong>File system:</strong> Local file system storage drivers.</li>
+<li><strong>Edit file:</strong> User can edit text files and images.</li>
+<li><strong>Frontend Access:</strong> User can access frontend using shortcode.</li>
+<li><strong>Admin Email Notifications.</strong> Admin will get a Notification whenever a file is updated. </li>
+<li><strong>Admin Email Notifications.</strong> Admin will get a Notification whenever a file is Downloaded. </li>
+<li><strong>Admin Email Notifications.</strong> Admin will get a Notification whenever a file is Edited. </li>
+<li><strong>Google Drive Integration</strong>   drag drop, copy paste all other operations between file manager and google drive.</li>
+<li><strong>Dropbox Integration</strong>        drag drop, copy paste all other operations between file manager and dropbox.   </li>
+</ul>
+<blockquote>
+<p><strong><a href="http://filemanager.webdesi9.com/product/file-manager/" rel="nofollow">Buy Pro Version</a></strong> with various features &amp; support.<br>
+  <strong><a href="https://webdesi9.zendesk.com/hc/en-us" rel="nofollow">Contact us</a></strong> for Support Only Pro Version Users.<br>
+  <strong><a href="https://filemanager.webdesi9.com/documentation/" rel="nofollow">Documentation</a></strong> Click Here.<br>
+  <strong><a href="https://filemanager.webdesi9.com/addons" rel="nofollow">Addons</a></strong> with various features &amp; support.<br>
+  <strong><a href="http://filemanager.webdesi9.com/product/file-manager/" rel="nofollow">Upgrade to Pro Version</a></strong></p>
+</blockquote>
+<h4>Premium Addons</h4>
+<p><strong><a href="https://filemanager.webdesi9.com/product/file-manager-google-drive" rel="nofollow">File Manager Google Drive</a></strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in Google Drive.<br>
+<strong><a href="https://filemanager.webdesi9.com/product/file-manager-one-drive" rel="nofollow">File Manager OneDrive</a></strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in OneDrive from File Manager.<br>
+<strong><a href="https://filemanager.webdesi9.com/product/file-manager-dropbox" rel="nofollow">File Manager Dropbox</a></strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in dropbox.<br>
+<strong><a href="https://filemanager.webdesi9.com/product/file-manager-box" rel="nofollow">File Manager Box</a></strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in Box.<br>
+<strong><a href="https://filemanager.webdesi9.com/product/file-manager-git" rel="nofollow">File Manager Git</a></strong> Github integration for file manager.<br>
+<strong><a href="https://filemanager.webdesi9.com/product/file-manager-slack" rel="nofollow">File Manager Slack</a></strong> Slack incoming webhook integration to file manager.</p>
+<h3>Support</h3>
+<ul>
+<li>If any problem occurs, please contact us at https://webdesi9.zendesk.com/hc/en-us</li>
+</ul>
+<h3>How to use</h3>
+<ol>
+<li>First Activate Plugin.</li>
+<li>Then Click on ” WP File Manager ” menu. Then do with files what you want to do.= Minimum requirements for File Manager =</li>
+</ol>
+<p>*   WordPress 3.3+<br>
+*   PHP 5.x<br>
+*   MySQL 5.x</p>
+<p>If any problem occurs, please contact us at https://webdesi9.zendesk.com/hc/en-us.</p></div>
+
+<div data-reactroot="" id="screenshots" class="plugin-screenshots"><h2>Screenshots</h2><section class="image-gallery"><div class="image-gallery-content"><span><button type="button" class="button-link image-gallery-left-nav"></button><button type="button" class="button-link image-gallery-right-nav"></button></span><div class="image-gallery-slides"><div class="image-gallery-slide center" style="transform: translate3d(0%, 0px, 0px); z-index: 3;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-1.png"><img src="./File Manager _ WordPress.org_files/screenshot-1.png" alt=""></a><figcaption class="image-gallery-description">File Manager File View Screen.</figcaption></figure></div><div class="image-gallery-slide right" style="transform: translate3d(100%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-2.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-2.jpg" alt=""></a><figcaption class="image-gallery-description">Make a folder or file archive as zip.</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(200%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-3.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-3.jpg" alt=""></a><figcaption class="image-gallery-description">Download archived zip file.</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(300%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-4.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-4.jpg" alt=""></a><figcaption class="image-gallery-description">PRO:  In File Manager Pro version user is able to give accessibility to user roles by just one click and Control File upload size.</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(400%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-5.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-5.jpg" alt=""></a><figcaption class="image-gallery-description">PRO:  In File manager pro version admin is able to control file operations for user roles and also hide any file and folder. Admin also lock any file to prevent from edit.</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(500%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-6.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-6.jpg" alt=""></a><figcaption class="image-gallery-description">PRO:  In File manager pro version admin is able to control file operations for particular user and also hide any file and folder. Admin also lock any file to prevent from edit.</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(600%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-7.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-7.jpg" alt=""></a><figcaption class="image-gallery-description">PRO:  Admin can control code editor fullscreen view &amp; code editor themes.</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(700%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-8.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-8.jpg" alt=""></a><figcaption class="image-gallery-description">PRO: Code editor fullscreen view with selected theme.</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(800%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-9.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-9.jpg" alt=""></a><figcaption class="image-gallery-description">PRO: Private Folder Access</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(900%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-10.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-10.jpg" alt=""></a><figcaption class="image-gallery-description">File Manager with Multiple Languages</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(1000%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-11.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-11.jpg" alt=""></a><figcaption class="image-gallery-description">File Manager with Multiple Themes - Light Theme</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(1100%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-12.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-12.jpg" alt=""></a><figcaption class="image-gallery-description">Dark Theme View</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(1200%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-13.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-13.jpg" alt=""></a><figcaption class="image-gallery-description">Grey Theme View</figcaption></figure></div><div class="image-gallery-slide" style="transform: translate3d(1300%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-14.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-14.jpg" alt=""></a><figcaption class="image-gallery-description">Window 10 Theme View</figcaption></figure></div><div class="image-gallery-slide left" style="transform: translate3d(-100%, 0px, 0px); z-index: 1;"><figure class="image-gallery-image"><a href="./File Manager _ WordPress.org_files/screenshot-15.jpg"><img src="./File Manager _ WordPress.org_files/screenshot-15.jpg" alt=""></a><figcaption class="image-gallery-description">Edit Root Directory Path</figcaption></figure></div></div></div><div class="image-gallery-thumbnails"><div class="image-gallery-thumbnails-container" style="transform: translate3d(0px, 0px, 0px);"><button type="button" class="button-link image-gallery-thumbnail active"><img src="./File Manager _ WordPress.org_files/screenshot-1.png" alt="File Manager File View Screen."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-2.jpg" alt="Make a folder or file archive as zip."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-3.jpg" alt="Download archived zip file."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-4.jpg" alt="PRO:  In File Manager Pro version user is able to give accessibility to user roles by just one click and Control File upload size."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-5.jpg" alt="PRO:  In File manager pro version admin is able to control file operations for user roles and also hide any file and folder. Admin also lock any file to prevent from edit."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-6.jpg" alt="PRO:  In File manager pro version admin is able to control file operations for particular user and also hide any file and folder. Admin also lock any file to prevent from edit."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-7.jpg" alt="PRO:  Admin can control code editor fullscreen view &amp; code editor themes."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-8.jpg" alt="PRO: Code editor fullscreen view with selected theme."><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-9.jpg" alt="PRO: Private Folder Access"><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-10.jpg" alt="File Manager with Multiple Languages"><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-11.jpg" alt="File Manager with Multiple Themes - Light Theme"><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-12.jpg" alt="Dark Theme View"><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-13.jpg" alt="Grey Theme View"><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-14.jpg" alt="Window 10 Theme View"><div class="image-gallery-thumbnail-label"></div></button><button type="button" class="button-link image-gallery-thumbnail"><img src="./File Manager _ WordPress.org_files/screenshot-15.jpg" alt="Edit Root Directory Path"><div class="image-gallery-thumbnail-label"></div></button></div></div></section></div>
+
+<div id="tab-installation" class="plugin-installation section">
+	<h2 id="installation-header">Installation</h2>
+	<ol>
+<li>Upload the <code>wp-file-manager</code> folder to the directory <code>/wp-content/plugins/</code>.</li>
+<li>Activate the plugin using the ‘Plugins’ menu in WordPress.</li>
+</ol></div>
+
+<div id="faq" class="plugin-faq section">
+	<h2 id="faq-header">FAQ</h2>
+	<dl>
+<dt id="#can%20we%20make%20zip%20of%20any%20folder%20or%20file%20and%20download%20it%20%3F"><a href="https://wordpress.org/plugins/wp-file-manager/#can%20we%20make%20zip%20of%20any%20folder%20or%20file%20and%20download%20it%20%3F">Can we make zip of any folder or file and download it ?</a></dt>
+<dd>
+<p>Yes, You can archieve any files and folders as zip then simple download it. Please view screenshots.</p>
+</dd>
+</dl></div>
+
+<div id="tab-reviews" class="plugin-reviews section">
+	<h2 id="reviews-header">Reviews</h2>
+	<div class="plugin-reviews">
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./File Manager _ WordPress.org_files/e1e37992804e5400b137dedca47ba13a.jpeg" srcset="https://secure.gravatar.com/avatar/e1e37992804e5400b137dedca47ba13a?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10942095">Great Plugin</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/smitpatadiya" title="Posts by smitpatadiya" rel="author">smitpatadiya</a></span>
+						</header>
+						<div class="review-content"><p>Great Plugin, I appreciate it.</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./File Manager _ WordPress.org_files/a259893299bd0ad303ce7faba4a33256.jpeg" srcset="https://secure.gravatar.com/avatar/a259893299bd0ad303ce7faba4a33256?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10940781">Funciona muito bem</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/samenezes" title="Posts by samenezes" rel="author">samenezes</a></span>
+						</header>
+						<div class="review-content"><p>Funciona muito bem</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./File Manager _ WordPress.org_files/86b1fbc0bfaaf8054e849f3187770e1f.png" srcset="https://secure.gravatar.com/avatar/86b1fbc0bfaaf8054e849f3187770e1f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10939101">Simple and Perfect</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/josemuro" title="Posts by josemuro" rel="author">josemuro</a></span>
+						</header>
+						<div class="review-content"><p>Very good!</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./File Manager _ WordPress.org_files/670ace5347c54e9e912a76e703240e8c.png" srcset="https://secure.gravatar.com/avatar/670ace5347c54e9e912a76e703240e8c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10937041">Good. Saves time.</a></h3>
+														<div class="wporg-ratings" aria-label="4 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="4" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-empty"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/aarond4" title="Posts by aarond4" rel="author">aarond4</a></span>
+						</header>
+						<div class="review-content"><p>Simple enough to use.<br>
+Saved time in making alterations needed for using WP-Staging plugin</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./File Manager _ WordPress.org_files/d93ea1867dda251ad0354045e46a1a41.png" srcset="https://secure.gravatar.com/avatar/d93ea1867dda251ad0354045e46a1a41?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10933907">good</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/hsultd" title="Posts by hsultd" rel="author">hsultd</a></span>
+						</header>
+						<div class="review-content"><p>Good, i can solve many problems on the spot.</p>
+</div>
+					</div>
+				</article>
+							<article class="plugin-review">
+					<div class="review-avatar">
+						<img alt="" src="./File Manager _ WordPress.org_files/2794db6b143a8dcbfd6c9e5fb29b2e73.png" srcset="https://secure.gravatar.com/avatar/2794db6b143a8dcbfd6c9e5fb29b2e73?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div><div class="review">
+						<header>
+															<h3 class="review-title"><a class="url" href="https://wordpress.org/support/plugin/?p=10932635">Love this plugin</a></h3>
+														<div class="wporg-ratings" aria-label="5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></div>							<span class="review-author author vcard"><a href="https://profiles.wordpress.org/wreck2000" title="Posts by wreck2000" rel="author">wreck2000</a></span>
+						</header>
+						<div class="review-content"><p>Great tool!</p>
+</div>
+					</div>
+				</article>
+					</div>
+		
+		<a class="reviews-link" href="https://wordpress.org/support/plugin/wp-file-manager/reviews/">
+			Read all 372 reviews		</a></div>
+
+<div id="tab-developers" class="plugin-developers section">
+	<h2 id="developers-header">Contributors &amp; Developers</h2>
+	<div class="plugin-contributors"><p>“File Manager” is open source software. The following people have contributed to this plugin.</p><span class="screen-reader-text">Contributors</span>
+		<ul id="contributors-list" class="contributors-list">
+						<li>
+				<img alt="" src="./File Manager _ WordPress.org_files/4f278539d5ed3592ff4eacffca52a617.png" srcset="https://secure.gravatar.com/avatar/4f278539d5ed3592ff4eacffca52a617?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">				<a href="https://profiles.wordpress.org/mndpsingh287">
+					mndpsingh287				</a>
+			</li>
+					</ul>
+
+		</div><div class="plugin-development"><p><a href="https://translate.wordpress.org/projects/wp-plugins/wp-file-manager">Translate “File Manager” into your language.</a></p><h3>Interested in development?</h3><p><a href="https://plugins.trac.wordpress.org/browser/wp-file-manager/">Browse the code</a>, check out the <a href="https://plugins.svn.wordpress.org/wp-file-manager/">SVN repository</a>, or subscribe to the <a href="https://plugins.trac.wordpress.org/log/wp-file-manager/">development log</a> by <a href="https://plugins.trac.wordpress.org/log/wp-file-manager/?limit=100&amp;mode=stop_on_copy&amp;format=rss">RSS</a>.</p></div></div>
+
+<div id="tab-changelog" class="plugin-changelog section">
+	<h2 id="changelog-header">Changelog</h2>
+	<h4>3.7 (3rd DEC, 2018)</h4>
+<ul>
+<li>Header issue fixed</li>
+</ul>
+<h4>3.6 (3rd DEC, 2018)</h4>
+<ul>
+<li>Security Fixes</li>
+</ul>
+<h4>3.5 (3rd DEC, 2018)</h4>
+<ul>
+<li>Zip extract issue fixes</li>
+</ul>
+<h4>3.4 (30th Nov, 2018)</h4>
+<ul>
+<li>Minor Fixes</li>
+</ul>
+<h4>3.3 (30th Nov, 2018)</h4>
+<ul>
+<li>Library updated</li>
+</ul>
+<h4>3.2 (20th Oct, 2018)</h4>
+<ul>
+<li>CompaNovle with php 7.3 and wordpress 5.0</li>
+</ul>
+<h4>3.1 (17th Sep, 2018)</h4>
+<ul>
+<li>Security fixes and design fixes</li>
+</ul>
+<h4>3.0 (5th Sep, 2018)</h4>
+<ul>
+<li>Security issues fixed</li>
+</ul>
+<h4>2.9 (27th Aug ,2018)</h4>
+<ul>
+<li>
+<p>Russian Translations added. Credit: @ivan192</p>
+</li>
+<li>
+<p>Code editor lines number added.</p>
+</li>
+<li>
+<p>Minimized window buttons collapsing issue fixed</p>
+</li>
+</ul>
+<h4>2.8 (15th Jun ,2018)</h4>
+<ul>
+<li>minor Performence fix</li>
+</ul>
+<h4>2.7 (2th Jun ,2018)</h4>
+<p>major Performence fix</p>
+<h4>2.6 (18th May ,2018)</h4>
+<ul>
+<li>‘/’ error Fix,major fix</li>
+</ul>
+<h4>2.5 (16th May ,2018)</h4>
+<ul>
+<li>Upload File issue Fix</li>
+</ul>
+<h4>2.4 (16th Apr ,2018)</h4>
+<ul>
+<li>On extract Invaild Backend issue</li>
+</ul>
+<h4>2.3 (16th Apr ,2018)</h4>
+<ul>
+<li>Extract Issue Resolved</li>
+</ul>
+<h4>2.2 (9th Apr ,2018)</h4>
+<ul>
+<li>PHP 7 Compatibility Issues Resolved</li>
+</ul>
+<h4>2.1 (26th March ,2018)</h4>
+<ul>
+<li>major design fixes</li>
+</ul>
+<h4>2.0 (1st March ,2018)</h4>
+<ul>
+<li>Edit Root Directory Path Feature – Major Update</li>
+</ul>
+<h4>1.9 (8th Jan ,2018)</h4>
+<ul>
+<li>fix Console en js missing error</li>
+<li>Now WP File Manager has various themes. – Major Update</li>
+</ul>
+<h4>1.8 (20th Sep ,2017)</h4>
+<ul>
+<li>fix some Bug in 1.7 – Minor Update</li>
+<li>Now WP File Manager is in various languages. – Major Update</li>
+<li>WP File Manager Translations Available. Compatiable with any wordpress language. – Major Update</li>
+</ul>
+<h4>1.7 (18th Aug ,2017)</h4>
+<ul>
+<li>fix some Bug in 1.6 – Minor Update</li>
+<li>System Properties Menu – Added(New)</li>
+</ul>
+<h4>1.6 (20th Apr ,2017)</h4>
+<ul>
+<li>fix some Bug in 1.5 – Minor Update</li>
+</ul>
+<h4>1.5 (01th Mar ,2017)</h4>
+<ul>
+<li>fix some Bug in 1.4 – Major Update</li>
+</ul>
+<h4>1.4 (09th Jan ,2017)</h4>
+<ul>
+<li>fix some Bug in 1.3 – Major Update</li>
+<li>fix File edit auto slash add problem</li>
+</ul>
+<h4>1.3 (23th Nov ,2016)</h4>
+<ul>
+<li>fix some Bug in 1.2 – Minor Update</li>
+<li>fix max upload size problem</li>
+</ul>
+<h4>1.2 (17th Sep ,2016)</h4>
+<ul>
+<li>fix some Bug in 1.1 – Minor Update</li>
+<li>Compatible upto wordpress 4.6.1</li>
+</ul>
+<h4>1.1 (26th Aug ,2016)</h4>
+<ul>
+<li>fix some Bug in 1.0 – Minor Update</li>
+<li>Compatible upto wordpress 4.6</li>
+</ul></div>
+	</div><!-- .entry-content -->
+
+	<div class="entry-meta">
+		<div class="widget plugin-meta">
+		<h3 class="screen-reader-text">Meta</h3>
+
+		<ul>
+			
+			<li>
+				Version: <strong>3.7</strong>			</li>
+
+			<li>
+				Last updated: <strong><span>22 hours</span> ago</strong>			</li>
+			<li>
+				Active installations: <strong>200,000+</strong>			</li>
+
+							<li>
+					WordPress Version:					<strong>
+						4.0 or higher					</strong>
+				</li>
+			
+							<li>
+					Tested up to: <strong>5.0</strong>				</li>
+			
+							<li>
+					PHP Version:					<strong>
+						5.2.4 or higher					</strong>
+				</li>
+			
+			
+							<li class="clear">
+					Tags: <div class="tags"><a href="https://wordpress.org/plugins/tags/elfinder/" rel="tag">elfinder</a><a href="https://wordpress.org/plugins/tags/file-manager/" rel="tag">file manager</a><a href="https://wordpress.org/plugins/tags/ftp/" rel="tag">ftp</a><a href="https://wordpress.org/plugins/tags/wordpress-file-manager/" rel="tag">wordpress file manager</a><a href="https://wordpress.org/plugins/tags/wp-file-manager/" rel="tag">wp file manager</a></div>				</li>
+			
+							<li class="hide-if-no-js">
+					<strong><a class="plugin-admin" href="https://wordpress.org/plugins/wp-file-manager/advanced/">Advanced View</a></strong>				</li>
+					</ul>
+
+		</div><div class="widget plugin-ratings"><h3 class="widget-title">Ratings</h3>			<a class="reviews-link" href="https://wordpress.org/support/plugin/wp-file-manager/reviews/">See all</a>
+
+			<div class="rating">
+				<div class="wporg-ratings" aria-label="4.5 out of 5 stars" data-title-template="%s out of 5 stars" data-rating="4.5" style="color:#ffb900;"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span></div>			</div>
+
+			<ul class="ratings-list">
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-file-manager/reviews/?filter=5">
+							<span class="counter-label">5 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 90.05376344086%;"></span>
+					</span>
+							<span class="counter-count">335</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-file-manager/reviews/?filter=4">
+							<span class="counter-label">4 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 3.494623655914%;"></span>
+					</span>
+							<span class="counter-count">13</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-file-manager/reviews/?filter=3">
+							<span class="counter-label">3 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 1.0752688172043%;"></span>
+					</span>
+							<span class="counter-count">4</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-file-manager/reviews/?filter=2">
+							<span class="counter-label">2 stars</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 0.80645161290323%;"></span>
+					</span>
+							<span class="counter-count">3</span>
+						</a>
+					</li>
+									<li class="counter-container">
+						<a href="https://wordpress.org/support/plugin/wp-file-manager/reviews/?filter=1">
+							<span class="counter-label">1 star</span>
+					<span class="counter-back">
+						<span class="counter-bar" style="width: 4.5698924731183%;"></span>
+					</span>
+							<span class="counter-count">17</span>
+						</a>
+					</li>
+							</ul>
+
+		
+		</div><div id="plugin-contributors" class="widget plugin-contributors"><h4 class="widget-title">Contributors</h4>
+		<ul id="contributors-list" class="contributors-list">
+						<li>
+				<img alt="" src="./File Manager _ WordPress.org_files/4f278539d5ed3592ff4eacffca52a617.png" srcset="https://secure.gravatar.com/avatar/4f278539d5ed3592ff4eacffca52a617?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">				<a href="https://profiles.wordpress.org/mndpsingh287">
+					mndpsingh287				</a>
+			</li>
+					</ul>
+
+		</div><div class="widget plugin-support"><h3 class="widget-title">Support</h3>			<p class="aside">Issues resolved in last two months:</p>
+			<p class="counter-container">
+				<span class="counter-back">
+					<span class="counter-bar" style="width: 100%;"></span>
+				</span>
+				<span class="counter-count">
+					11 out of 11				</span>
+			</p>
+
+		
+		<p>
+			<a class="button" href="https://wordpress.org/support/plugin/wp-file-manager">View support forum</a>
+		</p>
+
+		</div><div class="widget plugin-donate"><h3 class="widget-title">Donate</h3>
+			<p class="aside">Would you like to support the advancement of this plugin?</p>
+			<p>
+				<a class="button button-secondary" href="http://www.webdesi9.com/donate/?plugin=wp-file-manager" rel="nofollow">
+					Donate to this plugin				</a>
+			</p>
+
+			</div>	</div><!-- .entry-meta -->
+</article><!-- #post-## -->
+
+	</main><!-- #main -->
+
+
+	</div><!-- #content -->
+
+
+<div id="wporg-footer">
+	<div class="wrapper">
+		<ul>
+			<li><a href="https://wordpress.org/about/" title="An introduction to the WordPress project">About</a></li>
+			<li><a href="https://wordpress.org/news/" title="News and Updates">Blog</a></li>
+			<li><a href="https://wordpress.org/hosting/" title="Recommended web hosting providers">Hosting</a></li>
+			<li><a href="https://wordpressfoundation.org/donate/" title="Donate to the WordPress Foundation">Donate</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://wordpress.org/support/" title="Forums, documentation, and other resources">Support</a></li>
+			<li><a href="https://developer.wordpress.org/" title="Resources for WordPress developers">Developers</a></li>
+			<li><a href="https://make.wordpress.org/" title="Give back to WordPress through code, support, translation and more">Get Involved</a></li>
+			<li><a href="https://learn.wordpress.org/" title="Workshops and training materials">Learn</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://wordpress.org/showcase/" title="Some of the best WordPress sites on the Web">Showcase</a></li>
+			<li><a href="https://wordpress.org/plugins/" title="Add extra functionality to WordPress">Plugins</a></li>
+			<li><a href="https://wordpress.org/themes/" title="Make your WordPress pretty">Themes</a></li>
+			<li><a href="https://wordpress.org/ideas/" title="Share your ideas for improving WordPress">Ideas</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://central.wordcamp.org/" title="Find a WordPress event near you">WordCamp</a></li>
+			<li><a href="https://wordpress.tv/" title="Videos, tutorials, and WordCamp sessions">WordPress.TV</a></li>
+			<li><a href="https://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress</a></li>
+			<li><a href="https://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="https://wordpress.com/?ref=wporg-footer" title="Hassle-free WordPress hosting">WordPress.com</a></li>
+			<li><a href="https://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a></li>
+			<li><a href="https://wordpress.org/about/privacy/" title="WordPress.org Privacy Policy">Privacy</a></li>
+			<li><a href="https://publiccode.eu/" target="_blank">Public Code</a></li>
+		</ul>
+
+		<ul>
+			<li>
+				<iframe title="Follow @WordPress on Twitter" allowtransparency="true" frameborder="0" scrolling="no" src="./File Manager _ WordPress.org_files/follow_button.html" style="width:135px; height:20px;"></iframe>
+			</li>
+			<li>
+				<iframe title="Like WordPress on Facebook" src="./File Manager _ WordPress.org_files/like.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:135px; height:21px;" allowtransparency="true"></iframe>
+			</li>
+		</ul>
+	</div>
+
+		<p class="cip cip-image">Code is Poetry.</p>
+</div>
+
+<script type="text/javascript">
+	/**
+	 * Handles toggling the navigation menu for small screens and enables TAB key
+	 * navigation support for dropdown menus.
+	 */
+	( function( $ ) {
+		var container, button, menu, links, i, len;
+
+		container = document.getElementById( 'wporg-header' );
+		if ( ! container ) {
+			return;
+		}
+
+		button = container.getElementsByTagName( 'button' )[0];
+		if ( 'undefined' === typeof button ) {
+			return;
+		}
+
+		menu = container.getElementsByTagName( 'ul' )[0];
+
+		// Hide menu toggle button if menu is empty and return early.
+		if ( 'undefined' === typeof menu ) {
+			button.style.display = 'none';
+			return;
+		}
+
+		menu.setAttribute( 'aria-expanded', 'false' );
+		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+			menu.className += ' nav-menu';
+		}
+
+		button.onclick = function() {
+			if ( -1 !== menu.className.indexOf( 'toggled' ) ) {
+				menu.className = menu.className.replace( ' toggled', '' );
+				button.setAttribute( 'aria-expanded', 'false' );
+				menu.setAttribute( 'aria-expanded', 'false' );
+			} else {
+				menu.className += ' toggled';
+				button.setAttribute( 'aria-expanded', 'true' );
+				menu.setAttribute( 'aria-expanded', 'true' );
+			}
+		};
+
+		// Get all the link elements within the menu.
+		links = menu.getElementsByTagName( 'a' );
+
+		// Each time a menu link is focused or blurred, toggle focus.
+		for ( i = 0, len = links.length; i < len; i++ ) {
+			links[i].addEventListener( 'focus', toggleFocus, true );
+			links[i].addEventListener( 'blur', toggleFocus, true );
+		}
+
+		/**
+		 * Sets or removes .focus class on an element.
+		 */
+		function toggleFocus() {
+			var self = this;
+
+			// Move up through the ancestors of the current link until we hit .nav-menu.
+			while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+
+				// On li elements toggle the class .focus.
+				if ( 'li' === self.tagName.toLowerCase() ) {
+					if ( -1 !== self.className.indexOf( 'focus' ) ) {
+						self.className = self.className.replace( ' focus', '' );
+					} else {
+						self.className += ' focus';
+					}
+				}
+
+				self = self.parentElement;
+			}
+		}
+
+		/**
+		 * Toggles `focus` class to allow submenu access on tablets.
+		 */
+		( function( container ) {
+			var touchStartFn, i,
+				parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+
+			if ( 'ontouchstart' in window ) {
+				touchStartFn = function( e ) {
+					var menuItem = this.parentNode, i;
+
+					if ( ! menuItem.classList.contains( 'focus' ) ) {
+						e.preventDefault();
+						for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
+							if ( menuItem === menuItem.parentNode.children[i] ) {
+								continue;
+							}
+							menuItem.parentNode.children[i].classList.remove( 'focus' );
+						}
+						menuItem.classList.add( 'focus' );
+					} else {
+						menuItem.classList.remove( 'focus' );
+					}
+				};
+
+				for ( i = 0; i < parentLink.length; ++i ) {
+					parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
+				}
+			}
+		}( container ) );
+	} )();
+</script>
+<!-- 9 queries. 0.135 seconds -->
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/admin-bar.min.js.download"></script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/navigation.js.download"></script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/skip-link-focus-fix.js.download"></script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/jquery.js.download"></script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/popover.js.download"></script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/section-faq.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wporgLocaleBanner = {"apiURL":"https:\/\/wordpress.org\/plugins\/wp-json\/plugins\/v1\/locale-banner","currentPlugin":"wp-file-manager"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/locale-banner.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var pluginDirectory = {"endpoint":"https:\/\/wordpress.org\/plugins\/wp-json","nonce":"a2e7c3b592","base":"\/plugins\/","userId":"0"};
+var localeData = {"":{"Plural-Forms":"nplurals=2; plural=n != 1;","Language":"en","localeSlug":"en"},"screenshots":"Screenshots"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/theme.js.download"></script>
+<script type="text/javascript" src="./File Manager _ WordPress.org_files/wp-embed.min.js.download"></script>
+		
+
+		
+
+</div><div id="wpadminbar" class="nojq ">
+							<a class="screen-reader-shortcut" href="https://wordpress.org/plugins/wp-file-manager/#wp-toolbar" tabindex="1">Skip to toolbar</a>
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://wordpress.org/about/"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item" href="https://wordpress.org/about/">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item" href="https://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="https://wordpress.org/plugins/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"></form></div>		</li>
+		<li id="wp-admin-bar-log-in" class=""><a class="ab-item" href="https://login.wordpress.org/?locale=en_US">Log In</a>		</li>
+		<li id="wp-admin-bar-register" class=""><a class="ab-item" href="https://login.wordpress.org/register?locale=en_US">Register</a>		</li></ul>			</div>
+					</div></body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>

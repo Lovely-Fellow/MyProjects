@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://inter.biggamez.com/ext/vsframe-res.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>videoSlider</title>
+
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .plyrcont {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            -webkit-transition: right .6s linear;
+            -moz-transition: right .6s linear;
+            -ms-transition: right .6s linear;
+            transition: right .6s linear;
+            outline-style: solid;
+            outline-width: thick;
+            outline-color: #fff;
+            box-shadow: 0px 0px 15px #555;
+        }
+
+        .plyr {
+            /* width: 400px;
+            height: 300px; */
+            background: #f2f2f2;
+        }
+
+        .rmp-container {
+            position: absolute !important;
+            width: 100%;
+            height: 100%;
+        }
+
+        .attr {
+            width: 100%;
+            height: 17px;
+            bottom: 0px;
+            right: 0px;
+            position: absolute;
+            background: #333;
+            font-family: arial;
+            text-align: right;
+            font-size: 10px;
+            color: #777;
+            padding-top: 8px;
+            z-index: 2147483647;
+        }
+
+        a.attr {
+            color: #777;
+            text-decoration: underline;
+        }
+
+        .clsbut {
+            position: absolute;
+            left: 13px;
+            bottom: -50px;
+            margin: 2px;
+            cursor: pointer;
+            transition-property: all;
+            transition-duration: .6s;
+            transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        }
+
+        .mutebut {
+            position: absolute;
+            bottom: 24px;
+            right: 2px;
+            cursor: pointer;
+            z-index: 999999999;
+        }
+
+        input#muteicon {
+            display: none;
+        }
+
+        .unmute img {
+            display: none;
+        }
+
+        input#muteicon:checked~.unmute img {
+            display: initial;
+        }
+
+        input#muteicon:checked~.mute img {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="./rmp-vast.css">
+    <script src="./rmp-vast.min.js.download"></script>
+    <script>
+        let iasFrStatus = false;
+        function setIasFrStatus(status) {
+            console.log("[vs] ias cookie, fraud:", status);
+            iasFrStatus = status;
+        }
+    </script>
+    <script src="./get.do"></script>
+    <script>
+        let rmpVast = null;
+        let settings = null;
+        let container = null;
+        let adStartedTime = null;
+        let adDeadStartTime = null;
+        let pActionTaken = false;
+        let sActionTaken = false;
+        let manualPause = false;        
+
+        (function (funcName, baseObj) {
+            "use strict";
+            // The public function name defaults to window.docReady
+            // but you can modify the last line of this function to pass in a different object or method name
+            // if you want to put them in a different namespace and those will be used instead of 
+            // window.docReady(...)
+            funcName = funcName || "docReady";
+            baseObj = baseObj || window;
+            var readyList = [];
+            var readyFired = false;
+            var readyEventHandlersInstalled = false;
+
+            // call this when the document is ready
+            // this function protects itself against being called more than once
+            function ready() {
+                if (!readyFired) {
+                    // this must be set to true before we start calling callbacks
+                    readyFired = true;
+                    for (var i = 0; i < readyList.length; i++) {
+                        // if a callback here happens to add new ready handlers,
+                        // the docReady() function will see that it already fired
+                        // and will schedule the callback to run right after
+                        // this event loop finishes so all handlers will still execute
+                        // in order and no new ones will be added to the readyList
+                        // while we are processing the list
+                        readyList[i].fn.call(window, readyList[i].ctx);
+                    }
+                    // allow any closures held by these functions to free
+                    readyList = [];
+                }
+            }
+
+            function readyStateChange() {
+                if (document.readyState === "complete") {
+                    ready();
+                }
+            }
+
+            // This is the one public interface
+            // docReady(fn, context);
+            // the context argument is optional - if present, it will be passed
+            // as an argument to the callback
+            baseObj[funcName] = function (callback, context) {
+                if (typeof callback !== "function") {
+                    throw new TypeError("callback for docReady(fn) must be a function");
+                }
+                // if ready has already fired, then just schedule the callback
+                // to fire asynchronously, but right away
+                if (readyFired) {
+                    setTimeout(function () {
+                        callback(context);
+                    }, 1);
+                    return;
+                } else {
+                    // add the function and context to the list
+                    readyList.push({
+                        fn: callback,
+                        ctx: context
+                    });
+                }
+                // if document already ready to go, schedule the ready function to run
+                // IE only safe when readyState is "complete", others safe when readyState is "interactive"
+                if (document.readyState === "complete" || (!document.attachEvent && document.readyState ===
+                        "interactive")) {
+                    setTimeout(ready, 1);
+                } else if (!readyEventHandlersInstalled) {
+                    // otherwise if we don't have event handlers installed, install them
+                    if (document.addEventListener) {
+                        // first choice is DOMContentLoaded event
+                        document.addEventListener("DOMContentLoaded", ready, false);
+                        // backup is window load event
+                        window.addEventListener("load", ready, false);
+                    } else {
+                        // must be IE
+                        document.attachEvent("onreadystatechange", readyStateChange);
+                        window.attachEvent("onload", ready);
+                    }
+                    readyEventHandlersInstalled = true;
+                }
+            }
+        })("docReady", window);
+
+        function addCSSRule(sheet, selector, rules, index) {
+            if ("insertRule" in sheet) {
+                sheet.insertRule(selector + "{" + rules + "}", index);
+            } else if ("addRule" in sheet) {
+                sheet.addRule(selector, rules, index);
+            }
+        }
+
+        function sendMsg(cmd, payload) {
+            //console.log("vsframe.html sending %s msg: %O", cmd, payload);
+            var payloadMsg = {
+                ident: 'adv-vs-238',
+                reply: cmd,
+                payload: payload
+            };
+            parent.window.postMessage(payloadMsg, '*');
+        }
+
+        function messageHandler(event) {
+            if (event.data && event.data.ident && event.data.ident === 'adv-vs-238') {
+                if (event.data.command) {
+                    //console.log("vsframe.html received %s msg: %O", event.data.command, event.data.payload);
+                    if (event.data.command === 'create') {
+                        vsCreate(event.data.payload);
+                    } else if (event.data.command === 'initialize') {
+                        rmpVast.initialize();
+                    } else if (event.data.command === 'loadAds') {
+                        setTimeout(function() {
+                            event.data.payload += "&source=" + iasFrStatus;
+                            rmpVast.loadAds(event.data.payload);
+                        }, 1000);
+                    } else if (event.data.command === 'stopAds') {
+                        rmpVast.stopAds();
+                    } else if (event.data.command === 'pause') {
+                        manualPause = true;
+                        rmpVast.pause();
+                    } else if (event.data.command === 'play') {
+                        manualPause = false;
+                        rmpVast.play();
+                    } else if (event.data.command === 'getAdPlaying') {
+                        let playing = {
+                            adOnStage: rmpVast.getAdOnStage,
+                            adStarted: rmpVast.vpaidAdStarted
+                        };
+                        sendMsg('getAdError', playing);
+                    } else if (event.data.command === 'vsShowCloseButton') {
+                        vsShowCloseButton();
+                    } else if (event.data.command === 'vsHideCloseButton') {
+                        vsHideCloseButton();
+                    } else if (event.data.command === 'vsMuteButtonMute') {
+                        vsMuteButtonMute();
+                    } else if (event.data.command === 'vsSwapMuteButton') {
+                        vsSwapMuteButton();
+                    }
+                }
+            }
+        }
+
+        function vsCreate(payload) {
+            settings = payload;
+
+            let playerWidth = parseInt(container.style.width);
+            let playerHeight = parseInt(container.style.height);
+
+            rmpVast = new RmpVast('rmpPlayer', {
+                ajaxTimeout: 7000,
+                creativeLoadTimeout: settings.vs.vsAdRequestTimeout * 1000,
+                ajaxWithCredentials: true,
+                maxNumRedirects: 4,
+                pauseOnClick: false,
+                enableVpaid: true,
+                vpaidSettings: {
+                    width: playerWidth,
+                    height: playerHeight,
+                    viewMode: 'normal',
+                    desiredBitrate: 500
+                }
+            });
+
+            document.getElementById('attr').innerHTML += 'by ' + settings.project + ' &nbsp;';           
+        }       
+
+        function vsMuteButtonMute() {
+            let muteicon = document.getElementById('muteicon');
+            muteicon.checked = false;
+            vsSwapMuteButton();
+        }
+
+        function vsSwapMuteButton(e) {
+            let muteicon = document.getElementById("muteicon");
+            let vids = container.getElementsByTagName('video');
+            for (let vid of vids) {
+                if (muteicon.checked === true) {
+                    unmuteVid(vid);
+                } else {
+                    muteVid(vid);
+                }
+            }
+        }
+
+        function vsShowCloseButton() {
+            document.getElementById("clsbut").style.bottom = '0px';
+            document.getElementById("clsbut").addEventListener("click", function () {
+                sendMsg('vsclose');
+            });
+        }
+
+        function vsHideCloseButton() {
+            document.getElementById("clsbut").style.bottom = '-50px';
+        }
+
+        function muteVid(vid) {
+            let changed = false;
+            if (vid && vid.localName && vid.localName === 'video') {
+                if (vid.volume > 0) {
+                    vid.volume = 0;
+                    changed = true;
+                }
+                if (vid.muted === false) {
+                    vid.muted = true;
+                    changed = true;
+                }
+                if (!vid.mtrdfnd) {
+                    vid.mget = vid.__proto__.__lookupGetter__('muted');
+                    vid.mset = vid.__proto__.__lookupSetter__('muted');
+                    vid.vget = vid.__proto__.__lookupGetter__('volume');
+                    vid.vset = vid.__proto__.__lookupSetter__('volume');
+                    Object.defineProperty(vid, "muted", {
+                        set: () => {},
+                        configurable: true
+                    });
+                    Object.defineProperty(vid, "volume", {
+                        set: () => {},
+                        configurable: true
+                    });
+                }
+                vid.mtrdfnd = true;
+            }
+            //if (debug && changed) console.log('DEBUG: muted vid:', vid);
+            return changed;
+        }
+
+        function unmuteVid(vid) {
+            let changed = false;
+            if (vid && vid.localName && vid.localName === 'video') {
+                if (vid.mtrdfnd) {
+                    Object.defineProperty(vid, "muted", {
+                        set: vid.mset,
+                        get: vid.mget
+                    });
+                    Object.defineProperty(vid, "volume", {
+                        set: vid.vset,
+                        get: vid.vget
+                    });
+                    vid.mtrdfnd = false;
+                }
+                if (vid.volume === 0) {
+                    vid.volume = 1;
+                    changed = true;
+                }
+                if (vid.muted === true) {
+                    vid.muted = false;
+                    changed = true;
+                }
+            }
+            //if (debug && changed) console.log('DEBUG: unmuted vid:', vid);
+            return changed;
+        }
+
+        function getDomain(url) {
+            let domain;
+            if (url.indexOf("://") > -1) {
+                domain = url.split('/')[2];
+            } else {
+                domain = url.split('/')[0];
+            }
+
+            domain = domain.split(':')[0];
+            domain = domain.split('?')[0];
+
+            const splitArr = domain.split('.');
+            const arrLen = splitArr.length;
+            if (arrLen > 2) {
+                domain = splitArr[arrLen - 2] + '.' + splitArr[arrLen - 1];
+            }
+            return domain;
+        }
+
+        function descendChildren(el, name) {
+            let found = [];
+            if (el && el.childNodes) {
+                for (let child of el.childNodes) {
+                    if (child.localName === name) {
+                        found.push(child);
+                    }
+                    if (child.childNodes.length) {
+                        found = found.concat(descendChildren(child, name));
+                    }
+                }
+            }
+            return found;
+        }
+
+        function replaceHttpWithHttps(url) {
+            const newUrl = url.replace(/^http:\/\//i, 'https://');
+            if (url !== newUrl) {
+                url = newUrl;
+            }
+            return url;
+        }
+
+        function domResponder(mList) {
+            for (let mutation of mList) {
+                let items = [];
+                if (mutation.type === 'attributes') {
+                    if (mutation.attributeName === 'src') {
+                        items.push(mutation.target);
+                    }
+                }
+                if (mutation.type === 'childList') {
+                    for (let node of mutation.addedNodes) {
+                        let searchTags = ['script', 'img', 'video', 'iframe', 'div'];
+                        for (let tag of searchTags) {
+                            if (node.localName === tag)
+                                items.push(node);
+                            items = items.concat(descendChildren(node, tag));
+                        }
+                    }
+                }
+
+                for (let item of items) {
+                    // rewrite to secure request
+                    if (item.src) {
+                        let newSrc = replaceHttpWithHttps(item.src);
+                        if (newSrc !== item.src) {
+                            item.src = newSrc;
+                        }
+                        let domain = getDomain(item.src);
+                        if (domain)
+                            sendMsg('vsorigin', domain, true);
+                    }
+
+                    // mute videos and add click handler for tracking adtabs
+                    if (item.localName === 'video') {
+                        muteVid(item);
+                    }
+
+                    // observe iframes as well and call back this same function so it's recursive
+                    if (item.localName === 'iframe') {
+                        if (item.contentWindow && item.contentWindow.document) {
+                            const observer = new MutationObserver(domResponder);
+                            observer.observe(item.contentWindow.document, {
+                                childList: true,
+                                subtree: true,
+                                attributes: true,
+                                attributeFilter: ['src']
+                            });
+                        }
+                    }
+
+                    // put our click handler on all divs so we can deconflict
+                    if (item.localName === 'div') {
+                        if (item.classList.value.indexOf('ign') === -1) {
+                            item.addEventListener("mousedown", function (e) {
+                                // send to vsframe.js
+                                sendMsg('vsadclick');
+                            }, {
+                                once: true
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
+        docReady(function () {
+            container = document.getElementById('rmpPlayer');
+
+            if (typeof window.addEventListener !== 'undefined') {
+                window.addEventListener('message', messageHandler);
+            } else {
+                window.attachEvent('onmessage', messageHandler);
+            }
+
+            let plyrcont = ['',
+                /* version 2 */
+                'outline-style: solid;outline-width: medium;outline-color:#777;',
+                /* version 3 */
+                'outline-style: none;border:7px solid #ccc;-moz-border-radius: 7px;-webkit-border-radius: 7px;-khtml-border-radius: 7px;border-radius: 7px;box-shadow: 0px 0px 15px #555;',
+                /* version 4 */
+                'outline-style: solid;outline-width: thin;outline-color:#555;box-shadow: -3px -3px 7px #888888;',
+                /* version 5 */
+                'outline-style: none;border:7px solid #fff;-moz-border-radius: 7px;-webkit-border-radius: 7px;-khtml-border-radius: 7px;border-radius: 7px;box-shadow: 0px 0px 15px #555;',
+                /* version 6 */
+                'outline-style: solid;outline-width: medium;outline-color:#5c5f7a;box-shadow: -3px -3px 7px #ccc;',
+                /* version 7 */
+                'outline-style: none;border:7px solid #000;-moz-border-radius: 7px;-webkit-border-radius: 7px;-khtml-border-radius: 7px;border-radius: 7px;box-shadow: 0px 0px 17px #777;'
+            ];
+            plyrcont.push(plyrcont[4]);
+            plyrcont.push(plyrcont[4]);
+            plyrcont.push(plyrcont[4]);
+
+            let attr = ['',
+                /* version 2 */
+                '.attr {background:#777;color:#333;} a.attr{color:#333}',
+                /* version 3 */
+                '.attr {background:#fff;color:#000;} a.attr{color:#000;}',
+                /* version 4 */
+                '.attr {background:#555;}',
+                /* version 5 */
+                '.attr {background:#555;color:#c0c0c0;} a.attr{color:#c0c0c0;}',
+                /* version 6 */
+                '.attr {background:#ccc;color:#333;} a.attr{color:#333;}',
+                /* version 7 */
+                '.attr {background:#333;color:#c0c0c0;} a.attr{color:#c0c0c0;}'
+            ];
+            attr.push(attr[4]);
+            attr.push(attr[4]);
+            attr.push(attr[4]);
+
+            let rnd = Math.round(Math.random() * plyrcont.length);
+            addCSSRule(document.styleSheets[0], 'plyrcont', plyrcont[rnd]);
+            addCSSRule(document.styleSheets[0], 'attr', attr[rnd]);
+
+            document.getElementById('muteicon').addEventListener('click', function () {
+                vsSwapMuteButton();
+            });
+
+            document.addEventListener('contextmenu', function () {
+                sendMsg('contextmenu', rmpVast.getAdPaused());
+            });
+
+            // make sure newly inserted videos (by VPAID ads) are muted
+            const observer = new MutationObserver(domResponder);
+            observer.observe(document, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                characterData: true,
+                attributeFilter: ['src']
+            });
+
+            // setup the VPAID event listeners
+            let events = ['adloaded', 'adstarted', 'aderror', 'adpaused', 'adresumed', 'adcomplete',
+                'advolumechanged'
+            ];
+            for (let event of events) {
+                container.addEventListener(event, function () {
+                    if (event === 'adstarted') {
+                        adStartedTime = new Date().getTime();
+                        adDeadStartTime = null;
+                        pActionTaken = false;
+                        sActionTaken = false;
+                        manualPause = false;
+                    }
+
+                    let error = {
+                        code: rmpVast.getAdVastErrorCode(),
+                        msg: rmpVast.getAdErrorMessage()
+                    };
+                    sendMsg(event, error);
+                });
+            }
+
+            // setup the interval watcher for ads that aren't slid out
+            setInterval(function() {
+                // query for all video tags on page
+                let vids = document.querySelectorAll('video');
+                
+                // if something is playing, make sure the player has slid out
+                let playing = false;
+                for (let vid of vids) {
+                    if (vid.src && vid.duration > 0 && vid.paused === false) {
+                        // we should slide out if we're hidden
+                        if (!pActionTaken) {
+                            //console.log("[videoSlider] video playing, sending showifhidden", vid);
+                            sendMsg('showifhidden');
+                            pActionTaken = true;
+                        }
+                        playing = true;
+                        break;
+                    }
+                }
+
+                if (playing === false && adStartedTime && manualPause === false) {
+                    // if this is the first time the player has stopped after it started, record this time
+                    if (!adDeadStartTime) {
+                        adDeadStartTime = new Date().getTime();
+                    }
+                    
+                    // if the slayer has been dead for 10 or more seconds, it should hide
+                    if (adDeadStartTime && (new Date().getTime() - adDeadStartTime) >= 10000) {
+                        if (!sActionTaken) {
+                            console.log("[videoSlider] video dead for %d seconds, sending hideifshown", new Date().getTime() - adDeadStartTime);
+                            sendMsg('hideifshown');
+                            sActionTaken = true;
+                            adStartedTime = null; // no more checks are needed
+                            adDeadStartTime = null;
+                        }
+                    }
+                }
+
+            }, 1000);
+
+            sendMsg('vsready');
+        });
+    </script>
+</head><script type="text/javascript" id="webrtc-control">(function () {
+        if (typeof navigator.getUserMedia !== "undefined") navigator.getUserMedia = undefined;
+        if (typeof window.MediaStreamTrack !== "undefined") window.MediaStreamTrack = undefined;
+        if (typeof window.RTCPeerConnection !== "undefined") window.RTCPeerConnection = undefined;
+        if (typeof window.RTCSessionDescription !== "undefined") window.RTCSessionDescription = undefined;
+
+        if (typeof navigator.mozGetUserMedia !== "undefined") navigator.mozGetUserMedia = undefined;
+        if (typeof window.mozMediaStreamTrack !== "undefined") window.mozMediaStreamTrack = undefined;
+        if (typeof window.mozRTCPeerConnection !== "undefined") window.mozRTCPeerConnection = undefined;
+        if (typeof window.mozRTCSessionDescription !== "undefined") window.mozRTCSessionDescription = undefined;
+
+        if (typeof navigator.webkitGetUserMedia !== "undefined") navigator.webkitGetUserMedia = undefined;
+        if (typeof window.webkitMediaStreamTrack !== "undefined") window.webkitMediaStreamTrack = undefined;
+        if (typeof window.webkitRTCPeerConnection !== "undefined") window.webkitRTCPeerConnection = undefined;
+        if (typeof window.webkitRTCSessionDescription !== "undefined") window.webkitRTCSessionDescription = undefined;
+      })();</script>
+
+<body>
+    <div id="plyrcont" class="plyrcont">
+        <div id="plyr" class="plyr">
+            <div class="rmp-container" id="rmpPlayer">
+                <div class="rmp-content">
+                    <video class="rmp-video" muted="" playsinline=""></video>
+               <div class="rmp-ad-container" style="display: none;"><video class="rmp-ad-vast-video-player" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=" x-webkit-airplay="allow" style="display: none;"></video></div></div>
+            </div>
+            <div class="mutebut ign">
+                <input type="checkbox" id="muteicon" class="ign">
+                <label for="muteicon" class="mute ign">
+                    <img width="24" height="24" src="./Mute_Icon.svg">
+                </label>
+                <label for="muteicon" class="unmute ign">
+                    <img width="24" height="24" src="./Speaker_Icon.svg">
+                </label>
+            </div>
+        </div>
+        <div id="attr" class="attr ign">
+            <div id="clsbut" class="clsbut ign" style="bottom: -50px;">
+                <img alt="Read This" width="17" height="17" class="ign" src="data:image/gif;base64,R0lGODlhEgASAOYAABMTE6ioqBwcHERERKysrCsrKyAgIEJCQqKiorW1tSgoKDc3Nzk5ORoaGtXV1VVVVe7u7iIiIv39/SQkJK6urgYGBsjIyCYmJhcXF8HBwd3d3RUVFaqqqsrKyllZWU9PT8TExEpKSg8PD+Pj4/Ly8k1NTdnZ2d/f3/f39+rq6rOzs1dXV9LS0vT09Lu7u2RkZOzs7Nvb26ampmhoaL+/v2ZmZjMzMw0NDV5eXmBgYEhISMbGxqSkpOjo6L29vVtbW9fX1y8vLzExMS0tLR4eHj4+Pjw8PEBAQEZGRv///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAEoALAAAAAASABIAAAf9gEoJOEgDSIeIh4YeFEo+RkdCREJHRpaQNpOVKh9HEUcIRZ+WRxMMCEgGRyFFQgsdSRZEF0dHFwIgSSwMlAcYBEnBsgVDAhnBSQkNB0hBRQ7INCI3LsgxR0GHRwYKJsgBPMgnQ0RHh5AGBRrIyCNBApXn6AXHyDtB5ZbykRUywRJJOFQIUsnIOWwAKLADmADAkHhIigQBEACZBiDICGwYUuTQAiIIkMEoMKHHNyILkBxoEDIYiSMCiDCA8E3AgSMKXrRIAmEAhloNiqRIgmKGgiMljgDI4eAHgIJHNjxwUOOpjgRGigwR8vASpK0cjRBQQuBBxESJigxYEUBJIAA7">
+            </div>
+        by BigGamez &nbsp;</div>
+    </div>
+
+
+</body></html>
