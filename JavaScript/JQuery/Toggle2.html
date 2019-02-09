@@ -1,0 +1,38 @@
+<style>
+	div#FilterMenuButton{
+		padding: 15px;
+		margin-bottom: 0px!important;
+		background-image: linear-gradient(180deg,#d63e23 0%,#ff6c48 100%);
+		max-width: 52px;
+		margin-left: 0;
+		display: inline-block !important;
+	}
+</style>
+<div id="FilterMenuButton" ><img style="max-width: 52px;"  src="https://i.postimg.cc/d1z71JH0/ld-menu-closed-512.png" alt="menu"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<script>
+			
+	jQuery(document).ready(function($) {
+		var display=true;
+		$("#FilterMenuButton").click( function() {
+			console.log("click");
+			
+			if ( display === true ) {
+				$("#FilterMenuButton img").attr({"src":"https://i.postimg.cc/90KDDCLM/ld-menu-open-128.png"});
+				$("#FilterMenuButton").show();
+				display=false;
+				console.log("open");
+			} else if ( display === false ) {
+				$("#FilterMenuButton img").attr("src","https://i.postimg.cc/d1z71JH0/ld-menu-closed-512.png");
+				$("#FilterMenuButton").hide();
+				console.log("close");
+				display=true;
+			}
+
+			});
+	});
+
+</script>
+							
+						
+					

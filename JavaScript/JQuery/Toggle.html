@@ -1,0 +1,40 @@
+
+<style>
+	div#FilterMenuButton{
+		padding: 15px;
+		margin-bottom: 0px!important;
+		background-image: linear-gradient(180deg,#d63e23 0%,#ff6c48 100%);
+		max-width: 52px;
+		margin-left: 0;
+		display: inline-block !important;
+	}
+</style>
+<div id="FilterMenuButton" ><img style="max-width: 52px;" src="https://i.postimg.cc/90KDDCLM/ld-menu-open-128.png" alt="" /></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<script>
+	jQuery.fn.clickToggle = function(a,b) {
+		function cb(){ [b,a][this._tog^=1].call(this); }
+		return this.on("click", cb);
+	};
+
+	$("#FilterMenuButton").clickToggle(
+		function() {
+			$("#Mobile-column-sidebar").show(1000);
+			$("#Mobile-column-table").attr("style","width:47% !important");
+			$("#FilterMenuButton img").attr({"src":"https://i.postimg.cc/90KDDCLM/ld-menu-open-128.png","style":"width:100% !important"});
+			return false;
+		},
+		function() {
+			$("#Mobile-column-sidebar").hide(1000);
+			$("#Mobile-column-table").attr("style","width:100% !important");
+			$("#FilterMenuButton img").attr("src","https://i.postimg.cc/d1z71JH0/ld-menu-closed-512.png");
+
+			return false;
+
+		}
+	);
+	$("#FilterMenuButton").click(function(){
+		$("#FilterMenuButton").toggle();
+	});
+							
+</script>
