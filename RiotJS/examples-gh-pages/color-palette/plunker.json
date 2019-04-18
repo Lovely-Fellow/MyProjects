@@ -1,0 +1,10 @@
+{
+  "title": "Color Palette",
+  "files": [
+    "index.html",
+    "README.md",
+    "app.tag",
+    "mixin.js",
+    "color-palette.tag"
+  ]
+}
